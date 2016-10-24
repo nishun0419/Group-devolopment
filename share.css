@@ -1,0 +1,22 @@
+table.calen {  font-size:20pt; background-color:#fffafa; } /*fontsizeを変更*/
+table.calen th { height:30px; }
+table.calen td { text-align:center; height:90px; width:90px; }
+table.calen .sat { color:blue; }
+table.calen .satd { color:blue; }	 /*新しいtdクラスを作って色をつけた*/
+table.calen .sun { color:red; }
+table.calen .sund { color:red; }
+table.calen .today { background-color:#ffe4ce; font-weight:bold; }
+table.calen tr.bg1 { background-color:#f5f5dc; }
+
+table.calen{margin-left:90px}
+check{margin-right:80px}
+
+/*変更したところ*/
+.normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
+.normal:hover { background-color: #DDDDDD }	 /*マウス操作による背景色の変更*/
+.today {cursor: pointer;}
+.today:hover { background-color: #DDDDDD }
+.satd {cursor: pointer;}
+.satd:hover { background-color: #DDDDDD }
+.sund {cursor: pointer;}
+.sund:hover { background-color: #DDDDDD }
