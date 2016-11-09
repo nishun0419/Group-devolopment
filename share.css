@@ -1,3 +1,12 @@
+body{
+	background-image: url(ground.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+
+}
+
 table.calen {  font-size:20pt; background-color:#fffafa; } /*fontsizeを変更*/
 table.calen th { height:30px; }
 table.calen td { text-align:center; height:90px; width:90px; }
@@ -8,8 +17,43 @@ table.calen .sund { color:red; }
 table.calen .today { background-color:#ffe4ce; font-weight:bold; }
 table.calen tr.bg1 { background-color:#f5f5dc; }
 
-table.calen{margin-left:90px}
-check{margin-right:80px}
+table.calen{margin-left:10px}
+#calen input#next{
+	position: absolute; left: 580px; top: 80px;
+	width: 80px;
+	font-size: 20px;
+}
+#calen input#back{
+	position: absolute; left: 40px; top: 80px;
+	width: 80px;
+	font-size: 20px
+}
+#todolist{
+	position: absolute;right: 40%; top:80px;
+	color: #FFFFFF
+}
+#todo{
+	position: absolute;right: 30%; top:60px;
+}
+#change{
+	position: absolute; right: 10px; top: 10px;
+}
+
+h1{
+	background-image: url(imgh1.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+#tw1{
+	position: absolute;right: 30%;top: 60px
+}
+#open{
+	position: absolute;right: 1%;top: 80px
+}
+#tw{
+	color: red;
+}
 
 /*変更したところ*/
 .normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
@@ -20,3 +64,4 @@ check{margin-right:80px}
 .satd:hover { background-color: #DDDDDD }
 .sund {cursor: pointer;}
 .sund:hover { background-color: #DDDDDD }
+#tw{cursor: pointer;}

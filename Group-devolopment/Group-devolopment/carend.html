@@ -56,7 +56,7 @@ function showCalen(n){
     if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
 
   var htmlStr = "<table class='calen'>\n"
-    + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='back' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<input type='button' value='next' id='next' onclick='restart(1)'>" + "</th></tr>\n";
+    + "<tr class='bg1'><th colspan=7>" + year + "年 " + month + "月</th></tr>\n";
   htmlStr += "<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
   for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
   htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
@@ -86,51 +86,22 @@ function showCalen(n){
   htmlStr += "</table>";
 
   document.getElementById("calen").innerHTML = htmlStr;
-  document.getElementById("menub").innerHTML = htmlStr;
- }
+}
+	
 
 /*テスト関数*/
 function test(obj){
-	var todostr = '<p>' + '<input type="text" id="todotext">' + '<input type="button" value="add" onclick="settodo(todotext.value)">' ;
-	document.getElementById("todo").innerHTML = todostr;
-
-}
-
-function settodo(settext){
-	var set = '<p>' + settext + '</p>';
-	set += '<p>' + settext + '</p>';
-	document.getElementById("todolist").innerHTML = set;
+	check.innerHTML="成功";
 }	
-
-function restart(n){
-	document.getElementById("todo").innerHTML = ' ';
-	document.getElementById("todolist").innerHTML = ' ';
-	showCalen(n);
-}
 
 </script>
 
 
 </head>
 <body onload="showCalen(0)">
-<h1>CALENDER</h1>
-<p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
+<p><input type="button" value="前月" onclick="showCalen(-1)">
 <input type="button" value="次月" onclick="showCalen(1)"></p>
-<div id="todo"></div>
-<p id="calen"></p>
-<p id="todolist"></p>
-
-
-<!-- 折り畳み展開ポインタ -->
-<div id="tw1" onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
-<a id="tw">▼ クリックで展開</a>
-</div>
-<!--// 折り畳み展開ポインタ -->
- 
-<!-- 折り畳まれ部分 -->
-<div id="open" style="display:none;clear:both;">
-<p id="menub"></p>
-
-</div>
+<div id="calen"></div>
+<div id="check" align="right"valign="top"></div>
 </body>
 </html>

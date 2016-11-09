@@ -1,0 +1,7 @@
+border-collapse:collapse;
+ border:1px solid #a57d6b;
+border:1px solid #a57d6b; 
+table.calen tr.bg1 { background-color:#f5f5dc; }
+table.calen tr.bg2 { background-color:#eeeeee; }
+
+
