@@ -90,7 +90,8 @@
         //入力画面生成
         var textinput = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
         textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="catgeg">' + '</div>';        //カテゴリー
-        textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';     //
+        textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';
+        textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,catgeg.value,msg.value)">' + '</div>';
         textinput += '</div>';
         document.getElementById("inputmenu").innerHTML = textinput;
         }
@@ -102,9 +103,10 @@
         
         }
         
-        function settodo(settext){
-        var set = '<p>' + settext + '</p>';
-        set += '<p>' + settext + '</p>';
+        function settodo(title, ctegory, massege){
+        document.getElementById("open").style.display ="none";
+        var set = '<p>' + title + '</p>';
+        set += '<p>' + title + '</p>';
         document.getElementById("todolist").innerHTML = set;
         }	
         
