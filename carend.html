@@ -8,129 +8,134 @@
 <script type="text/javascript">
 
 // 祝日1：何月の何日か？
-var Holidays1 = new Array(1,1, 2,11, 3,21, 4,29, 5,3, 5,4, 5,5, 8,11, 9,22, 11,3, 11,23, 12,23);
-// 祝日2：何月の第何月曜日か？
-var Holidays2 = new Array(1,2, 7,3, 9,3, 10,2);
-// 現在の年、月、日の取得
-var now = new Date();
-var thisYear = now.getFullYear();
-var thisMonth = now.getMonth() + 1;
-var today = now.getDate();
-
-// 表示年月の記憶
-var year = thisYear;
-var month = thisMonth;
-
-var monthdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-var days = new Array("日", "月", "火", "水", "木", "金", "土");
-
-function showCalen(n){
-  month += n;
-  if (month == 0) { year--; month=12; }
-  else if (month == 13) { year++; month=1; }
-  var flag = ((year == thisYear) && (month == thisMonth))? 1: 0;
-
-  var date = new Date(year, month-1, 1);
-  var startDay = date.getDay();
-
-  var dateMax = monthdays[month - 1];
-  if (month == 2 && ((year%4 == 0 && year%100 != 0) || year%400 == 0)) dateMax = 29;
-
-  // 休日配列の初期化
-  var holidays = new Array();
-  for (var i=0; i<=dateMax; i++) holidays[i] = 0;
-
-  // 祝日1 の処理
-  var firstSunday = (startDay == 0)? 1: 8 - startDay;
-  for (i=0; i<Holidays1.length; i+=2) {
-    if (Holidays1[i] == month) {
-      holidays[Holidays1[i+1]] = 1;
-      for (var j=firstSunday; j<dateMax; j+=7)
+        var Holidays1 = new Array(1,1, 2,11, 3,21, 4,29, 5,3, 5,4, 5,5, 8,11, 9,22, 11,3, 11,23, 12,23);
+        // 祝日2：何月の第何月曜日か？
+        var Holidays2 = new Array(1,2, 7,3, 9,3, 10,2);
+        // 現在の年、月、日の取得
+        var now       = new Date();
+        var thisYear  = now.getFullYear();
+        var thisMonth = now.getMonth() + 1;
+        var today     = now.getDate();
+        
+        // 表示年月の記憶
+        var year      = thisYear;
+        var month     = thisMonth;
+        
+        var monthdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+        var days = new Array("日", "月", "火", "水", "木", "金", "土");
+        
+        function showCalen(n){
+        month += n;
+        if (month == 0) { year--; month=12; }
+        else if (month == 13) { year++; month=1; }
+        var flag = ((year == thisYear) && (month == thisMonth))? 1: 0;
+        
+        var date = new Date(year, month-1, 1);
+        var startDay = date.getDay();
+        
+        var dateMax = monthdays[month - 1];
+        if (month == 2 && ((year%4 == 0 && year%100 != 0) || year%400 == 0)) dateMax = 29;
+        
+        // 休日配列の初期化
+        var holidays = new Array();
+        for (var i=0; i<=dateMax; i++) holidays[i] = 0;
+        
+        // 祝日1 の処理
+        var firstSunday = (startDay == 0)? 1: 8 - startDay;
+        for (i=0; i<Holidays1.length; i+=2) {
+        if (Holidays1[i] == month) {
+        holidays[Holidays1[i+1]] = 1;
+        for (var j=firstSunday; j<dateMax; j+=7)
         if (Holidays1[i+1] == j) holidays[j+1] = 1;  // 振替休日
-    }
-  }
-  // 祝日2 の処理
-  var mondays = new Array();
-  var firstMonday = (startDay < 2)? 2 - startDay: 9 - startDay;
-  for (i=0; i<Holidays2.length; i+=2)
-    if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
-
-  var htmlStr = "<table class='calen'>\n"
-    + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='back' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<input type='button' value='next' id='next' onclick='restart(1)'>" + "</th></tr>\n";
-  htmlStr += "<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
-  for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
-  htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
-
-  var col=0;
-  if (startDay > 0) {
-    htmlStr += "<tr>";
-    for ( ; col<startDay; col++) htmlStr += "<td>&nbsp;</td>";
-  }
-  for (i=1; i<=dateMax; i++) {
-    if (col == 0) htmlStr += "<tr>";
-    if (flag == 1 && i == today) {
+        }
+        }
+        // 祝日2 の処理
+        var mondays = new Array();
+        var firstMonday = (startDay < 2)? 2 - startDay: 9 - startDay;
+        for (i=0; i<Holidays2.length; i+=2)
+        if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
+        
+        var htmlStr = "<table class='calen'>\n"
+        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='back' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<input type='button' value='next' id='next' onclick='restart(1)'>" + "</th></tr>\n";
+        htmlStr += "<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
+        for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
+        htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
+        
+        var col=0;
+        if (startDay > 0) {
+        htmlStr += "<tr>";
+        for ( ; col<startDay; col++) htmlStr += "<td>&nbsp;</td>";
+        }
+        for (i=1; i<=dateMax; i++) {
+        if (col == 0) htmlStr += "<tr>";
+        if (flag == 1 && i == today) {
         if (holidays[i] == 1 || col == 0) htmlStr += "<td class='today sun' onclick='test(this);return false;'>";
         else if (col == 6) htmlStr += "<td class='today sat' onclick='test(this);return false;'>";
         else htmlStr += "<td class='today' onclick='test(this);return false;'>";
-    }
-    else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' onclick='test(this);return false;'>";
-    else if (col == 6) htmlStr += "<td class='satd' onclick='test(this);return false;'>";
-    else htmlStr += "<td class='normal' onclick='test(this);return false;'>";
-    htmlStr += i + "</td>";
-    if (col == 6) { htmlStr += "</tr>\n"; col=0; } else col++;
-  }
-  if (col != 0) {
-    for ( ; col<7; col++) htmlStr += "<td>&nbsp;</td>";
-    htmlStr += "</tr>";
-  }
-  htmlStr += "</table>";
+        }
+        else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' onclick='test(this);return false;'>";
+        else if (col == 6) htmlStr += "<td class='satd' onclick='test(this);return false;'>";
+        else htmlStr += "<td class='normal' onclick='test(this);return false;'>";
+        htmlStr += i + "</td>";
+        if (col == 6) { htmlStr += "</tr>\n"; col=0; } else col++;
+        }
+        if (col != 0) {
+        for ( ; col<7; col++) htmlStr += "<td>&nbsp;</td>";
+        htmlStr += "</tr>";
+        }
+        htmlStr += "</table>";
+        
+        document.getElementById("calen").innerHTML = htmlStr;
 
-  document.getElementById("calen").innerHTML = htmlStr;
-  document.getElementById("menub").innerHTML = htmlStr;
- }
-
-/*テスト関数*/
-function test(obj){
-	var todostr = '<p>' + '<input type="text" id="todotext">' + '<input type="button" value="add" onclick="settodo(todotext.value)">' ;
-	document.getElementById("todo").innerHTML = todostr;
-
-}
-
-function settodo(settext){
-	var set = '<p>' + settext + '</p>';
-	set += '<p>' + settext + '</p>';
-	document.getElementById("todolist").innerHTML = set;
-}	
-
-function restart(n){
-	document.getElementById("todo").innerHTML = ' ';
-	document.getElementById("todolist").innerHTML = ' ';
-	showCalen(n);
-}
-
+        //入力画面生成
+        var textinput = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
+        textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="catgeg">' + '</div>';        //カテゴリー
+        textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';
+        textinput += '</div>';
+        document.getElementById("menub").innerHTML = textinput;
+        }
+        
+        /*テスト関数*/
+        function test(obj){
+        var todostr = '<p>' + '<input type="text" id="todotext">' + '<input type="button" value="add" onclick="settodo(todotext.value)">' ;
+        document.getElementById("todo").innerHTML = todostr;
+        
+        }
+        
+        function settodo(settext){
+        var set = '<p>' + settext + '</p>';
+        set += '<p>' + settext + '</p>';
+        document.getElementById("todolist").innerHTML = set;
+        }	
+        
+        function restart(n){
+        document.getElementById("todo").innerHTML = ' ';
+        document.getElementById("todolist").innerHTML = ' ';
+        showCalen(n);
+        }
 </script>
-
-
-</head>
-<body onload="showCalen(0)">
-<h1>CALENDER</h1>
-<p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
-<input type="button" value="次月" onclick="showCalen(1)"></p>
-<div id="todo"></div>
-<p id="calen"></p>
-<p id="todolist"></p>
-
-
-<!-- 折り畳み展開ポインタ -->
-<div id="tw1" onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
-<a id="tw">▼ クリックで展開</a>
-</div>
-<!--// 折り畳み展開ポインタ -->
- 
-<!-- 折り畳まれ部分 -->
-<div id="open" style="display:none;clear:both;">
-<p id="menub"></p>
-
-</div>
-</body>
-</html>
+        
+        
+        </head>
+        <body onload="showCalen(0)">
+        <h1>CALENDER</h1>
+        <p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
+        <input type="button" value="次月" onclick="showCalen(1)"></p>
+        <div id="todo"></div>
+        <p id="calen"></p>
+        <p id="todolist"></p>
+        
+        
+        <!-- 折り畳み展開ポインタ -->
+        <div id="tw1" onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+        <a id="tw">▼ クリックで展開</a>
+        </div>
+        <!--// 折り畳み展開ポインタ -->
+        
+        <!-- 折り畳まれ部分 -->
+        <div id="open" style="display:none;clear:both;">
+        <p id="menub"></p>
+        
+        </div>
+        </body>
+        </html>
