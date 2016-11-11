@@ -86,7 +86,7 @@ div.button{
 }
 
 #todo{
-	position: absolute;right: 30%; top:2000px;
+	position: absolute;right: 20%; top:2000px;
 }
 
 #change{
@@ -99,7 +99,7 @@ h1{
 	background-repeat: no-repeat;
 	text-align: center;
 }
-#tw1{
+#tw2{
 	position: absolute;right: 30%;top: 60px
 }
 #open{

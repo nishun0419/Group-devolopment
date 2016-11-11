@@ -23,6 +23,9 @@
         
         var monthdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
         var days = new Array("日", "月", "火", "水", "木", "金", "土");
+        var todotitle;
+        var todocateg;
+        var todomsg;
         
         function showCalen(n){
         month += n;
@@ -98,14 +101,16 @@
         
         /*テスト関数*/
         function test(obj){
-        var todostr = '<p>' + '<input type="text" id="todotext">' + '<input type="button" value="add" onclick="settodo(todotext.value)">' ;
-        document.getElementById("todo").innerHTML = todostr;
-        
+        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "plustodo" + '</a>' + '</div>';
+        document.getElementById("tw2").innerHTML = openset;
         }
         
         function settodo(title, ctegory, massege){
+        todotitle = title;
+        todocateg = ctegory;
+        todomsg = massege;
         document.getElementById("open").style.display ="none";
-        var set = '<p>' + title + '</p>';
+        var set = '<p id="opentodo" onclick="showtodo()">' + title + '</p>';
         set += '<p>' + title + '</p>';
         document.getElementById("todolist").innerHTML = set;
         }	
@@ -113,7 +118,25 @@
         function restart(n){
         document.getElementById("todo").innerHTML = ' ';
         document.getElementById("todolist").innerHTML = ' ';
+        document.getElementById("tw2").innerHTML = ' ';
+        document.getElementById("open").style.display = "none"
         showCalen(n);
+        }
+        function showopen(){
+                if(document.getElementById("open").style.display=="none"){
+                        document.getElementById("open").style.display = "block";
+                }
+                else{
+                   document.getElementById("open").style.display = "none";
+                }
+        }
+        function showtodo() {
+        var showtodotext = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + todotitle + '</div>';   
+        showtodotext += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + todocateg + '</div>';        //カテゴリー
+        showtodotext += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + todomsg + '</div>';
+        showtodotext += '<div class="button">' + '<input type="button" value="send" onclick="showopen()">' + '</div>';
+        showtodotext += '</div>';
+        document.getElementById("todo").innerHTML = showtodotext;
         }
 </script>
         
@@ -129,15 +152,11 @@
         
         
         <!-- 折り畳み展開ポインタ -->
-        <div id="tw1" onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
-        <a id="tw">▼ クリックで展開</a>
-        </div>
+        <div id="tw2"> </div>
         <!--// 折り畳み展開ポインタ -->
         
         <!-- 折り畳まれ部分 -->
-        <div id="open" style="display:none;clear:both;">
-        <p id="inputmenu"></p>
-        
-        </div>
+        <div style="display: none" id="open">
+        <p id="inputmenu"></p></div>
         </body>
         </html>
