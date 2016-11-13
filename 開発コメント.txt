@@ -4,4 +4,4 @@
 出力画面の設計
 Jqueryの導入（時間があれば)
 twitterAPIの導入
-Javascriptの分割
+javascriptの分割

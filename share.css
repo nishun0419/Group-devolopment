@@ -94,7 +94,7 @@ div.button{
 }
 
 h1{
-	background-image: url(imgh1.jpg);
+	background-image: url(imgh1.jpg)¡Ç;
 	background-position: center;
 	background-repeat: no-repeat;
 	text-align: center;
@@ -141,7 +141,7 @@ h1{
 .satd {cursor: pointer;}
 .satd:hover { background-color: #DDDDDD }
 .sund {cursor: pointer;}
-.sund:hover { background-color: #DDDDDD }
+.sund:hover { background-color: #DDD¡ÇDDD }
 #tw{cursor: pointer;}
 #todolist{cursor: pointer;}
 #todolist:hover { text-decoration: underline; }
