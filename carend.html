@@ -131,9 +131,9 @@
                 }
         }
         function showtodo() {
-        var showtodotext = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + todotitle + '</div>';   
-        showtodotext += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + todocateg + '</div>';        //カテゴリー
-        showtodotext += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + todomsg + '</div>';
+        var showtodotext =  '<div class="textinputs">' +  '<div class= "showtext">' + "タイトル"  + '</div>' + '<div class ="text1">' + todotitle + '</div>' ;
+        showtodotext += '<div class ="showtext1">' + "カテゴリー"  + '<div class="text1">' + todocateg + '</div>' + '</div>';        //カテゴリー
+        showtodotext += '<div class="showtext1">' + "メッセージ"  + '<div class="text2">' + todomsg + '</div>' + '</div>';
         showtodotext += '<div class="button">' + '<input type="button" value="send" onclick="showopen()">' + '</div>';
         showtodotext += '</div>';
         document.getElementById("todo").innerHTML = showtodotext;

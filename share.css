@@ -109,6 +109,30 @@ h1{
 	color: red;
 }
 
+#todo div.text1{
+	display: inline-block;
+	font: 1em sans-serif;
+	width: 150px;
+	background-color: #FFFFFF;
+}
+
+#todo div.text2{
+	display: inline-block;
+    font: 1em sans-serif;
+	width: 150px;
+	height: 50px;
+	background-color: #FFFFFF;
+	word-wrap:break-word;
+	overflow: scroll;
+}
+
+#todo div.showtext{
+	text-align: right;
+	width: 90px;
+	display: inline-block;
+}
+
+
 /*変更したところ*/
 .normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
 .normal:hover { background-color: #DDDDDD }	 /*マウス操作による背景色の変更*/
