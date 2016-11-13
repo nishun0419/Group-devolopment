@@ -93,36 +93,36 @@
         //入力画面生成
         var textinput = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
         textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="catgeg">' + '</div>';        //カテゴリー
-        textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';
+        textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';       //メッセージ
         textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,catgeg.value,msg.value)">' + '</div>';
         textinput += '</div>';
         document.getElementById("inputmenu").innerHTML = textinput;
         }
         
-        /*テスト関数*/
-        function test(obj){
-        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';
+        //日付クリック時の処理
+        function test(obj){                                     
+        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';               //入力画面の表示、非表示の関数呼び出しのクリックイベント
         document.getElementById("tw2").innerHTML = openset;
         }
         
-        function settodo(title, ctegory, massege){
+        function settodo(title, ctegory, massege){              //入力したデータを変数に代入
         todotitle = title;
         todocateg = ctegory;
         todomsg = massege;
+        document.getElementById("tw").innerHTML = "Open";
         document.getElementById("open").style.display ="none";
-        var set = '<p id="opentodo" onclick="showtodo()">' + title + '</p>';
-        set += '<p>' + title + '</p>';
+        var set = '<p onclick="showtodo()">' + title + '</p>';
         document.getElementById("todolist").innerHTML = set;
         }	
         
-        function restart(n){
+        function restart(n){                                    //次月、前月のカレンダーの表示
         document.getElementById("todo").innerHTML = ' ';
         document.getElementById("todolist").innerHTML = ' ';
         document.getElementById("tw2").innerHTML = ' ';
         document.getElementById("open").style.display = "none"
         showCalen(n);
         }
-        function showopen(){
+        function showopen(){                                    //入力画面の表示、非表示
                 if(document.getElementById("open").style.display=="none"){
                    document.getElementById("open").style.display = "block";
                    document.getElementById("tw").innerHTML = "Close";
@@ -134,9 +134,9 @@
                 }
         }
         function showtodo() {
-        var showtodotext =  '<div class="textinputs">' +  '<div class= "showtext">' + "タイトル"  + '</div>' + '<div class ="text1">' + todotitle + '</div>' ;
+        var showtodotext =  '<div class="textinputs">' +  '<div class= "showtext">' + "タイトル"  + '</div>' + '<div class ="text1">' + todotitle + '</div>' ;          //タイトル
         showtodotext += '<div class ="showtext1">' + "カテゴリー"  + '<div class="text1">' + todocateg + '</div>' + '</div>';        //カテゴリー
-        showtodotext += '<div class="showtext1">' + "メッセージ"  + '<div class="text2">' + todomsg + '</div>' + '</div>';
+        showtodotext += '<div class="showtext1">' + "メッセージ"  + '<div class="text2">' + todomsg + '</div>' + '</div>';           //メッセージ
         showtodotext += '<div class="button">' + '<input type="button" value="send" onclick="showopen()">' + '</div>';
         showtodotext += '</div>';
         document.getElementById("todo").innerHTML = showtodotext;
