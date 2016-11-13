@@ -101,7 +101,7 @@
         
         /*ÉeÉXÉgä÷êî*/
         function test(obj){
-        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "plustodo" + '</a>' + '</div>';
+        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';
         document.getElementById("tw2").innerHTML = openset;
         }
         
@@ -124,10 +124,13 @@
         }
         function showopen(){
                 if(document.getElementById("open").style.display=="none"){
-                        document.getElementById("open").style.display = "block";
+                   document.getElementById("open").style.display = "block";
+                   document.getElementById("tw").innerHTML = "Close";
                 }
                 else{
                    document.getElementById("open").style.display = "none";
+                   document.getElementById("tw").innerHTML = "Open";
+
                 }
         }
         function showtodo() {
