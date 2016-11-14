@@ -105,10 +105,10 @@
         document.getElementById("tw2").innerHTML = openset;
         }
         
-        function settodo(title, ctegory, massege){              //入力したデータを変数に代入
+        function settodo(title, ctegory, message){              //入力したデータを変数に代入
         todotitle = title;
         todocateg = ctegory;
-        todomsg = massege;
+        todomsg = message;
         document.getElementById("tw").innerHTML = "Open";
         document.getElementById("open").style.display ="none";
         var set = '<p onclick="showtodo()">' + title + '</p>';
@@ -134,9 +134,9 @@
                 }
         }
         function showtodo() {
-        var showtodotext =  '<div class="textinputs">' +  '<div class= "showtext">' + "タイトル"  + '</div>' + '<div class ="text1">' + todotitle + '</div>' ;          //タイトル
-        showtodotext += '<div class ="showtext1">' + "カテゴリー"  + '<div class="text1">' + todocateg + '</div>' + '</div>';        //カテゴリー
-        showtodotext += '<div class="showtext1">' + "メッセージ"  + '<div class="text2">' + todomsg + '</div>' + '</div>';           //メッセージ
+        var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "タイトル"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //タイトル
+        showtodotext += '<div>' + '<span class ="showtext1">' + "カテゴリー" + '</span>' + '<div class="text1">' + todocateg + '</div>' + '</div>';        //カテゴリー
+        showtodotext += '<div>' + '<span class ="showtext1">' + "メッセージ" + '</span>' + '<div class="text2">' + todomsg + '</div>' + '</div>';           //メッセージ
         showtodotext += '<div class="button">' + '<input type="button" value="send" onclick="showopen()">' + '</div>';
         showtodotext += '</div>';
         document.getElementById("todo").innerHTML = showtodotext;

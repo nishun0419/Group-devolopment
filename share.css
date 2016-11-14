@@ -31,6 +31,7 @@ div.textinputs{										/********************************/
 	background-size: cover;
 	padding-top: 1em;
 
+
 }
 
 div.textinputs div+div{
@@ -57,8 +58,8 @@ label {
 	height: 180px;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	border: 1px solid #999;
 	vertical-align: top;
+	border: 1px solid #999;
 	height: 5em;
 	resize: vertical;
 	
@@ -107,10 +108,14 @@ h1{
 }
 #tw{
 	color: red;
+	font-size: 20px;
 }
 
 #todo div.text1{
 	display: inline-block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #999;
 	font: 1em sans-serif;
 	width: 150px;
 	background-color: #FFFFFF;
@@ -118,15 +123,17 @@ h1{
 
 #todo div.text2{
 	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #999;
     font: 1em sans-serif;
 	width: 150px;
-	height: 50px;
+	height: 180px;
 	background-color: #FFFFFF;
-	word-wrap:break-word;
+	word-wrap: break-word;
 	overflow: scroll;
 }
 
-#todo div.showtext{
+span.showtext1{
 	text-align: right;
 	width: 90px;
 	display: inline-block;
@@ -141,7 +148,7 @@ h1{
 .satd {cursor: pointer;}
 .satd:hover { background-color: #DDDDDD }
 .sund {cursor: pointer;}
-.sund:hover { background-color: #DDD¡ÇDDD }
+.sund:hover { background-color: #DDDDDD }
 #tw{cursor: pointer;}
 #todolist{cursor: pointer;}
 #todolist:hover { text-decoration: underline; }
