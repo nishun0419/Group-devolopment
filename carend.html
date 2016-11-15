@@ -133,6 +133,7 @@
 
                 }
         }
+        //入力した内容を表示
         function showtodo() {
         var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "タイトル"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //タイトル
         showtodotext += '<div>' + '<span class ="showtext1">' + "カテゴリー" + '</span>' + '<div class="text1">' + todocateg + '</div>' + '</div>';        //カテゴリー
@@ -146,7 +147,7 @@
         
         </head>
         <body onload="showCalen(0)">
-        <h1>CALENDER</h1>
+        <h1>CALENDAR</h1>
         <p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
         <input type="button" value="次月" onclick="showCalen(1)"></p>
         <div id="todo"></div>

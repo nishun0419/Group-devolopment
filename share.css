@@ -1,5 +1,5 @@
 body{													/*全体の背景の設定*/
-	background-image: url(ground.jpg);
+	background-image: url(resize-img.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -7,17 +7,31 @@ body{													/*全体の背景の設定*/
 
 }
 
-table.calen {  font-size:20pt; background-color:#fffafa; } /*fontsizeを変更*/
+table.calen {  font-size:20pt;
+			   background-color:#fffafa;
+			 } 
+
 table.calen th { height:30px; }
-table.calen td { text-align:center; height:90px; width:90px; }
+
+table.calen td { text-align:center;
+				 height:90px; 
+				 width:90px; 
+				}
+
 table.calen .sat { color:blue; }
-table.calen .satd { color:blue; }	 /*新しいtdクラスを作って色をつけた*/
+
+table.calen .satd { color:blue; }
+
 table.calen .sun { color:red; }
+
 table.calen .sund { color:red; }
-table.calen .today { background-color:#ffe4ce; font-weight:bold; }
+
+table.calen .today { background-color:#ffe4ce; 
+					font-weight:bold; 
+					}
 table.calen tr.bg1 { background-color:#f5f5dc; }
 
-table.calen{ margin-left:10px; 
+table.calen{ margin-left: 10px; 
 			 position: fixed;
 } 
 
@@ -30,7 +44,6 @@ div.textinputs{										/********************************/
 	background-position: center;
 	background-size: cover;
 	padding-top: 1em;
-
 
 }
 
@@ -69,7 +82,7 @@ div.button{
 	margin-left: 4em;
 }
 								
-#calen input#next{
+#calen input#next{									/*nextボタン*/
 	position: absolute; left: 540px; top: 5px;
 	width: 80px;
 	font-size: 20px;
@@ -94,7 +107,7 @@ div.button{
 	position: absolute; right: 10px; top: 10px;
 }
 
-h1{
+h1{										/*CALENDARタイトル*/
 	background-image: url(imgh1.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
@@ -106,12 +119,12 @@ h1{
 #open{
 	position: absolute;right: 20%;top: 80px
 }
-#tw{
+#tw{						/*Open Closeの設定*/
 	color: red;
 	font-size: 20px;
 }
 
-#todo div.text1{
+#todo div.text1{					/*出力画面の設定*/
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -137,10 +150,10 @@ span.showtext1{
 	text-align: right;
 	width: 90px;
 	display: inline-block;
-}
+}									/*----------------*/
 
 
-/*変更したところ*/
+/*マウスの変化*/
 .normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
 .normal:hover { background-color: #DDDDDD }	 /*マウス操作による背景色の変更*/
 .today {cursor: pointer;}
