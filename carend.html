@@ -105,7 +105,11 @@
         
         //日付クリック時の処理
         function test(obj){                                     
-        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';               //入力画面の表示、非表示の関数呼び出しのクリックイベント
+        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';     //入力画面の表示、非表示の関数呼び出しのクリックイベント
+        /*-----データベースの処理---------------*/
+
+
+
         document.getElementById("tw2").innerHTML = openset;
         }
         
@@ -117,23 +121,23 @@
 
             $('#tw').text("Open");
             $('#open').css('display' , 'none');
-            $('#todolist').css('display' ,'block')
+            $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
             .append($('<td onclick="showtodo()"></td>').text(title))
-            .append($('<td></td>').append('<button type="button" class="btn btn-danger">Delete</button>')));
+            .append($('<td></td>').append('<button type="button" class="btn btn-danger" id="delete">Delete</button>')));
             $('#settitle').val('');
             $('#categ').val('');
             $('#msg').val('');
             });	
         }
+
         function restart(n){
-            $(function(){
         $('#todo').text("");
-        $('#todolist').text("");
+        $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
+        $('.todolist').css('display' , 'none');
         $('#tw2').text("");
         $('#open').css('display' , 'none')
         showCalen(n);
-            });
         }
         function showopen(){
         $(function(){                                    //入力画面の表示、非表示
@@ -165,7 +169,7 @@
         <p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
         <input type="button" value="次月" onclick="showCalen(1)"></p>
         <p id="calen"></p>
-        <div class="todolist">            
+        <div class="todolist" style="display: none">            
         <table class="table table-bordered table-hover table-condensed" id="todotable">
         <colgroup>
         <col style="width:150px;">
