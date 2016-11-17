@@ -5,7 +5,9 @@
 <meta http-equiv="content-script-type" content="text/javascript">
 <title>シェアカレ</title>
 <link href="share.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
 // 祝日1：何月の何日か？
@@ -94,9 +96,9 @@
 
         //入力画面生成
         var textinput = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
-        textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="catgeg">' + '</div>';        //カテゴリー
+        textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="categ">' + '</div>';        //カテゴリー
         textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';       //メッセージ
-        textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,catgeg.value,msg.value)">' + '</div>';
+        textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,categ.value,msg.value)">' + '</div>';
         textinput += '</div>';
         document.getElementById("inputmenu").innerHTML = textinput;
         }
@@ -107,16 +109,23 @@
         document.getElementById("tw2").innerHTML = openset;
         }
         
-        function settodo(title, ctegory, message){              //入力したデータを変数に代入
-        todotitle = title;
-        todocateg = ctegory;
-        todomsg = message;
-        document.getElementById("tw").innerHTML = "Open";
-        document.getElementById("open").style.display ="none";
-        var set = '<p onclick="showtodo()">' + title + '</p>';
-        document.getElementById("todolist").innerHTML = set;
-        }	
-        
+        function settodo(title, ctegory, message){
+            $(function(){              //入力したデータを変数に代入
+            todotitle = title;
+            todocateg = ctegory;
+            todomsg = message;
+
+            $('#tw').text("Open");
+            $('#open').css('display' , 'none');
+            $('#todolist').css('display' ,'block')
+            $('tbody' , '.todolist').append($('<tr class="active"></tr>')
+            .append($('<td onclick="showtodo()"></td>').text(title))
+            .append($('<td></td>').append('<button type="button" class="btn btn-danger">Delete</button>')));
+            $('#settitle').val('');
+            $('#categ').val('');
+            $('#msg').val('');
+            });	
+        }
         function restart(n){
             $(function(){
         $('#todo').text("");
@@ -156,7 +165,22 @@
         <p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
         <input type="button" value="次月" onclick="showCalen(1)"></p>
         <p id="calen"></p>
-        <p id="todolist"></p>
+        <div class="todolist">            
+        <table class="table table-bordered table-hover table-condensed" id="todotable">
+        <colgroup>
+        <col style="width:150px;">
+        <col>
+        </colgroup>
+         <thead>
+             <tr>
+                <th>TITLE</th>
+                <th>ACTION</th>
+             </tr>
+         </thead>
+         <tbody>
+         </tbody>
+        </table> 
+        </div>
         <div id="todo"></div>
         
         

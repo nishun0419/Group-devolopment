@@ -11,7 +11,8 @@ table.calen {  font-size:20pt;
 			   background-color:#fffafa;
 			 } 
 
-table.calen th { height:30px; }
+table.calen th { height:30px;
+                  text-align: center; }
 
 table.calen td { text-align:center;
 				 height:90px; 
@@ -29,7 +30,8 @@ table.calen .sund { color:red; }
 table.calen .today { background-color:#ffe4ce; 
 					font-weight:bold; 
 					}
-table.calen tr.bg1 { background-color:#f5f5dc; }
+table.calen tr.bg1 { background-color:#f5f5dc;
+				     text-align: center; }
 
 table.calen{ margin-left: 10px; 
 			 position: fixed;
@@ -94,9 +96,14 @@ div.button{
 	font-size: 20px
 }
 
-#todolist{
-	color: #77FFFA;
-	position: absolute;right: 40%; top:80px;
+div.todolist{
+	position: absolute; right: 40%; top: 80px;
+}
+
+div.todolist th{
+	color: red;
+	background-color: black;
+	text-align: center;
 }
 
 #todo{
@@ -163,5 +170,5 @@ span.showtext1{
 .sund {cursor: pointer;}
 .sund:hover { background-color: #DDDDDD }
 #tw{cursor: pointer;}
-#todolist{cursor: pointer;}
-#todolist:hover { text-decoration: underline; }
+#todolist td{cursor: pointer;}
+#todolist td:hover { text-decoration: underline; }
