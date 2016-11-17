@@ -30,6 +30,7 @@
         
         function showCalen(n){
         month += n;
+       
         if (month == 0) { year--; month=12; }
         else if (month == 13) { year++; month=1; }
         var flag = ((year == thisYear) && (month == thisMonth))? 1: 0;
