@@ -106,6 +106,33 @@ div.todolist th{
 	text-align: center;
 }
 
+/*¥¹¥¯¥í©`¥ëÓÃ*/
+thead.scrollHead,tbody.scrollBody{
+  display:block;
+}
+tbody.scrollBody{
+  overflow-y:scroll;
+  height:225px;
+}
+
+#todotable{
+	border-style: none;
+}
+
+/*·ùÕ{Õû*/
+td,th{
+  table-layout:fixed;
+}
+.tit{
+  width:150px;
+}
+.ac1{
+  width:80px;
+}
+.ac2{
+  width:70px;
+}
+
 
 
 #todo{

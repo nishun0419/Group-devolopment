@@ -7,6 +7,7 @@
 <link href="share.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script src="jquery.tbodyscroll.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
@@ -123,9 +124,9 @@
             $('#open').css('display' , 'none');
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
-            .append($('<td onclick="showtodo()"></td>').text(title))
-            .append($('<td></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>'))
-            .append($('<td></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
+            .append($('<td class="tit" onclick="showtodo()"></td>').text(title))
+            .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>'))
+            .append($('<td class="ac2"></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
             );
             $('#settitle').val('');
             $('#categ').val('');
@@ -173,7 +174,12 @@
             }
 
         });
+        $('#todotable').tbodyscroll({
+             thead_height:   '30px',
+    　　　　　tbody_height:   '100px',
+    　　　　　tfoot_height:   '20px',
 
+        });
     });  
 
 
@@ -187,21 +193,18 @@
         <input type="button" value="次月" onclick="showCalen(1)"></p>
         <p id="calen"></p>
         <div class="todolist" style="display: none">            
-        <table class="table table-bordered table-hover table-condensed table-headerfixed" id="todotable">
-        <colgroup>
-        <col style="width:150px;">
-        <col>
-        <col>
-        </colgroup>
-         <thead>
+        <table class="table table-bordered table-hover table-condensed" id="todotable">
+         <thead class="scrollHead">
              <tr>
-                <th>TITLE</th>
-                <th> </th>
-                <th> </th>
+                <th class="tit">TITLE</th>
+                <th class="ac1"> </th>
+                <th class="ac2"> </th>
              </tr>
          </thead>
-         <tbody>
+         <tbody class="scrollBody">
          </tbody>
+         <tfoot>
+         </tfoot>
         </table> 
         </div>
         <div id="todo"></div>
