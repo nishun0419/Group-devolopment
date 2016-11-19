@@ -124,7 +124,9 @@
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
             .append($('<td onclick="showtodo()"></td>').text(title))
-            .append($('<td></td>').append('<button type="button" class="btn btn-danger" id="delete">Delete</button>')));
+            .append($('<td></td>').append('<button type="button" class="btn btn-danger" id="delete">Delete</button>'))
+            .append($('<td></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
+            );
             $('#settitle').val('');
             $('#categ').val('');
             $('#msg').val('');
@@ -174,11 +176,13 @@
         <colgroup>
         <col style="width:150px;">
         <col>
+        <col>
         </colgroup>
          <thead>
              <tr>
                 <th>TITLE</th>
-                <th>ACTION</th>
+                <th> </th>
+                <th> </th>
              </tr>
          </thead>
          <tbody>
