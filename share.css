@@ -179,7 +179,7 @@ h1{										/*CALENDARタイトル*/
 	height: 180px;
 	background-color: #FFFFFF;
 	word-wrap: break-word;
-	overflow: scroll;
+	overflow: auto;
 }
 
 span.showtext1{
