@@ -111,8 +111,8 @@ thead.scrollHead,tbody.scrollBody{
   display:block;
 }
 tbody.scrollBody{
-  overflow-y:scroll;
-  height:225px;
+  overflow-y:auto;
+  height:227px;
 }
 
 #todotable{
