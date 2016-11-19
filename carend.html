@@ -124,7 +124,7 @@
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
             .append($('<td onclick="showtodo()"></td>').text(title))
-            .append($('<td></td>').append('<button type="button" class="btn btn-danger" id="delete">Delete</button>'))
+            .append($('<td></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>'))
             .append($('<td></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
             );
             $('#settitle').val('');
@@ -162,6 +162,21 @@
         showtodotext += '</div>';
         $('#todo').html(showtodotext);
         }
+
+    $(function(){
+        //削除ボタンクリック時 
+        $(document).on('click' , '.delete', function(){
+            var rowNum = $('.delete').index(this);
+            $('#todotable').find('tr').eq(rowNum + 1).remove();
+            if($('.delete').length == 0){
+                $('.todolist').css('display' , 'none');
+            }
+
+        });
+
+    });  
+
+
 </script>
         
         
@@ -172,11 +187,11 @@
         <input type="button" value="次月" onclick="showCalen(1)"></p>
         <p id="calen"></p>
         <div class="todolist" style="display: none">            
-        <table class="table table-bordered table-hover table-condensed" id="todotable">
+        <table class="table table-bordered table-hover table-condensed table-headerfixed" id="todotable">
         <colgroup>
         <col style="width:150px;">
-        <col>
-        <col>
+        <col style="width: 70px;">
+        <col style="width: 50px;">
         </colgroup>
          <thead>
              <tr>
