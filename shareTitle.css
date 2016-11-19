@@ -1,0 +1,25 @@
+body{
+	width: 100%;
+	height: 10000px;
+}
+
+.spacer_top{
+	height: 500px;
+}
+.spacer{
+	height: 500px;
+}
+
+#expansion{
+	
+	height: 100px;
+	width: 100px;
+	background-color: red;
+	position: absolute;right: 50%;
+
+}
+
+#trigger01{
+  position: absolute; top: 600px;
+}
+

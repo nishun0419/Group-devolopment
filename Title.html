@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="content-script-type" content="text/javascript">
+<title>シェアカレ</title>
+<link href="shareTitle.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="js/lib/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/lib/velocity.min.js"></script>
+<script type="text/javascript" src="scrollmagic/uncompressed/ScrollMagic.js"></script>
+<script type="text/javascript" src="scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+<script type="text/javascript" src="scrollmagic/uncompressed/plugins/animation.velocity.js"></script>
+<script type="text/javascript" src="scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var controller = new ScrollMagic.Controller(); 
+</script>
+</head>
+<body>
+<div class="spacer"></div>
+<div class="spacer_top"></div>
+<div id="trigger01"></div>
+<div id="expansion" class="type01 box01">
+	<p>expansion</p>
+</div>
+<script>
+var expansion = new ScrollMagic.Scene({
+ triggerElement: "#trigger01"  // トリガー指定
+ })
+ .setTween("#expansion", 0.5, {scale: 1.5})  // 0.5秒で1.5倍拡大 
+ .addIndicators({name: "trrigger"}) // スタート位置に「expansion」表示
+ .addTo(controller);
+</script>
+
+<style type="text/css">
+	#pinContainer {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.panel {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		text-align: center;
+
+	}
+</style>
+<div id="pinContainer">
+	<section class="panel blue">
+		<b>ONE</b>
+	</section>
+	<section class="panel turqoise">
+		<b>TWO</b>
+	</section>
+	<section class="panel green">
+		<b>THREE</b>
+	</section>
+	<section class="panel bordeaux">
+		<b>FOUR</b>
+	</section>
+</div>
+<script>
+	$(function () { // wait for document ready
+		// init
+
+		// define movement of panels
+		var wipeAnimation = new TimelineMax()
+			.fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+			.fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+			.fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+
+		// create scene to pin and link animation
+		new ScrollMagic.Scene({
+				triggerElement: "#pinContainer",
+				triggerHook: "onLeave",
+				duration: "300%"
+			})
+			.setPin("#pinContainer")
+			.setTween(wipeAnimation)
+			.addIndicators() // add indicators (requires plugin)
+			.addTo(controller);
+	});
+</script>
+
+
+</body>
+</html>
