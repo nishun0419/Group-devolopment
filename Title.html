@@ -22,6 +22,7 @@
 <body>
 <div class="spacer"></div>
 <div id="trigger01"></div>
+<div class="spacer_top_back"></div>
 <div class="spacer_top">
 	<h1 id = "S">S</h1>
 	<h1 id = "H">H</h1>
@@ -37,9 +38,6 @@
 	<h1 id = "D">D</h1>
 	<h1 id = "A3">A</h1>
 	<h1 id = "R2">R</h1>
-</div>
-<div id="expansion" class="type01 box01">
-	<p>expansion</p>
 </div>
 <script>
 var title_tween = new TimelineMax()
@@ -57,7 +55,7 @@ var title_tween = new TimelineMax()
 		.add(TweenMax.to(".spacer_top #D",0.3,{css:{opacity:1}, delay: 0.1}))
 		.add(TweenMax.to(".spacer_top #A3",0.3,{css:{opacity:1}, delay: 0.1}))
 		.add(TweenMax.to(".spacer_top #R2",0.3,{css:{opacity:1}, delay: 0.1}))
-		.add(TweenMax.to(".spacer_top",2,{css:{backgroundColor: "blue"}, delay: 0.1}));
+		.add(TweenMax.to(".spacer_top_back",2,{css:{opacity:0.6}, delay: 0.1}));
 
 		var scene = new ScrollMagic.Scene({triggerElement: "#trigger01" , reverse: false})
 		.setTween(title_tween)
@@ -65,7 +63,7 @@ var title_tween = new TimelineMax()
 		.addTo(controller);
 </script>
 
-<div id="trigger02"></div>
+
 
 
 
