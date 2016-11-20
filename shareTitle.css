@@ -3,11 +3,14 @@ body{
 	height: 10000px;
 }
 
-.spacer_top{
-	height: 500px;
+div.spacer_top{
+	width: 100%;
+	height: 25%;
+	text-align: center;
+	color: #3DFF28;
 }
 .spacer{
-	height: 500px;
+	height: 200px;
 }
 
 #expansion{
@@ -15,11 +18,17 @@ body{
 	height: 100px;
 	width: 100px;
 	background-color: red;
-	position: absolute;right: 50%;
+	position: absolute;right: 50%; top:1000px;
 
 }
 
 #trigger01{
-  position: absolute; top: 600px;
+  position: absolute; top: 200px;
+}
+
+h1{
+	display: inline-block;
+	opacity: 0;
+	font-size: 400px;
 }
 

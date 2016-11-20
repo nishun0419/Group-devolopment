@@ -21,71 +21,50 @@
 </head>
 <body>
 <div class="spacer"></div>
-<div class="spacer_top"></div>
+<div class="spacer_top">
+	<h1 id = "S">S</h1>
+	<h1 id = "H">H</h1>
+	<h1 id = "A">A</h1>
+	<h1 id = "R">R</h1>
+	<h1 id = "E">E</h1>
+	<h1 id = "spac">      </h1>
+	<h1 id = "C">C</h1>
+	<h1 id = "A2">A</h1>
+	<h1 id = "L">L</h1>
+	<h1 id = "E2">E</h1>
+	<h1 id = "N">N</h1>
+	<h1 id = "D">D</h1>
+	<h1 id = "A3">A</h1>
+	<h1 id = "R2">R</h1>
+</div>
 <div id="trigger01"></div>
 <div id="expansion" class="type01 box01">
 	<p>expansion</p>
 </div>
 <script>
-var expansion = new ScrollMagic.Scene({
- triggerElement: "#trigger01"  // トリガー指定
- })
- .setTween("#expansion", 0.5, {scale: 1.5})  // 0.5秒で1.5倍拡大 
- .addIndicators({name: "trrigger"}) // スタート位置に「expansion」表示
- .addTo(controller);
+var title_tween = new TimelineMax()
+		.add(TweenMax.to(".spacer_top #S",0.3,{css:{opacity:1}}))
+		.add(TweenMax.to(".spacer_top #H",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #A",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #R",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #E",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #spac",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #C",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #A2",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #L",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #E2",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #N",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #D",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #A3",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top #R2",0.3,{css:{opacity:1}, delay: 0.1}))
+		.add(TweenMax.to(".spacer_top",2,{css:{backgroundColor: "blue"}, delay: 0.1}));
+
+		var scene = new ScrollScene({triggerElement: "#trigger01"})
+		.setTween(title_tween)
+		.addIndicators({name: "title"})
+		.addTo(controller);
+
 </script>
-
-<style type="text/css">
-	#pinContainer {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-	}
-	.panel {
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		text-align: center;
-
-	}
-</style>
-<div id="pinContainer">
-	<section class="panel blue">
-		<b>ONE</b>
-	</section>
-	<section class="panel turqoise">
-		<b>TWO</b>
-	</section>
-	<section class="panel green">
-		<b>THREE</b>
-	</section>
-	<section class="panel bordeaux">
-		<b>FOUR</b>
-	</section>
-</div>
-<script>
-	$(function () { // wait for document ready
-		// init
-
-		// define movement of panels
-		var wipeAnimation = new TimelineMax()
-			.fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
-			.fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
-			.fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
-
-		// create scene to pin and link animation
-		new ScrollMagic.Scene({
-				triggerElement: "#pinContainer",
-				triggerHook: "onLeave",
-				duration: "300%"
-			})
-			.setPin("#pinContainer")
-			.setTween(wipeAnimation)
-			.addIndicators() // add indicators (requires plugin)
-			.addTo(controller);
-	});
-</script>
-
 
 </body>
 </html>

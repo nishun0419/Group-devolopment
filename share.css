@@ -93,7 +93,7 @@ div.button{
 #calen input#back{
 	position: absolute; left: 50px; top: 5px;
 	width: 80px;
-	font-size: 20px
+	font-size: 20px;
 }
 
 div.todolist{
