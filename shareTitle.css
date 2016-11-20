@@ -8,7 +8,6 @@ div.spacer_top{
 	height: 25%;
 	text-align: center;
 	color: #3DFF28;
-	position: absolute; top: 700px;
 }
 .spacer{
 	height: 200px;
@@ -24,7 +23,7 @@ div.spacer_top{
 }
 
 #trigger01{
- 
+	
 }
 
 h1{

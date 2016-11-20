@@ -59,12 +59,15 @@ var title_tween = new TimelineMax()
 		.add(TweenMax.to(".spacer_top #R2",0.3,{css:{opacity:1}, delay: 0.1}))
 		.add(TweenMax.to(".spacer_top",2,{css:{backgroundColor: "blue"}, delay: 0.1}));
 
-		var scene = new ScrollScene({triggerElement: "#trigger01"})
+		var scene = new ScrollMagic.Scene({triggerElement: "#trigger01" , reverse: false})
 		.setTween(title_tween)
-		.addIndicators({name: "title"})
+		.addIndicators()
 		.addTo(controller);
-
 </script>
+
+<div id="trigger02"></div>
+
+
 
 </body>
 </html>
