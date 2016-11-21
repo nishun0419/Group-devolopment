@@ -8,6 +8,7 @@ div.spacer_top{
 	position: absolute;top: 200px;
 	text-align: center;
 	color: #3DFF28;
+	font-size: 80px;
 }
 
 div.spacer_top_back{
@@ -17,6 +18,7 @@ div.spacer_top_back{
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
+	/*background-image: url(sample.gif);*/
 	background-image: url(sky.jpg);
 	opacity: 0;
 }
@@ -37,4 +39,24 @@ h1{
 
 }
 
+/*section1*/
+.section1{
+}
+#section1_text{
+	display: inline-block;
+	height: 500px;
+	width: 49%;
+	background-color: red;
+}
 
+#section1_image{
+	display: inline-block;
+	height: 500px;
+	width: 50%;
+	background-color: blue;
+}
+
+#section1_text p{
+	opacity: 0;
+	font-size: 20px;
+}

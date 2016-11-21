@@ -35,7 +35,12 @@ table.calen tr.bg1 { background-color:#f5f5dc;
 
 table.calen{ margin-left: 10px; 
 			 position: fixed;
+}
+
+table.calen h6{
+	color: black;
 } 
+
 
 div.textinputs{										/********************************/
 	width: 400px;									

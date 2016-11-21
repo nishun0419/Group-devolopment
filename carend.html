@@ -84,7 +84,7 @@
         else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' onclick='test(this);return false;'>";
         else if (col == 6) htmlStr += "<td class='satd' onclick='test(this);return false;'>";
         else htmlStr += "<td class='normal' onclick='test(this);return false;'>";
-        htmlStr += i + "</td>";
+        htmlStr += i +  "<br>" +"<h6>" + "◎" + "</h6>" +"</td>";
         if (col == 6) { htmlStr += "</tr>\n"; col=0; } else col++;
         }
         if (col != 0) {
@@ -174,14 +174,9 @@
             }
 
         });
-        $('#todotable').tbodyscroll({
-             thead_height:   '30px',
-    　　　　　tbody_height:   '100px',
-    　　　　　tfoot_height:   '20px',
 
-        });
+
     });  
-
 
 </script>
         

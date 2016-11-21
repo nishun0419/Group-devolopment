@@ -7,3 +7,4 @@ Jqueryの導入（時間があれば)
 twitterAPIの導入
 データ保存の処理（劉、松本に任せた）
 スマホサイトの対応化
+タイトル作成（scrollmagic,tweenMax)
