@@ -14,7 +14,8 @@ table.calen {  font-size:20pt;
 table.calen th { height:30px;
                   text-align: center; }
 
-table.calen td { text-align:center;
+table.calen td { text-align:center;		
+				vertical-align: middle;
 				 height:90px; 
 				 width:90px; 
 				}

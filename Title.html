@@ -20,7 +20,6 @@
 </script>
 </head>
 <body>
-<div class="spacer"></div>
 <div id="trigger01"></div>
 <div class="spacer_top_back"></div>
 <div class="spacer_top">
@@ -54,23 +53,21 @@ var title_tween = new TimelineMax()
 		.add(TweenMax.to(".spacer_top #N",0.3,{css:{opacity:1}, delay: 0.1}))
 		.add(TweenMax.to(".spacer_top #D",0.3,{css:{opacity:1}, delay: 0.1}))
 		.add(TweenMax.to(".spacer_top #A3",0.3,{css:{opacity:1}, delay: 0.1}))
-		.add(TweenMax.to(".spacer_top #R2",0.3,{css:{opacity:1}, delay: 0.1}))
-		.add(TweenMax.to(".spacer_top_back",2,{css:{opacity:0.8}, delay: 0.1}));
-
-		var scene = new ScrollMagic.Scene({triggerElement: "#trigger01" , reverse: false})
-		.setTween(title_tween)
-		.addIndicators()
-		.addTo(controller);
+		.add(TweenMax.to(".spacer_top #R2",0.3,{css:{opacity:1}, delay: 0.1}));
+		//.add(TweenMax.to(".spacer_top h1",2,{ y:-100,opacity:1}))
+		//add(TweenMax.to(".spacer_top_back",2,{css:{opacity:1}}));
+		TweenMax.to(".spacer_top h1",2,{y:-100 , delay: 5.3});
+		TweenMax.to(".spacer_top_back",2,{css:{opacity:1}, delay:5.3});
 </script>
 <div id="trigger02"></div>
 <div class="section1">
+	<div class="spacer"></div>
 	<div id= "section1_text">
 	<h3>予定を共有（シェア）する新しいカレンダー</h3>
 	<p>シェアカレは今までのカレンダーとは全く違います。自分の予定を他人にシェアすることができる新しいカレンダーそれがシェアカレです。住む街のイベント、学校行事などの予定をこのカレンダーに書き込めば知らせたい人全員に見せることができます。</p>
     </div>
     <div id="section1_image">
      <h3>画像</h3>
-     あ
     </div>
 </div>
 <script>
