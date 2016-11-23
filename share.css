@@ -103,7 +103,8 @@ div.button{
 
 
 div.todolist{
-	position: absolute; right: 400px; top: 90px;
+	position: absolute; top: 90px;
+	margin-left: 700px;
 }
 
 div.todolist th{
@@ -159,8 +160,9 @@ h1{										/*CALENDAR•ø•§•»•Î*/
 	position: absolute;right: 30%;top: 60px
 }
 #open{
-	position: absolute;right: 20%;top: 80px
-}
+	position: absolute;top:90px;
+	margin-left: 700px;
+	}
 #tw{						/*Open Close§Œ‘O∂®*/
 	color: red;
 	font-size: 20px;
@@ -197,7 +199,7 @@ span.showtext1{
 div.GroupBox{
 	background-color: #FFFFFF;
 	width: 550px;
-	height: 270px;
+	height: 290px;
 	position: relative; top: 20px;
 	font-size: 30px;
 	color: black;
