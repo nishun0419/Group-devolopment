@@ -198,11 +198,13 @@ span.showtext1{
 div.GroupBox{
 	background-color: #FFFFFF;
 	width: 550px;
+	height: 270px;
 	position: relative; top: 530px;
 	font-size: 30px;
 	color: black;
 	border: 1px solid #F52954;
-	margin-left: 20px;  
+	margin-left: 20px;
+	overflow-y: auto;  
 }
 
 div.GroupBox li{
