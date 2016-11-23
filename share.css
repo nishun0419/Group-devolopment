@@ -36,7 +36,6 @@ table.calen tr.bg1 { background-color:#f5f5dc;
 				     text-align: center; }
 
 table.calen{ margin-left: 10px; 
-			 position: fixed;
 }
 
 table.calen h6{
@@ -90,18 +89,18 @@ div.button{
 	padding-left: 20px;
 	margin-left: 4em;
 }
-								
 #calen input#next{									/*next¥Ü¥¿¥ó*/
-	position: absolute; left: 540px; top: 5px;
+	margin-left: 100px;
 	width: 80px;
 	font-size: 20px;
 }
 
 #calen input#back{
-	position: absolute; left: 50px; top: 5px;
+	margin-right: 100px;
 	width: 80px;
 	font-size: 20px;
-}
+}							
+
 
 div.todolist{
 	position: absolute; right: 400px; top: 90px;
@@ -199,7 +198,7 @@ div.GroupBox{
 	background-color: #FFFFFF;
 	width: 550px;
 	height: 270px;
-	position: relative; top: 530px;
+	position: relative; top: 20px;
 	font-size: 30px;
 	color: black;
 	border: 1px solid #F52954;
@@ -213,7 +212,7 @@ div.GroupBox li{
 }
 
 p#GroupEdit{
-	position: relative; top: 550px;
+	margin-top: 50px;
 }
 
 p#GroupEdit button{
