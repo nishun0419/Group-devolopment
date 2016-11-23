@@ -9,6 +9,7 @@ body{													/*全体の背景の設定*/
 
 table.calen {  font-size:20pt;
 			   background-color:#fffafa;
+			   position: static;
 			 } 
 
 table.calen th { height:30px;
@@ -194,6 +195,28 @@ span.showtext1{
 	display: inline-block;
 }									/*----------------*/
 
+div.GroupBox{
+	background-color: #FFFFFF;
+	width: 550px;
+	position: relative; top: 530px;
+	font-size: 30px;
+	color: black;
+	border: 1px solid #F52954;
+	margin-left: 20px;  
+}
+
+div.GroupBox li{
+	display: inline-block;
+	width: 400px;
+}
+
+p#GroupEdit{
+	position: relative; top: 550px;
+}
+
+p#GroupEdit button{
+	margin-left: 80px;
+}
 
 /*マウスの変化*/
 .normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
