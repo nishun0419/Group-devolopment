@@ -93,11 +93,11 @@ h1{
 #section2_image{
 	width: 100%;
 	position: absolute;
-	margin-left: 0px;
+	margin-left: 8%;
 }
 #circle1{
 	position: absolute;
-	margin-left: 20%;
+	margin-left: 0%;
 	opacity: 1;
 }
 #circle2{
