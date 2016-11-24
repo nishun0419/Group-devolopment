@@ -82,7 +82,7 @@
         if (flag == 1 && i == today) {
         if (holidays[i] == 1 || col == 0) htmlStr += "<td class='today sun' onclick='test(this);return false;'>";
         else if (col == 6) htmlStr += "<td class='today sat' onclick='test(this);return false;'>";
-        else htmlStr += "<td class='today' onclick='test(this);return false;'>";
+        else htmlStr += "<td class='today' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         }
         else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' onclick='test(this);return false;'>";
         else if (col == 6) htmlStr += "<td class='satd' onclick='test(this);return false;'>";
@@ -114,8 +114,15 @@
         }
         
         //日付クリック時の処理
-        function test(obj){                                     
-        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';     //入力画面の表示、非表示の関数呼び出しのクリックイベント
+        function test(e){                                     
+        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';
+            //日付情報の取得
+            var yy = e.getAttribute('yy');
+            var mm = e.getAttribute('mm');
+            var day = e.getAttribute('day');
+            //確認用アラート
+            alert(yy + '/' + mm + '/' + day); 
+            //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
 
 
@@ -231,9 +238,6 @@
             </div>
             <div>
                 <li>test5</li>
-            </div>
-             <div>
-                <li>test6</li>
             </div>
             </ul>
         </div>
