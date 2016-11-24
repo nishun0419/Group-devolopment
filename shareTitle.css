@@ -92,16 +92,16 @@ h1{
 }
 #circle1{
 	position: absolute;
-	left: 210px;
+	margin-left: 10%;
 	opacity: 1;
 }
 #circle2{
 	position: absolute;
-	left: 210px;
+	margin-left: 10%;
 	opacity: 0;
 }
 #circle3{
 	position: absolute;
-	left: 210px;
+	margin-left: 10%;
 	opacity: 0;
 }
