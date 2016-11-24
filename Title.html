@@ -44,14 +44,14 @@ var title_tween = new TimelineMax();
 		
 		//.add(TweenMax.to(".spacer_top h1",2,{ y:-100,opacity:1}))
 		//add(TweenMax.to(".spacer_top_back",2,{css:{opacity:1}}));
-		title_tween.to(".spacer_top h1",2,{y:-100})
+		title_tween.to(".spacer_top h1",2,{yPercent: -200})
 		.to(".spacer_top_back",2,{css:{opacity:1}}, '-=2');
 </script>
 <div id="trigger02"></div>
 <div class="section1">
 	<div class="spacer"></div>
 	<div id= "section1_text">
-	<h3>予定を共有（シェア）する新しいカレンダー</h3>
+	<h2>予定を共有（シェア）する新しいカレンダー</h2>
 	<p>シェアカレは今までのカレンダーとは全く違います。自分の予定を他人にシェアすることができる新しいカレンダーそれがシェアカレです。住む街のイベント、学校行事などの予定をこのカレンダーに書き込めば知らせたい人全員に見せることができます。</p>
     </div>
     <div id="section1_image">
@@ -64,6 +64,39 @@ var title_tween = new TimelineMax();
 		.addIndicators()
 		.addTo(controller);
 </script>
+<div id="trigger03"></div>
+<div class="section2">
+	<div class="spacer"></div>
+	<div id="section2_text">
+	<h2>利用までの流れ</h2>
+	 </div>
+	 <div id="section2_image">
+	 <div class="circle" id= "circle1">
+	 	<h3>STEP1</h3>
+	 	<p>個人情報の入力</p>
+	 </div>
+	 <div class="circle" id= "circle2">
+	 	<h3>STEP2</h3>
+	 	<p>アカウント情報の取得</p>
+	 	</div>
+	 <div class="circle" id= "circle3">
+	 	<h3>STEP3</h3>
+	 	<p>ようこそ、シェアカレへ</p>
+	 </div>
+	</div>
+	</div>
+<script>
+	second_tween = new TimelineMax();
+	 second_tween.to("#circle3" , 2 , {xPercent:400 , opacity:1})
+	 			 .to("#circle2" , 2 , {xPercent:200 , opacity:1},'-=1')
+	  			 .staggerTo(".circle p", 1 ,{opacity:1});
+
+	 var scene = new ScrollMagic.Scene({triggerElement:"#trigger03"})
+	 				.setTween(second_tween)
+	 				.addIndicators()
+	 				.addTo(controller);
+</script>
+
 
 </body>
 </html>
