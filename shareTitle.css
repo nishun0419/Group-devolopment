@@ -89,13 +89,14 @@ h1{
 
 .circle p{
 	opacity: 0;
-}
+	}
 #section2_image{
-	margin-left: 10%;
+	margin: 0 auto;
+	width: 100%;
 }
 #circle1{
 	position: absolute;
-	margin-left: 0%;
+	margin-left: 10%;
 	opacity: 1;
 }
 #circle2{
