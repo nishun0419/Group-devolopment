@@ -80,13 +80,13 @@
         for (i=1; i<=dateMax; i++) {
         if (col == 0) htmlStr += "<tr>";
         if (flag == 1 && i == today) {
-        if (holidays[i] == 1 || col == 0) htmlStr += "<td class='today sun' onclick='test(this);return false;'>";
-        else if (col == 6) htmlStr += "<td class='today sat' onclick='test(this);return false;'>";
+        if (holidays[i] == 1 || col == 0) htmlStr += "<td class='today sun' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
+        else if (col == 6) htmlStr += "<td class='today sat' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         else htmlStr += "<td class='today' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         }
-        else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' onclick='test(this);return false;'>";
-        else if (col == 6) htmlStr += "<td class='satd' onclick='test(this);return false;'>";
-        else htmlStr += "<td class='normal' onclick='test(this);return false;'>";
+        else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' yy='"+year+"' mm='"+month+"' day='"+i+"'  onclick='test(this);return false;'>";
+        else if (col == 6) htmlStr += "<td class='satd' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
+        else htmlStr += "<td class='normal' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         if (i == 25){
             htmlStr += i +"<h6>" + "100件予定あり" + "</h6>" ;
         }
@@ -105,7 +105,7 @@
         document.getElementById("calen").innerHTML = htmlStr;
 
         //入力画面生成
-        var textinput = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
+        var textinput = '<div class="textinputs">' + '<div id="calendate">' + '</div>' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle" placeholder="15字以内で入力してください">' + '</div>';//タイトル入力
         textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="categ">' + '</div>';        //カテゴリー
         textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';       //メッセージ
         textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,categ.value,msg.value)">' + '</div>';
@@ -121,7 +121,8 @@
             var mm = e.getAttribute('mm');
             var day = e.getAttribute('day');
             //確認用アラート
-            alert(yy + '/' + mm + '/' + day); 
+            alert(yy + '/' + mm + '/' + day);
+            $('#calendate').text(yy + '/' + mm + '/' + day);
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
 
@@ -155,7 +156,7 @@
         $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
         $('.todolist').css('display' , 'none');
         $('#tw2').text("");
-        $('#open').css('display' , 'none')
+        $('#open').css('display' , 'none');
         showCalen(n);
         }
         function showopen(){
