@@ -37,15 +37,17 @@
 	<h1 id = "D">D</h1>
 	<h1 id = "A3">A</h1>
 	<h1 id = "R2">R</h1>
+	<div class="entry">Entry</div>
 </div>
 <script>
 var title_tween = new TimelineMax();
-			title_tween.staggerTo('.spacer_top h1' , 0.2 ,{opacity:1},0.3);
+			title_tween.staggerTo('.spacer_top h1' , 0.2 ,{opacity:1, scale:2},0.3);
 		
 		//.add(TweenMax.to(".spacer_top h1",2,{ y:-100,opacity:1}))
 		//add(TweenMax.to(".spacer_top_back",2,{css:{opacity:1}}));
-		title_tween.to(".spacer_top h1",2,{yPercent: -200})
-		.to(".spacer_top_back",2,{css:{opacity:1}}, '-=2');
+		title_tween.to(".spacer_top h1",2,{y:-200})
+		.to(".spacer_top_back",2,{css:{opacity:1}}, '-=2')
+		.to(".entry",0.5,{display:'block'});
 </script>
 <div id="trigger02"></div>
 <div class="section1">
@@ -87,8 +89,8 @@ var title_tween = new TimelineMax();
 	</div>
 <script>
 	second_tween = new TimelineMax();
-	 second_tween.to("#circle3" , 2 , {left:'72%' , opacity:1})
-	 			 .to("#circle2" , 2 , {left:'41%' , opacity:1},'-=1.5')
+	 second_tween.to("#circle3" , 2 , {x:350 , opacity:1})
+	 			 .to("#circle2" , 2 , {x:150 , opacity:1},'-=1.5')
 	  			 .staggerTo(".circle p", 1 ,{opacity:1});
 
 	 var scene = new ScrollMagic.Scene({triggerElement:"#trigger03"})
@@ -96,6 +98,16 @@ var title_tween = new TimelineMax();
 	 				.addIndicators()
 	 				.addTo(controller);
 </script>
+<div id="trigger04"></div>
+<div class= "section3">
+	<div class="spacer"></div>
+	<div id="section3_text">
+		<h2>ÉVÉFÉAÇ∑ÇÈê∂äàÇÇ†Ç»ÇΩÇ÷ </h2>
+	</div>
+	<div id="section3_button"></div>
+</div>
+
+
 
 
 </body>

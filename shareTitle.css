@@ -8,12 +8,24 @@ body{
 	margin: 0;
 }
 
-div.spacer_top{
+div.spacer_top {
 	width: 100%;
+	height: 100%;
 	position: absolute; top: 40%;
 	text-align: center;
 	color: #FCFF0C;
+		font-family: "Josefin Slab", serif;
+	}
 
+div.entry{
+	width: 100px;
+	margin:0 auto;
+	top: 50%;
+	color: #F621F8;
+	font-size: 20px;
+	display: none;
+	border: 1px solid #000000;
+	opacity: 0.5;
 }
 
 div.spacer_top_back{
@@ -40,8 +52,9 @@ div.spacer_top_back{
 h1{
 	display: inline-block;
 	opacity: 0;
-	/*font-family: Helvetica , "游ゴシック" , "Yu Gothic" , sans-serif;*/
+	padding: 10px;
 
+	
 }
 
 
@@ -64,8 +77,9 @@ h1{
 
 #section1_image{
 	height: 250px;
-	width: 50%;
-	margin-left: 25%;
+	width: 500px;
+	margin:0 auto;
+	margin-top: 20px;
 	background-color: blue;
 	opacity: 0;
 }
@@ -99,21 +113,33 @@ h1{
 	opacity: 0;
 	}
 #section2_image{
-	width: 100%;
-	margin-left: 10%;
+	width: 900px;
+	margin:0 auto;
 }
 #circle1{
-	position: absolute;
 	margin-left: 0%;
 	opacity: 1;
 }
 #circle2{
-	position: absolute;
 	margin-left: 0%;
 	opacity: 0;
 }
 #circle3{
-	position: absolute;
 	margin-left: 0%;
 	opacity: 0;
 }
+
+/*section3*/
+.section3{
+	width: 100%;
+	height: 100%;
+	background-color: #8873FA;
+}
+#section3_text{
+	text-align: center;
+}
+
+
+/*マウスエフェクト*/
+.entry {cursor: pointer;} 	/*マウスの形を変えるための記述*/
+.entry:hover { background-color: #54E7FA; }
