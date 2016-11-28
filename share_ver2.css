@@ -214,7 +214,8 @@ div.GroupBox{
 	background-color: #FFFFFF;
 	width: 300px;
 	height: 440px;
-	position: absolute; right: 75%; top: 140px;
+	margin-right: 0px;
+	top:100px;
 	font-size: 15px;
 	color: black;
 	border: 1px solid #F52954;
@@ -234,12 +235,17 @@ div.GroupBox #Grouplist{
 
 p#GroupEdit{
 	margin-top: -40px;
-	margin-left: 215px;
+	margin-right: 0px;
 }
 
 p#GroupEdit button{
 }
 
+div.Groupsection{
+	position: absolute;
+	right: 75%;
+	top: 140px;
+}
 /*マウスの変化*/
 .normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
 .normal:hover { background-color: #DDDDDD }	 /*マウス操作による背景色の変更*/
