@@ -62,6 +62,11 @@ div.textinputs div+div{
 	margin-top: 2em;
 }
 
+#inputmenu div#calendate{
+	text-align: center;
+	font-size: 20px;
+	}				
+
 label {
 	display: inline-block;							/* 入力画面の設定*/
 	width: 90px;
@@ -106,7 +111,7 @@ div.button{
 
 
 div.todolist{
-	position: absolute; top: 90px;
+	position: absolute; top: 140px;
 	margin-left: 75%;
 }
 
@@ -160,16 +165,22 @@ h1{										/*CALENDARタイトル*/
 	text-align: center;
 }
 #tw2{
-	position: absolute;right: 30%;top: 60px
+	position: absolute;right: 9.5%;top: 98px
 }
 #open{
-	position: absolute;top:90px;
+	position: absolute;top:140px;
 	margin-left: 75%;
 	width: 200px;
 	}
 #tw{						/*Open Closeの設定*/
 	color: red;
-	font-size: 20px;
+	font-size: 30px;
+	border-radius: 100%;
+	background-color: #FFFFFF;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	/*vertical-align: middle;*/
 }
 
 #todo div.text1{					/*出力画面の設定*/
@@ -204,7 +215,7 @@ div.GroupBox{
 	background-color: #FFFFFF;
 	width: 300px;
 	height: 284px;
-	position: absolute; right: 75%; top: 90px;
+	position: absolute; right: 75%; top: 140px;
 	font-size: 20px;
 	color: black;
 	border: 1px solid #F52954;
@@ -213,8 +224,11 @@ div.GroupBox{
 
 div.GroupBox li{
 	display: inline-block;
-	white-space: nowrap;
 	overflow-x: auto;
+}
+
+.delete_Group{
+	vertical-align: middle;
 }
 
 p#GroupEdit{

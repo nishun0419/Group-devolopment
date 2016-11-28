@@ -80,13 +80,13 @@
         for (i=1; i<=dateMax; i++) {
         if (col == 0) htmlStr += "<tr>";
         if (flag == 1 && i == today) {
-        if (holidays[i] == 1 || col == 0) htmlStr += "<td class='today sun' onclick='test(this);return false;'>";
-        else if (col == 6) htmlStr += "<td class='today sat' onclick='test(this);return false;'>";
+        if (holidays[i] == 1 || col == 0) htmlStr += "<td class='today sun' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
+        else if (col == 6) htmlStr += "<td class='today sat' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         else htmlStr += "<td class='today' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         }
-        else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' onclick='test(this);return false;'>";
-        else if (col == 6) htmlStr += "<td class='satd' onclick='test(this);return false;'>";
-        else htmlStr += "<td class='normal' onclick='test(this);return false;'>";
+        else if (holidays[i] == 1 || col == 0) htmlStr += "<td class='sund' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
+        else if (col == 6) htmlStr += "<td class='satd' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
+        else htmlStr += "<td class='normal' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         if (i == 25){
             htmlStr += i +"<h6>" + "100件予定あり" + "</h6>" ;
         }
@@ -105,7 +105,7 @@
         document.getElementById("calen").innerHTML = htmlStr;
 
         //入力画面生成
-        var textinput = '<div class="textinputs">' + '<div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
+        var textinput = '<div class="textinputs">' + '<div>' + '<div id="calendate">' + '</div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
         textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="categ">' + '</div>';        //カテゴリー
         textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';       //メッセージ
         textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,categ.value,msg.value)">' + '</div>';
@@ -115,13 +115,14 @@
         
         //日付クリック時の処理
         function test(e){                                     
-        var openset = '<div id="tw1" onclick="showopen()">' + '<a id="tw">' + "Open" + '</a>' + '</div>';
+        var openset = '<div id="tw1" onclick="showopen()">' + '<div id="tw">' + "＋" + '<div>' + '</div>';
             //日付情報の取得
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
             var day = e.getAttribute('day');
             //確認用アラート
-            alert(yy + '/' + mm + '/' + day); 
+            alert(yy + '/' + mm + '/' + day);
+            $('#calendate').text( yy + '/' + mm + '/' + day) 
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
 
@@ -135,8 +136,9 @@
             todotitle = title;
             todocateg = ctegory;
             todomsg = message;
+            // データベースの処理で入力情報を格納
 
-            $('#tw').text("Open");
+            $('#tw').text("＋");
             $('#open').css('display' , 'none');
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
@@ -162,11 +164,11 @@
         $(function(){                                    //入力画面の表示、非表示
             if($('#open').css('display') == 'none'){
                 $('#open').css('display' , 'block');
-                $('#tw').text("Close");
+                $('#tw').text("ー");
             }
             else{
                 $('#open').css('display' , 'none');
-                $('#tw').text("Open");
+                $('#tw').text("＋");
             }
          } ); 
          }    
@@ -202,6 +204,7 @@
         <h1>CALENDAR</h1>
         <p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
         <input type="button" value="次月" onclick="showCalen(1)"></p>
+        <hr>
         <p id="calen"></p>
         <div class="todolist" style="display: none">            
         <table class="table table-bordered table-hover table-condensed" id="todotable">
@@ -224,7 +227,7 @@
             <h3>登録したグループ名</h3>
             <ul>
             <div>
-                <li>神戸電子専門学校　学校行事</li><button class="btn btn-danger btn-xs delete_Group">削除</button>
+                <li>test1</li><button class="btn btn-danger btn-xs delete_Group">削除</button>
                 
             </div>
             <div>
