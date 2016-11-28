@@ -125,7 +125,7 @@
             $('#calendate').text( yy + '/' + mm + '/' + day) 
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
-
+            // todo:予定があれば表示
 
 
         document.getElementById("tw2").innerHTML = openset;
@@ -177,21 +177,32 @@
         var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "タイトル"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //タイトル
         showtodotext += '<div>' + '<span class ="showtext1">' + "カテゴリー" + '</span>' + '<div class="text1">' + todocateg + '</div>' + '</div>';        //カテゴリー
         showtodotext += '<div>' + '<span class ="showtext1">' + "メッセージ" + '</span>' + '<div class="text2">' + todomsg + '</div>' + '</div>';           //メッセージ
-        showtodotext += '<div class="button">' + '<input type="button" value="send" onclick="showopen()">' + '</div>';
+        showtodotext += '<div class="button">' + '<input type="button" value="閉じる" onclick="showopen()">' + '</div>';
         showtodotext += '</div>';
         $('#todo').html(showtodotext);
         }
 
     $(function(){
-        //削除ボタンクリック時 
+        //予定の削除ボタンクリック時 
         $(document).on('click' , '.delete', function(){
             var rowNum = $('.delete').index(this);
             $('#todotable').find('tr').eq(rowNum + 1).remove();
+            // todo:関連する情報をデータベースから削除する
+
+
             if($('.delete').length == 0){
                 $('.todolist').css('display' , 'none');
             }
 
         });
+
+        $(document).on('click','.delete_Group', function(){     //グループの削除ボタンクリック時
+            $(this).parent().remove();
+            
+            // todo:関連する情報をデータベースから削除する
+
+
+        })
 
 
     });  
@@ -222,31 +233,31 @@
         </table> 
         </div>
         <div id="todo"></div>
-               
+             
+             <div class="Groupsection"> 
             <div class="GroupBox">
             <h3>登録したグループ名</h3>
-            <ul>
             <div>
-                <li>test1</li><button class="btn btn-danger btn-xs delete_Group">削除</button>
+                <div id="Grouplist">神戸電子専門学校　行事</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
                 
             </div>
             <div>
-                <li>test2</li>
+                <div id="Grouplist">アルバイトシフト</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
             </div>
             <div>
-                <li>test3</li>
+                <div id="Grouplist">就活関連の予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
             </div>
             <div>
-                <li>test4</li>
+                <div id="Grouplist">グループ開発　スケジュール</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
             </div>
             <div>
-                <li>test5</li>
+                 <div id="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
             </div>
-            </ul>
         </div>
         <p id="GroupEdit"><button class="btn btn-primary edit_Group">新しいグループに参加</button> 
          <button class="btn btn-primary">グループを作る</button>
         </p>
+        </div>
         <!-- 折りこみ展開ポインタ -->
         <div id="tw2"> </div>
         <!--// 折り畳み展開ポインタ -->

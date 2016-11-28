@@ -9,7 +9,6 @@ body{													/*全体の背景の設定*/
 
 table.calen {  font-size:20pt;
 			   background-color:#fffafa;
-			   position: static;
 			   margin: 0 auto;
 			 } 
 
@@ -214,17 +213,19 @@ span.showtext1{
 div.GroupBox{
 	background-color: #FFFFFF;
 	width: 300px;
-	height: 284px;
+	height: 440px;
 	position: absolute; right: 75%; top: 140px;
-	font-size: 20px;
+	font-size: 15px;
 	color: black;
 	border: 1px solid #F52954;
-	overflow-y: auto;  
+	overflow-x: auto; 
 }
 
-div.GroupBox li{
+div.GroupBox #Grouplist{
 	display: inline-block;
-	overflow-x: auto;
+	overflow: auto;
+	width: 255px;
+	padding-left: 10px; 
 }
 
 .delete_Group{
@@ -232,11 +233,11 @@ div.GroupBox li{
 }
 
 p#GroupEdit{
-	margin-top: 50px;
+	margin-top: -40px;
+	margin-left: 215px;
 }
 
 p#GroupEdit button{
-	margin-left: 80px;
 }
 
 /*マウスの変化*/
