@@ -17,6 +17,71 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	var controller = new ScrollMagic.Controller(); 
+	// チェック用関数
+function check1(){
+var n = myform.name.value;
+
+if(n == ""){
+	res = false;
+	window.alert("お名前を入力してください。");
+	return;
+}
+check2();
+return;
+}
+
+
+function check2(){
+
+var n = myform.id.value;
+
+if(n == ""){
+	res = false;
+	window.alert("idを入力してください");
+	return;
+	}
+check3();
+return;
+}
+
+function check3(){
+var n = myform.mail.value;
+
+if(n == ""){
+	res = false;
+	window.alert("メールアドレスを入力してください。");
+}
+check4();
+return;
+}
+
+function check4(){
+	var n = myform.pass.value;
+	var m = myform.pass2.value;
+
+if(n == ""){
+	res = false;
+	window.alert("パスワードを入力してください。");
+			return;
+	}
+
+
+else if(m == ""){
+	res = false;
+	window.alert("パスワード確認を入力してください。");
+	return;
+}
+
+
+
+else  if(n != m){
+	res = false;
+	window.alert("パスワードが一致しません。再度入力してください。");
+	return;
+	}
+return;
+}
+
 </script>
 </head>
 <body>
@@ -37,7 +102,7 @@
 	<h1 id = "D">D</h1>
 	<h1 id = "A3">A</h1>
 	<h1 id = "R2">R</h1>
-	<div class="entry">Entry</div>
+	<div class="entry" onclick="location.href='calen_ver2.html'">Entry</div>
 </div>
 <script>
 var title_tween = new TimelineMax();
@@ -104,11 +169,58 @@ var title_tween = new TimelineMax();
 	<div id="section3_text">
 		<h2>シェアする生活をあなたへ </h2>
 	</div>
-	<div id="section3_button"></div>
+	<div id="section3_button">
+		<div class="section3_box" id="formscene">
+			<form name="myform" action="sinki.html">
+		<!-- <div class="section3_box" id="section3_right"> -->
+			<p>新規登録</p>
+<dl>
+	<dt>お名前<font color="red"> 必須</font></dt>
+
+<dd>
+
+	<input type="text" name="name"size="35" maxlength="255">
+
+</dd>
+
+
+	<dt>ユーザーID<font color="red">必須</font></dt>
+
+<dd>
+
+	<input type="text" name="id"size="35" maxlength="255">
+
+</dd>
+
+	<dt>メールアドレス<font color="red">必須</font></dt>
+
+<dd>
+
+	<input type="text" name="mail"size="35"maxlength="255">
+
+</dd>
+
+	<dt>パスワード<font color="red">必須</font></dt>
+	
+<dd>
+	<input type="password" name="pass"size="10"maxlength="50">
+
+</dd>
+
+	<dt>パスワード確認<font color="red">必須</font></dt>
+
+
+<dd>
+	<input type="password" name="pass2"size="10"maxlength="50">
+
+</dd>
+</dl>
+
+	<input type="button" value="登録する！" onclick=check1();>
+	</div>
+</form>
+		<!-- <div class="section3_box" id="section3_left"></div> -->
+	</div>
 </div>
-
-
-
-
 </body>
 </html>

@@ -222,15 +222,17 @@ div.GroupBox{
 	overflow-x: auto; 
 }
 
-div.GroupBox #Grouplist{
+div.GroupBox .Grouplist{
 	display: inline-block;
 	overflow: auto;
 	width: 255px;
 	padding-left: 10px; 
+	vertical-align: middle;
+	margin-bottom: 10px;
 }
 
 .delete_Group{
-	vertical-align: middle;
+	
 }
 
 p#GroupEdit{
@@ -239,6 +241,7 @@ p#GroupEdit{
 }
 
 p#GroupEdit button{
+
 }
 
 div.Groupsection{
