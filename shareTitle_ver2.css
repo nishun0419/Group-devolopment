@@ -140,9 +140,11 @@ h1{
 	font-size: 20px;
 }
 div#section3_button{
-	margin: 0 auto;
-	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 50px;
+	width: 900px;
+	padding-left: 20px;
 
 }
 
@@ -153,14 +155,51 @@ div.section3_box{
 	background-color: #FFFFFF;
 }
 
-form{
+#formscene{
 	text-align: center;
 }
 #section3_left{
-	margin-left: 20px;
+	margin-right: 0px;
 }
-form p{
-	font-size: 20px;
+/* ボタンエフェクト */
+.button_section3 {
+	z-index: 2;
+	border: 2px solid #333;
+	color: #fff;
+	line-height: 50px;
+	-webkit-perspective: 300px;
+	perspective: 300px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.button_section3:hover {
+	color: #333;
+}
+.button_section3::after {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	-webkit-transform-origin: center bottom;
+	transform-origin: center bottom;
+	-webkit-transform: rotateX(0);
+	transform: rotateX(0);
+}
+.button_section3,
+.button_section3::before,
+.button_section3::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.button_section3:hover::after {
+	-webkit-transform: rotateX(-180deg);
+	transform: rotateX(-180deg);
 }
 
 /*div#section3_right{	margin-left: 15%;}*/
