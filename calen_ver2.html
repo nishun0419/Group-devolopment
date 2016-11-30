@@ -66,8 +66,8 @@
         if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
         
         var htmlStr = "<table class='calen'>\n"
-        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='back' id='back' onclick='restart(-1)'>" + year + "”N " + month + "ŒŽ" + "<input type='button' value='next' id='next' onclick='restart(1)'>" + "</th></tr>\n";
-        htmlStr += "<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
+        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "”N " + month + "ŒŽ" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
+        htmlStr +="<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
         for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
         htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
         

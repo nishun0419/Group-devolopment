@@ -1,5 +1,5 @@
 body{													/*ëSëÃÇÃîwåiÇÃê›íË*/
-	background-image: url(resize-img.jpg);
+	background-image: url(image/calen_back.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -27,32 +27,39 @@ body{													/*ëSëÃÇÃîwåiÇÃê›íË*/
 }
 
 table.calen {  font-size:20pt;
-			   background-color:#fffafa;
 			   margin: 0 auto;
+			   background-image: url()
+			   border-collapse:collapse;
 			 }
 
 table.calen th { height:30px;
-                  text-align: center; }
+                 text-align: center;
+                 color: #FFFFFF;
+                   }
 
 table.calen td { text-align:center;
 				vertical-align: middle;
 				 height:90px;
 				 width:90px;
+				 color: #FFFFFF;
 				}
 
-table.calen .sat { color:blue; }
+table.calen .sat { color:#4484FF; }
 
-table.calen .satd { color:blue; }
+table.calen .satd { color:#4484FF; }
 
 table.calen .sun { color:red; }
 
 table.calen .sund { color:red; }
 
-table.calen .today { background-color:#ffe4ce;
+table.calen .today { background-color: #348385;
 					font-weight:bold;
 					}
-table.calen tr.bg1 { background-color:#f5f5dc;
-				     text-align: center; }
+table.calen tr.bg1 {
+			color: #FFFFFF; 
+		    text-align: center;
+		    border-bottom:1px dashed #ccc;
+		}
 
 p#calen{
 	margin: 0 auto;
@@ -118,13 +125,21 @@ div.button{
 }
 #calen input#next{									/*nextÉ{É^Éì*/
 	margin-left: 100px;
-	width: 80px;
+	margin-bottom: 10px;
+	background-color: #3B6E40;
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
 	font-size: 20px;
 }
 
 #calen input#back{
 	margin-right: 100px;
-	width: 80px;
+	margin-bottom: 10px;
+	background-color: #3B6E40;
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
 	font-size: 20px;
 }
 
