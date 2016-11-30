@@ -23,7 +23,7 @@ var n = myform.name.value;
 
 if(n == ""){
 	res = false;
-	window.alert("‚¨–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	alert("‚¨–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
 	return;
 }
 check2();
@@ -85,6 +85,10 @@ return;
 </script>
 </head>
 <body>
+<div id="menu_ber">
+	<h1>SHARECALENDAR</h1>
+	<div id="logout"></div>
+</div>
 <div id="trigger01"></div>
 <div class="spacer_top_back"></div>
 <div class="spacer_top">
@@ -110,7 +114,7 @@ var title_tween = new TimelineMax();
 		
 		//.add(TweenMax.to(".spacer_top h1",2,{ y:-100,opacity:1}))
 		//add(TweenMax.to(".spacer_top_back",2,{css:{opacity:1}}));
-		title_tween.to(".spacer_top h1",2,{y:-200})
+		title_tween.to(".spacer_top h1",2,{y:-180})
 		.to(".spacer_top_back",2,{css:{opacity:1}}, '-=2')
 		.to(".entry",0.5,{display:'block'});
 </script>
@@ -217,9 +221,9 @@ var title_tween = new TimelineMax();
 </dd>
 </dl>
 
-	<input type="button" value="“o˜^‚·‚éI" onclick=check1();>
-	</div>
+	<input type="button" value="“o˜^‚·‚éI" onclick="check1()">
 </form>
+		</div>
 		<div class="section3_box" id="section3_left">
 			<div>
 				<form name="myform" action="sinki.html">
@@ -250,7 +254,7 @@ var title_tween = new TimelineMax();
 <dd>&nbsp;</dd>
 </dl>
 	
-	<input type="button" value="“o˜^‚·‚éI" onclick=check1();>
+	<input type="button" value="“o˜^‚·‚éI" onclick="check1()">
 	</div>
 </form>
 		</div>

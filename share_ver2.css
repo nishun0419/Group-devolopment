@@ -7,6 +7,25 @@ body{													/*全体の背景の設定*/
 
 }
 
+#menu_ber{
+	width: 100%;
+	height: 50px;
+	padding-left: 10px;
+}
+#menu_ber h1{
+	display: inline-block;
+	margin-left: 10px;
+	color: blue;
+}
+
+#logout{
+	display: inline-block;
+	position: absolute; right: 5%; top: 20px;
+	border: 1px solid #999;
+	width: 100px;
+	height: 30px;
+}
+
 table.calen {  font-size:20pt;
 			   background-color:#fffafa;
 			   margin: 0 auto;
@@ -37,6 +56,7 @@ table.calen tr.bg1 { background-color:#f5f5dc;
 
 p#calen{
 	margin: 0 auto;
+	margin-top: 20px;
 } 
 
 
@@ -157,12 +177,6 @@ td,th{
 	position: absolute; right: 10px; top: 10px;
 }
 
-h1{										/*CALENDARタイトル*/
-	background-image: url(imgh1.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	text-align: center;
-}
 #tw2{
 	position: absolute;right: 9.5%;top: 98px
 }

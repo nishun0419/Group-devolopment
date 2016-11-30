@@ -211,10 +211,13 @@
         
         </head>
         <body onload="showCalen(0)">
-        <h1>CALENDAR</h1>
-        <p id="change"><input type="button" value="前月" onclick="showCalen(-1)">
-        <input type="button" value="次月" onclick="showCalen(1)"></p>
+        <div id="menu_ber">
+            <h1>ゲスト様のカレンダー</h1>
+            <div id="logout"></div>
+        </div>
         <hr>
+        <!-- <p id="change"><input type="button" value="前月" onclick="showCalen(-1)"> -->
+        <!-- <input type="button" value="次月" onclick="showCalen(1)"></p> -->
         <p id="calen"></p>
         <div class="todolist" style="display: none">            
         <table class="table table-bordered table-hover table-condensed" id="todotable">

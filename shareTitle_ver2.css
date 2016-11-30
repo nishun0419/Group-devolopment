@@ -162,7 +162,8 @@ div.section3_box{
 	margin-right: 0px;
 }
 /* ボタンエフェクト */
-.button_section3 {
+.button {
+	position: relative;
 	z-index: 2;
 	border: 2px solid #333;
 	color: #fff;
@@ -172,32 +173,21 @@ div.section3_box{
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 }
-
-.button_section3:hover {
+.button:hover {
 	color: #333;
 }
-.button_section3::after {
+.button::after {
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: black;
+	background: #333;
 	-webkit-transform-origin: center bottom;
 	transform-origin: center bottom;
 	-webkit-transform: rotateX(0);
 	transform: rotateX(0);
 }
-.button_section3,
-.button_section3::before,
-.button_section3::after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: all .3s;
-	transition: all .3s;
-}
-
-.button_section3:hover::after {
+.button:hover::after {
 	-webkit-transform: rotateX(-180deg);
 	transform: rotateX(-180deg);
 }
