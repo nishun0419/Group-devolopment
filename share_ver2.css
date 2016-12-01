@@ -247,7 +247,7 @@ span.showtext1{
 
 div.Groupsection{
 	background-color: #FFFFFF;
-	width: 310px;
+	width: 320px;
 	height: 440px;
 	margin-right: 0px;
 	top:100px;
@@ -260,7 +260,7 @@ div.Groupsection{
 
 div.Grouptext{
 	position: relative;
-	width: 300px;
+	width: 310px;
 	height: 310px;
 	margin-right: 0px;
 	overflow-y: auto;
@@ -268,7 +268,7 @@ div.Grouptext{
 }
 div.slide{
 	position: relative;
-	width: 300px;
+	width: 310px;
 	height: 315px;
 	background-color: #FFFFFF;
 	display: inline-block;
@@ -280,7 +280,7 @@ div.slide{
 
 div.GroupBox .Grouplist{
 	display: inline-block;
-	width: 255px;
+	width: 250px;
 	padding-left: 10px;
 	vertical-align: middle;
 	margin-bottom: 10px;
