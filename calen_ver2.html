@@ -203,6 +203,18 @@
 
         })
 
+    $('.edit_Group').on('click',function(){
+  if($('.slide').hasClass('off')){
+    $('.slide').removeClass('off');
+    $('.slide').animate({'marginLeft':'0px'},300).addClass('on');
+    $('#titleh h3').text('グループ参加')
+  }else{
+    $('.slide').addClass('off');
+    $('.slide').animate({'marginLeft':'-300px'},300);
+    $('#titleh h3').text('登録したグループ名')
+  }
+});
+
 
     });  
 
@@ -242,6 +254,9 @@
             <div class="GroupBox">
             <div id="titleh">
             <h3>登録したグループ名</h3>
+            </div>
+            <div class="slide off">
+                <input type="text"><button type="button" class="btn btn-success sign">ボタン２</button>
             </div>
             <div class="Grouptext">
             <div>

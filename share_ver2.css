@@ -254,14 +254,28 @@ div.Groupsection{
 	font-size: 15px;
 	color: black;
 	border: 1px solid #F52954;
+	overflow-x: hidden;
 	
 }
 
 div.Grouptext{
+	position: relative;
 	width: 300px;
-	height: 300px;
+	height: 310px;
 	margin-right: 0px;
-	overflow-x: auto;
+	overflow-y: auto;
+	margin-top: -315px;
+}
+div.slide{
+	position: relative;
+	width: 300px;
+	height: 315px;
+	background-color: #FFFFFF;
+	display: inline-block;
+	margin-left: -300px;
+	z-index: 50;
+	text-align: center;
+
 }
 
 div.GroupBox .Grouplist{
@@ -282,7 +296,7 @@ div.GroupBox div#titleh{
 }
 
 p#GroupEdit{
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-left: 5px;
 }
 
