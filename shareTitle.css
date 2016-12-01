@@ -169,7 +169,7 @@ h1{
 }
 div#section3_button{
 	margin: 0 auto;
-	width: 900px;
+	width: 1000px;
 	margin-top: 50px;
 
 }
@@ -179,18 +179,23 @@ div.section3_box{
 	width: 400px;
 	height: 400px;
 	background-color: #FFFFFF;
+	text-align: center;
 }
 
-#section3_right{
-	margin-left: 0px;
+div#section3_right{
+	margin-left: 100px;
 }
 
-#section3_left{
-	margin-right: 0px;
+div#section3_left{
+	padding-left: 0px;
 }
 form p{
 	font-size: 20px;
 	color: #FFFFFF;
+}
+
+.sign{
+	margin-top:150px;
 }
 
 /*div#section3_right{	margin-left: 15%;}*/

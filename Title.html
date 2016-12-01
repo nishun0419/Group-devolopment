@@ -27,6 +27,7 @@
 <div id="trigger01"></div>
 <div class="spacer_top_back"></div>
 <div class="spacer_top">
+	<h1 id = "S"><strong>S</strong></h1>
 	<h1 id = "S">S</h1>
 	<h1 id = "H">H</h1>
 	<h1 id = "A">A</h1>
@@ -41,11 +42,12 @@
 	<h1 id = "D">D</h1>
 	<h1 id = "A3">A</h1>
 	<h1 id = "R2">R</h1>
+	<h1 id = "R2"><strong>R</strong></h1>
 	<div class="entry" onclick="location.href='calen_ver2.html'">Entry</div>
 </div>
 <script>
 var title_tween = new TimelineMax();
-			title_tween.staggerTo('.spacer_top h1' , 0.2 ,{opacity:1, scale:2},0.3);
+			title_tween.staggerTo('.spacer_top h1' , 0.2 ,{opacity:1, scale:2},0.2);
 
 		//.add(TweenMax.to(".spacer_top h1",2,{ y:-100,opacity:1}))
 		//add(TweenMax.to(".spacer_top_back",2,{css:{opacity:1}}));
@@ -93,8 +95,8 @@ var title_tween = new TimelineMax();
 	</div>
 <script>
 	second_tween = new TimelineMax();
-	 second_tween.to("#circle3" , 2 , {x:350 , opacity:1})
-	 			 .to("#circle2" , 2 , {x:150 , opacity:1},'-=1.5')
+	 second_tween.to("#circle3" , 2 , {x:294 , opacity:1})
+	 			 .to("#circle2" , 2 , {x:144 , opacity:1},'-=1.5')
 	  			 .staggerTo(".circle p", 1 ,{opacity:1});
 
 	 var scene = new ScrollMagic.Scene({triggerElement:"#trigger03"})
@@ -110,8 +112,14 @@ var title_tween = new TimelineMax();
 		<p>多くは語りません。あとはあなたの目で確かめてください。</p>
 	</div>
 	<div id="section3_button">
-		<div class="section3_box" id="section3_left"></div>
-		<div class="section3_box" id="section3_right"></div>
+		<div class="section3_box" id="section3_right">
+			<h3>新規登録はこちらから</h3>
+			<button type="button" class="btn btn-success sign">ボタン１</button>
+		</div>
+		<div class="section3_box" id="section3_left">
+			<h3>ログインはこちらから</h3>
+			<button type="button" class="btn btn-success sign">ボタン２</button>
+		</div>
 	</div>
 </body>
 </html>

@@ -245,34 +245,45 @@ span.showtext1{
 	display: inline-block;
 }									/*----------------*/
 
-div.GroupBox{
+div.Groupsection{
 	background-color: #FFFFFF;
-	width: 300px;
+	width: 310px;
 	height: 440px;
 	margin-right: 0px;
 	top:100px;
 	font-size: 15px;
 	color: black;
 	border: 1px solid #F52954;
+	
+}
+
+div.Grouptext{
+	width: 300px;
+	height: 300px;
+	margin-right: 0px;
 	overflow-x: auto;
 }
 
 div.GroupBox .Grouplist{
 	display: inline-block;
-	overflow: auto;
 	width: 255px;
 	padding-left: 10px;
 	vertical-align: middle;
 	margin-bottom: 10px;
 }
 
-.delete_Group{
 
+div.GroupBox h3{
+}
+
+div.GroupBox div#titleh{
+	height: 50px;
+	width: 310px;
 }
 
 p#GroupEdit{
-	margin-top: -40px;
-	margin-right: 0px;
+	margin-top: 20px;
+	margin-left: 5px;
 }
 
 p#GroupEdit button{
