@@ -16,7 +16,7 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	var controller = new ScrollMagic.Controller(); 
+	var controller = new ScrollMagic.Controller();
 </script>
 </head>
 <body>
@@ -46,11 +46,11 @@
 <script>
 var title_tween = new TimelineMax();
 			title_tween.staggerTo('.spacer_top h1' , 0.2 ,{opacity:1, scale:2},0.3);
-		
+
 		//.add(TweenMax.to(".spacer_top h1",2,{ y:-100,opacity:1}))
 		//add(TweenMax.to(".spacer_top_back",2,{css:{opacity:1}}));
 		title_tween.to(".spacer_top h1",2,{y:-180})
-		.to(".spacer_top_back",2,{css:{opacity:1}}, '-=2')
+		.to(".spacer_top_back",2,{css:{opacity:0.7}}, '-=2')
 		.to(".entry",0.5,{display:'block'});
 </script>
 <div id="trigger02"></div>
