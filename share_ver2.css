@@ -58,8 +58,14 @@ table.calen .today { background-color: #348385;
 table.calen tr.bg1 {
 			color: #FFFFFF; 
 		    text-align: center;
-		    border-bottom:1px dashed #ccc;
+		    border-bottom:1px solid #ccc;
 		}
+table.calen tr.bg2{
+	border-bottom:1px solid #ccc;
+}
+table.calen tr.daydate{
+	border-bottom:1px dashed #ccc;
+}
 
 p#calen{
 	margin: 0 auto;

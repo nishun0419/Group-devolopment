@@ -36,7 +36,7 @@ div.spacer_top {
 	height: 85%;
 	position: absolute; top: 40%;
 	text-align: center;
-	color: #FCFF0C;
+	color: #142288;
 		font-family: "Josefin Slab", serif;
 	}
 
@@ -181,11 +181,12 @@ div.section3_box{
 	background-color: #FFFFFF;
 }
 
-form{
-	text-align: center;
+#section3_right{
+	margin-left: 0px;
 }
+
 #section3_left{
-	margin-left: 20px;
+	margin-right: 0px;
 }
 form p{
 	font-size: 20px;

@@ -73,11 +73,11 @@
         
         var col=0;
         if (startDay > 0) {
-        htmlStr += "<tr>";
+        htmlStr += "<tr class='daydate'>";
         for ( ; col<startDay; col++) htmlStr += "<td>&nbsp;</td>";
         }
         for (i=1; i<=dateMax; i++) {
-        if (col == 0) htmlStr += "<tr>";
+        if (col == 0) htmlStr += "<tr class='daydate'>";
         if (flag == 1 && i == today) {
         if (holidays[i] == 1 || col == 0) htmlStr += "<td class='today sun' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         else if (col == 6) htmlStr += "<td class='today sat' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
