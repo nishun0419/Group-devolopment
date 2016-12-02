@@ -3,7 +3,7 @@
      ./calen_ver2.html/ 
      ./share_ver2.css/
    ☐ データベースの設計（劉、松本に任せた）
-   ☐ タイトル画面の作成
+   ✔ タイトル画面の作成 @done (16-12-02 09:48)
      ./Title.html/
      ./shareTitle.css/
    ☐ スマホサイトの対応化
