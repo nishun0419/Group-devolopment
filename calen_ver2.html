@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-script-type" content="text/javascript">
-<title>ƒVƒFƒAƒJƒŒ MyCalendar</title>
+<title>ã‚·ã‚§ã‚¢ã‚«ãƒ¬ MyCalendar</title>
 <link href="share_ver2.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 <script src="bootjs/bootstrap.min.js"></script>
 <script type="text/javascript">
 
-// j“ú1F‰½Œ‚Ì‰½“ú‚©H
+// ç¥æ—¥1ï¼šä½•æœˆã®ä½•æ—¥ã‹ï¼Ÿ
         var Holidays1 = new Array(1,1, 2,11, 3,21, 4,29, 5,3, 5,4, 5,5, 8,11, 9,22, 11,3, 11,23, 12,23);
-        // j“ú2F‰½Œ‚Ì‘æ‰½Œ—j“ú‚©H
+        // ç¥æ—¥2ï¼šä½•æœˆã®ç¬¬ä½•æœˆæ›œæ—¥ã‹ï¼Ÿ
         var Holidays2 = new Array(1,2, 7,3, 9,3, 10,2);
-        //—\’è‚Ì•Û‘¶
+        //äºˆå®šã®ä¿å­˜
         var plan = new Array();
         var arrin = 0;
-        // Œ»İ‚Ì”NAŒA“ú‚Ìæ“¾
+        // ç¾åœ¨ã®å¹´ã€æœˆã€æ—¥ã®å–å¾—
         var now       = new Date();
         var thisYear  = now.getFullYear();
         var thisMonth = now.getMonth() + 1;
         var today     = now.getDate();
         
-        // •\¦”NŒ‚Ì‹L‰¯
+        // è¡¨ç¤ºå¹´æœˆã®è¨˜æ†¶
         var year      = thisYear;
         var month     = thisMonth;
         
         var monthdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-        var days = new Array("“ú", "Œ", "‰Î", "…", "–Ø", "‹à", "“y");
+        var days = new Array("æ—¥", "æœˆ", "ç«", "æ°´", "æœ¨", "é‡‘", "åœŸ");
         var todotitle;
         var todocateg;
         var todomsg;
@@ -46,27 +46,27 @@
         var dateMax = monthdays[month - 1];
         if (month == 2 && ((year%4 == 0 && year%100 != 0) || year%400 == 0)) dateMax = 29;
         
-        // ‹x“ú”z—ñ‚Ì‰Šú‰»
+        // ä¼‘æ—¥é…åˆ—ã®åˆæœŸåŒ–
         var holidays = new Array();
         for (var i=0; i<=dateMax; i++) holidays[i] = 0;
         
-        // j“ú1 ‚Ìˆ—
+        // ç¥æ—¥1 ã®å‡¦ç†
         var firstSunday = (startDay == 0)? 1: 8 - startDay;
         for (i=0; i<Holidays1.length; i+=2) {
         if (Holidays1[i] == month) {
         holidays[Holidays1[i+1]] = 1;
         for (var j=firstSunday; j<dateMax; j+=7)
-        if (Holidays1[i+1] == j) holidays[j+1] = 1;  // U‘Ö‹x“ú
+        if (Holidays1[i+1] == j) holidays[j+1] = 1;  // æŒ¯æ›¿ä¼‘æ—¥
         }
         }
-        // j“ú2 ‚Ìˆ—
+        // ç¥æ—¥2 ã®å‡¦ç†
         var mondays = new Array();
         var firstMonday = (startDay < 2)? 2 - startDay: 9 - startDay;
         for (i=0; i<Holidays2.length; i+=2)
         if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
         
         var htmlStr = "<table class='calen'>\n"
-        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "”N " + month + "Œ" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
+        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "å¹´ " + month + "æœˆ" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
         htmlStr +="<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
         for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
         htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
@@ -87,7 +87,7 @@
         else if (col == 6) htmlStr += "<td class='satd' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         else htmlStr += "<td class='normal' yy='"+year+"' mm='"+month+"' day='"+i+"' onclick='test(this);return false;'>";
         if (i == 25){
-            htmlStr += i +"<h6>" + "100Œ—\’è‚ ‚è" + "</h6>" ;
+            htmlStr += i +"<h6>" + "100ä»¶äºˆå®šã‚ã‚Š" + "</h6>" ;
         }
         else{
             htmlStr += i +"<h6>" + "&nbsp;" + "</h6>";
@@ -103,41 +103,41 @@
         
         document.getElementById("calen").innerHTML = htmlStr;
 
-        //“ü—Í‰æ–Ê¶¬
-        var textinput = '<div class="textinputs">' + '<div>' + '<div id="calendate">' + '</div>' + '<label for="settitle">' + "ƒ^ƒCƒgƒ‹" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //ƒ^ƒCƒgƒ‹“ü—Í
-        textinput += '<div>' + '<label for="categ">' + "ƒJƒeƒSƒŠ[" + '</label>' + '<input type="text" id="categ">' + '</div>';        //ƒJƒeƒSƒŠ[
-        textinput += '<div>' + '<label for="msg">' + "ƒƒbƒZ[ƒW" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';       //ƒƒbƒZ[ƒW
+        //å…¥åŠ›ç”»é¢ç”Ÿæˆ
+        var textinput = '<div class="textinputs">' + '<div>' + '<div id="calendate">' + '</div>' + '<label for="settitle">' + "ã‚¿ã‚¤ãƒˆãƒ«" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //ã‚¿ã‚¤ãƒˆãƒ«å…¥åŠ›
+        textinput += '<div>' + '<label for="categ">' + "ã‚«ãƒ†ã‚´ãƒªãƒ¼" + '</label>' + '<input type="text" id="categ">' + '</div>';        //ã‚«ãƒ†ã‚´ãƒªãƒ¼
+        textinput += '<div>' + '<label for="msg">' + "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';       //ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
         textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,categ.value,msg.value)">' + '</div>';
         textinput += '</div>';
         document.getElementById("inputmenu").innerHTML = textinput;
         }
         
-        //“ú•tƒNƒŠƒbƒN‚Ìˆ—
+        //æ—¥ä»˜ã‚¯ãƒªãƒƒã‚¯æ™‚ã®å‡¦ç†
         function test(e){                                     
-        var openset = '<div id="tw1" onclick="showopen()">' + '<div id="tw">' + "{" + '<div>' + '</div>';
-            //“ú•tî•ñ‚Ìæ“¾
+        var openset = '<div id="tw1" onclick="showopen()">' + '<div id="tw">' + "ï¼‹" + '<div>' + '</div>';
+            //æ—¥ä»˜æƒ…å ±ã®å–å¾—
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
             var day = e.getAttribute('day');
-            //Šm”F—pƒAƒ‰[ƒg
+            //ç¢ºèªç”¨ã‚¢ãƒ©ãƒ¼ãƒˆ
             alert(yy + '/' + mm + '/' + day);
             $('#calendate').text( yy + '/' + mm + '/' + day) 
-            //“ü—Í‰æ–Ê‚Ì•\¦A”ñ•\¦‚ÌŠÖ”ŒÄ‚Ño‚µ‚ÌƒNƒŠƒbƒNƒCƒxƒ“ƒg
-        /*-----ƒf[ƒ^ƒx[ƒX‚Ìˆ—---------------*/
-            // todo:—\’è‚ª‚ ‚ê‚Î•\¦
+            //å…¥åŠ›ç”»é¢ã®è¡¨ç¤ºã€éè¡¨ç¤ºã®é–¢æ•°å‘¼ã³å‡ºã—ã®ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆ
+        /*-----ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†---------------*/
+            // todo:äºˆå®šãŒã‚ã‚Œã°è¡¨ç¤º
 
 
         document.getElementById("tw2").innerHTML = openset;
         }
         
         function settodo(title, ctegory, message){
-            $(function(){              //“ü—Í‚µ‚½ƒf[ƒ^‚ğ•Ï”‚É‘ã“ü
+            $(function(){              //å…¥åŠ›ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ•°ã«ä»£å…¥
             todotitle = title;
             todocateg = ctegory;
             todomsg = message;
-            // ƒf[ƒ^ƒx[ƒX‚Ìˆ—‚Å“ü—Íî•ñ‚ğŠi”[
+            // ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã®å‡¦ç†ã§å…¥åŠ›æƒ…å ±ã‚’æ ¼ç´
 
-            $('#tw').text("{");
+            $('#tw').text("ï¼‹");
             $('#open').css('display' , 'none');
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
@@ -153,40 +153,40 @@
 
         function restart(n){
         $('#todo').text("");
-        $('#todotable' ).find("tr:gt(0)").remove();         //‘Ssíœ
+        $('#todotable' ).find("tr:gt(0)").remove();         //å…¨è¡Œå‰Šé™¤
         $('.todolist').css('display' , 'none');
         $('#tw2').text("");
         $('#open').css('display' , 'none')
         showCalen(n);
         }
         function showopen(){
-        $(function(){                                    //“ü—Í‰æ–Ê‚Ì•\¦A”ñ•\¦
+        $(function(){                                    //å…¥åŠ›ç”»é¢ã®è¡¨ç¤ºã€éè¡¨ç¤º
             if($('#open').css('display') == 'none'){
                 $('#open').css('display' , 'block');
-                $('#tw').text("[");
+                $('#tw').text("ãƒ¼");
             }
             else{
                 $('#open').css('display' , 'none');
-                $('#tw').text("{");
+                $('#tw').text("ï¼‹");
             }
          } ); 
          }    
-        //“ü—Í‚µ‚½“à—e‚ğ•\¦
+        //å…¥åŠ›ã—ãŸå†…å®¹ã‚’è¡¨ç¤º
         function showtodo() {
-        var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "ƒ^ƒCƒgƒ‹"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //ƒ^ƒCƒgƒ‹
-        showtodotext += '<div>' + '<span class ="showtext1">' + "ƒJƒeƒSƒŠ[" + '</span>' + '<div class="text1">' + todocateg + '</div>' + '</div>';        //ƒJƒeƒSƒŠ[
-        showtodotext += '<div>' + '<span class ="showtext1">' + "ƒƒbƒZ[ƒW" + '</span>' + '<div class="text2">' + todomsg + '</div>' + '</div>';           //ƒƒbƒZ[ƒW
-        showtodotext += '<div class="button">' + '<input type="button" value="•Â‚¶‚é" onclick="showopen()">' + '</div>';
+        var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "ã‚¿ã‚¤ãƒˆãƒ«"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //ã‚¿ã‚¤ãƒˆãƒ«
+        showtodotext += '<div>' + '<span class ="showtext1">' + "ã‚«ãƒ†ã‚´ãƒªãƒ¼" + '</span>' + '<div class="text1">' + todocateg + '</div>' + '</div>';        //ã‚«ãƒ†ã‚´ãƒªãƒ¼
+        showtodotext += '<div>' + '<span class ="showtext1">' + "ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸" + '</span>' + '<div class="text2">' + todomsg + '</div>' + '</div>';           //ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+        showtodotext += '<div class="button">' + '<input type="button" value="é–‰ã˜ã‚‹" onclick="showopen()">' + '</div>';
         showtodotext += '</div>';
         $('#todo').html(showtodotext);
         }
 
     $(function(){
-        //—\’è‚Ìíœƒ{ƒ^ƒ“ƒNƒŠƒbƒN 
+        //äºˆå®šã®å‰Šé™¤ãƒœã‚¿ãƒ³ã‚¯ãƒªãƒƒã‚¯æ™‚ 
         $(document).on('click' , '.delete', function(){
             var rowNum = $('.delete').index(this);
             $('#todotable').find('tr').eq(rowNum + 1).remove();
-            // todo:ŠÖ˜A‚·‚éî•ñ‚ğƒf[ƒ^ƒx[ƒX‚©‚çíœ‚·‚é
+            // todo:é–¢é€£ã™ã‚‹æƒ…å ±ã‚’ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‹ã‚‰å‰Šé™¤ã™ã‚‹
 
 
             if($('.delete').length == 0){
@@ -195,10 +195,10 @@
 
         });
 
-        $(document).on('click','.delete_Group', function(){     //ƒOƒ‹[ƒv‚Ìíœƒ{ƒ^ƒ“ƒNƒŠƒbƒN
+        $(document).on('click','.delete_Group', function(){     //ã‚°ãƒ«ãƒ¼ãƒ—ã®å‰Šé™¤ãƒœã‚¿ãƒ³ã‚¯ãƒªãƒƒã‚¯æ™‚
             $(this).parent().remove();
             
-            // todo:ŠÖ˜A‚·‚éî•ñ‚ğƒf[ƒ^ƒx[ƒX‚©‚çíœ‚·‚é
+            // todo:é–¢é€£ã™ã‚‹æƒ…å ±ã‚’ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‹ã‚‰å‰Šé™¤ã™ã‚‹
 
 
         })
@@ -207,11 +207,11 @@
   if($('.slide').hasClass('off')){
     $('.slide').removeClass('off');
     $('.slide').animate({'marginLeft':'0px'},300).addClass('on');
-    $('#titleh h3').text('ƒOƒ‹[ƒvQ‰Á')
+    $('#titleh h3').text('ã‚°ãƒ«ãƒ¼ãƒ—å‚åŠ ')
   }else{
     $('.slide').addClass('off');
     $('.slide').animate({'marginLeft':'-300px'},300);
-    $('#titleh h3').text('“o˜^‚µ‚½ƒOƒ‹[ƒv–¼')
+    $('#titleh h3').text('ç™»éŒ²ã—ãŸã‚°ãƒ«ãƒ¼ãƒ—å')
   }
 });
 
@@ -226,12 +226,12 @@
         </head>
         <body onload="showCalen(0)">
         <div id="menu_ber">
-            <h1>ƒQƒXƒg—l‚ÌƒJƒŒƒ“ƒ_[</h1>
+            <h1>ã‚²ã‚¹ãƒˆæ§˜ã®ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼</h1>
             <div id="logout"></div>
         </div>
         <hr>
-        <!-- <p id="change"><input type="button" value="‘OŒ" onclick="showCalen(-1)"> -->
-        <!-- <input type="button" value="ŸŒ" onclick="showCalen(1)"></p> -->
+        <!-- <p id="change"><input type="button" value="å‰æœˆ" onclick="showCalen(-1)"> -->
+        <!-- <input type="button" value="æ¬¡æœˆ" onclick="showCalen(1)"></p> -->
         <p id="calen"></p>
         <div class="todolist" style="display: none">            
         <table class="table table-bordered table-hover table-condensed" id="todotable">
@@ -253,60 +253,60 @@
              <div class="Groupsection"> 
             <div class="GroupBox">
             <div id="titleh">
-            <h3>“o˜^‚µ‚½ƒOƒ‹[ƒv–¼</h3>
+            <h3>ç™»éŒ²ã—ãŸã‚°ãƒ«ãƒ¼ãƒ—å</h3>
             </div>
             <div class="slide off">
-                <input type="text"><button type="button" class="btn btn-success sign">ƒ{ƒ^ƒ“‚Q</button>
+                <input type="text"><button type="button" class="btn btn-success sign">ãƒœã‚¿ãƒ³ï¼’</button>
             </div>
             <div class="Grouptext">
             <div>
-                <div class="Grouplist">_ŒË“dqê–åŠwZ@s–</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                <div class="Grouplist">ç¥æˆ¸é›»å­å°‚é–€å­¦æ ¡ã€€è¡Œäº‹</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
                 
             </div>
             <div>
-                <div class="Grouplist">ƒAƒ‹ƒoƒCƒgƒVƒtƒg</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                <div class="Grouplist">ã‚¢ãƒ«ãƒã‚¤ãƒˆã‚·ãƒ•ãƒˆ</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                <div class="Grouplist">AŠˆŠÖ˜A‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                <div class="Grouplist">å°±æ´»é–¢é€£ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                <div class="Grouplist">ƒOƒ‹[ƒvŠJ”­@ƒXƒPƒWƒ…[ƒ‹</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                <div class="Grouplist">ã‚°ãƒ«ãƒ¼ãƒ—é–‹ç™ºã€€ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
             <div>
-                 <div class="Grouplist">‚È‚É‚©‚µ‚ç‚Ì—\’è</div><button class="btn btn-danger btn-xs delete_Group">íœ</button>
+                 <div class="Grouplist">ãªã«ã‹ã—ã‚‰ã®äºˆå®š</div><button class="btn btn-danger btn-xs delete_Group">å‰Šé™¤</button>
             </div>
         </div>
         </div>
-           <p id="GroupEdit"><button class="btn btn-primary edit_Group">V‚µ‚¢ƒOƒ‹[ƒv‚ÉQ‰Á</button> 
-         <button class="btn btn-primary">ƒOƒ‹[ƒv‚ğì‚é</button>
+           <p id="GroupEdit"><button class="btn btn-primary edit_Group">æ–°ã—ã„ã‚°ãƒ«ãƒ¼ãƒ—ã«å‚åŠ </button> 
+         <button class="btn btn-primary">ã‚°ãƒ«ãƒ¼ãƒ—ã‚’ä½œã‚‹</button>
         </p>
         </div>
-        <!-- Ü‚è‚±‚İ“WŠJƒ|ƒCƒ“ƒ^ -->
+        <!-- æŠ˜ã‚Šã“ã¿å±•é–‹ãƒã‚¤ãƒ³ã‚¿ -->
         <div id="tw2"> </div>
-        <!--// Ü‚èô‚İ“WŠJƒ|ƒCƒ“ƒ^ -->
+        <!--// æŠ˜ã‚Šç•³ã¿å±•é–‹ãƒã‚¤ãƒ³ã‚¿ -->
         
-        <!-- Ü‚èô‚Ü‚ê•”•ª -->
+        <!-- æŠ˜ã‚Šç•³ã¾ã‚Œéƒ¨åˆ† -->
         <div style="display: none" id="open">
         <p id="inputmenu"></p></div>
         </body>
