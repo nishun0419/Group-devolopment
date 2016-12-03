@@ -38,6 +38,7 @@ var n = myform.mail.value;
 if(n == ""){
 	res = false;
 	window.alert("メールアドレスを入力してください。");
+	return;
 }
 check4();
 return;
@@ -67,6 +68,9 @@ else  if(n != m){
 	window.alert("パスワードが一致しません。再度入力してください。");
 	return;
 	}
+else {
+	window.alert("認証成功です。")
+}
 return;
 }
 
