@@ -119,8 +119,6 @@
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
             var day = e.getAttribute('day');
-            //確認用アラート
-            alert(yy + '/' + mm + '/' + day);
             $('#calendate').text( yy + '/' + mm + '/' + day) 
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
@@ -207,7 +205,7 @@
   if($('.slide').hasClass('off')){
     $('.slide').removeClass('off');
     $('.slide').animate({'marginLeft':'0px'},300).addClass('on');
-    $('#titleh h3').text('グループ参加')
+    $('#titleh h3').text('グループID入力');
   }else{
     $('.slide').addClass('off');
     $('.slide').animate({'marginLeft':'-300px'},300);
@@ -304,7 +302,6 @@
         </div>
         <!-- 折りこみ展開ポインタ -->
         <div id="tw2"> </div>
-        <!--// 折り畳み展開ポインタ -->
         
         <!-- 折り畳まれ部分 -->
         <div style="display: none" id="open">

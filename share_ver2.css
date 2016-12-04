@@ -273,7 +273,7 @@ div.slide{
 	background-color: #FFFFFF;
 	display: inline-block;
 	margin-left: -300px;
-	z-index: 50;
+	z-index: 10;
 	text-align: center;
 
 }
