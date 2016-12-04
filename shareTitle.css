@@ -185,11 +185,11 @@ div.section3_box{
 }
 
 div#section3_right{
-	margin-left: 100px;
+	margin-left: 0px;
 }
 
 div#section3_left{
-	padding-left: 0px;
+	margin-right: 0px;
 }
 form p{
 	font-size: 20px;
