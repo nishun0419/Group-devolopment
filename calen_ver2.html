@@ -14,9 +14,8 @@
         var Holidays1 = new Array(1,1, 2,11, 3,21, 4,29, 5,3, 5,4, 5,5, 8,11, 9,22, 11,3, 11,23, 12,23);
         // 祝日2：何月の第何月曜日か？
         var Holidays2 = new Array(1,2, 7,3, 9,3, 10,2);
-        //予定の保存
-        var plan = new Array();
-        var arrin = 0;
+        // グループフラグ
+        var Gflag = 0;
         // 現在の年、月、日の取得
         var now       = new Date();
         var thisYear  = now.getFullYear();
@@ -100,10 +99,13 @@
         htmlStr += "</tr>";
         }
         htmlStr += "</table>";
-        
-        document.getElementById("calen").innerHTML = htmlStr;
-        document.getElementById("Group_calen").innerHTML = htmlStr;
-
+         document.getElementById("Group_calen").innerHTML = htmlStr;
+        if(Gflag != 1){
+           document.getElementById("calen").innerHTML = htmlStr;
+        }
+        else{
+         document.getElementById("Group_calen").innerHTML = htmlStr;
+        }
         //入力画面生成
         var textinput = '<div class="textinputs">' + '<div>' + '<div id="calendate">' + '</div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
         textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="categ">' + '</div>';        //カテゴリー
@@ -216,7 +218,8 @@
     $('.create_Group').on('click',function(){
         $('#createin').css('display' , 'block');
         $('#menu_ber h1').text("");
-        $('#menu_ber').prepend('<input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">')
+        $('#menu_ber').prepend('<input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">');
+        Gflag = 1;
     });
 
     });  
@@ -313,6 +316,26 @@
         <p id="inputmenu"></p></div>
         <div id="createin">
             <div id="Group_calen"></div>
+         <div class="todolist" style="display: none">            
+        <table class="table table-bordered table-hover table-condensed" id="todotable">
+         <thead class="scrollHead">
+             <tr>
+                <th class="tit">TITLE</th>
+                <th class="ac1"> </th>
+                <th class="ac2"> </th>
+             </tr>
+         </thead>
+         <tbody class="scrollBody">
+         </tbody>
+         <tfoot>
+         </tfoot>
+        </table> 
+        </div>
+         <div id="tw2"> </div>
+        
+        <!-- 折り畳まれ部分 -->
+        <div style="display: none" id="open">
+        <p id="inputmenu"></p></div>
         </div>
         </body>
         </html>
