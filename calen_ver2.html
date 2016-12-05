@@ -102,6 +102,7 @@
         htmlStr += "</table>";
         
         document.getElementById("calen").innerHTML = htmlStr;
+        document.getElementById("Group_calen").innerHTML = htmlStr;
 
         //入力画面生成
         var textinput = '<div class="textinputs">' + '<div>' + '<div id="calendate">' + '</div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
@@ -212,7 +213,11 @@
     $('#titleh h3').text('登録したグループ名')
   }
 });
-
+    $('.create_Group').on('click',function(){
+        $('#createin').css('display' , 'block');
+        $('#menu_ber h1').text("");
+        $('#menu_ber').prepend('<input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">')
+    });
 
     });  
 
@@ -297,7 +302,7 @@
         </div>
         </div>
            <p id="GroupEdit"><button class="btn btn-primary edit_Group">新しいグループに参加</button> 
-         <button class="btn btn-primary">グループを作る</button>
+         <button class="btn btn-primary create_Group">グループを作る</button>
         </p>
         </div>
         <!-- 折りこみ展開ポインタ -->
@@ -306,5 +311,8 @@
         <!-- 折り畳まれ部分 -->
         <div style="display: none" id="open">
         <p id="inputmenu"></p></div>
+        <div id="createin">
+            <div id="Group_calen"></div>
+        </div>
         </body>
         </html>

@@ -1,10 +1,16 @@
+html{
+	height: 100%;
+}
+
 body{													/*全体の背景の設定*/
 	background-image: url(image/calen_back.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-
+	width: 100%;
+	height:100%;
+	margin: 0;
 }
 
 #menu_ber{
@@ -308,6 +314,27 @@ div.Groupsection{
 	position: absolute;
 	right: 75%;
 	top: 140px;
+}
+
+#createin{
+	position: relative;
+	height: calc(100% - 78px);
+	width: 100%;
+	background-color: #FFFFFF;
+	top:-webkit-calc(-100% + 78px);
+	display: none;
+	opacity: 0.5;
+}
+
+
+
+#Group_title{
+	height: 40px;
+	width: 600px;
+	margin-top: 15px;
+	background-color: transparent;
+	color: #FFFFFF;
+	font-size: 40px;
 }
 /*マウスの変化*/
 .normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
