@@ -113,22 +113,35 @@
         textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,categ.value,msg.value)">' + '</div>';
         textinput += '</div>';
         document.getElementById("inputmenu").innerHTML = textinput;
+        //入力画面生成２
+        var textinput2 = '<div class="textinputs">' + '<div>' + '<div id="calendate2">' + '</div>' + '<label for="settitle2">' + "タイトル" +'</label>' + '<input type="text" id="settitle2">' + '</div>';    //タイトル入力
+        textinput2 += '<div>' + '<label for="categ2">' + "カテゴリー" + '</label>' + '<input type="text" id="categ2">' + '</div>';        //カテゴリー
+        textinput2 += '<div>' + '<label for="msg2">' + "メッセージ" + '</label>' + '<textarea id="msg2">' + '</textarea>' + '</div>';       //メッセージ
+        textinput2 += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle2.value,categ2.value,msg2.value)">' + '</div>';
+        textinput2 += '</div>';
+        
+        document.getElementById("inputmenu2").innerHTML = textinput2;
         }
         
         //日付クリック時の処理
         function test(e){                                     
-        var openset = '<div id="tw1" onclick="showopen()">' + '<div id="tw">' + "＋" + '<div>' + '</div>';
+        var openset = '<div id="tw1" onclick="showopen()">' + '<div class="tw">' + "＋" + '<div>' + '</div>';
             //日付情報の取得
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
             var day = e.getAttribute('day');
-            $('#calendate').text( yy + '/' + mm + '/' + day) 
+            $('.textinputs #calendate').text( yy + '/' + mm + '/' + day);
+            $('.textinputs #calendate2').text( yy + '/' + mm + '/' + day);
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
             // todo:予定があれば表示
 
-
-        document.getElementById("tw2").innerHTML = openset;
+        if(Gflag != 1){
+            document.getElementById("tw2").innerHTML = openset;
+        }
+        else{
+            document.getElementById("tw3").innerHTML = openset;
+        }
         }
         
         function settodo(title, ctegory, message){
@@ -138,7 +151,8 @@
             todomsg = message;
             // データベースの処理で入力情報を格納
 
-            $('#tw').text("＋");
+            $('.tw').text("＋");
+            if(Gflag != 1){
             $('#open').css('display' , 'none');
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
@@ -146,6 +160,17 @@
             .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>'))
             .append($('<td class="ac2"></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
             );
+            }
+            else{
+             $('#open2').css('display' , 'none');
+            $('.todolist2').css('display' ,'block')
+            $('tbody' , '.todolist2').append($('<tr class="active"></tr>')
+            .append($('<td class="tit" onclick="showtodo()"></td>').text(title))
+            .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>'))
+            .append($('<td class="ac2"></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
+            );
+            }
+
             $('#settitle').val('');
             $('#categ').val('');
             $('#msg').val('');
@@ -161,15 +186,25 @@
         showCalen(n);
         }
         function showopen(){
-        $(function(){                                    //入力画面の表示、非表示
+        $(function(){ 
+        if(Gflag != 1){                                   //入力画面の表示、非表示
             if($('#open').css('display') == 'none'){
                 $('#open').css('display' , 'block');
-                $('#tw').text("ー");
+                $('.tw').text("ー");
             }
             else{
                 $('#open').css('display' , 'none');
-                $('#tw').text("＋");
+                $('.tw').text("＋");
             }
+        }
+        else{if($('#open2').css('display') == 'none'){
+                $('#open2').css('display' , 'block');
+                $('.tw').text("ー");
+            }
+            else{
+                $('#open2').css('display' , 'none');
+                $('.tw').text("＋");
+            }}
          } ); 
          }    
         //入力した内容を表示
@@ -185,16 +220,24 @@
     $(function(){
         //予定の削除ボタンクリック時 
         $(document).on('click' , '.delete', function(){
-            var rowNum = $('.delete').index(this);
+            if(Gflag != 1){
+            var rowNum = $('#todotable .delete').index(this);
             $('#todotable').find('tr').eq(rowNum + 1).remove();
-            // todo:関連する情報をデータベースから削除する
-
-
-            if($('.delete').length == 0){
+            if($('#todotable .delete').length == 0){
                 $('.todolist').css('display' , 'none');
             }
+            }
+            else{
+                var rowNum = $('#todotable2 .delete').index(this);
+            $('#todotable2').find('tr').eq(rowNum + 1).remove();
+            if($('#todotable2 .delete').length == 0){
+                $('.todolist2').css('display' , 'none');
+            }
+            }
+            // todo:関連する情報をデータベースから削除する
+            }
 
-        });
+        );
 
         $(document).on('click','.delete_Group', function(){     //グループの削除ボタンクリック時
             $(this).parent().remove();
@@ -217,10 +260,17 @@
 });
     $('.create_Group').on('click',function(){
         $('#createin').css('display' , 'block');
-        $('#menu_ber h1').text("");
+        $('#menu_ber h1').css('display','none');
         $('#menu_ber').prepend('<input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">');
         Gflag = 1;
     });
+
+    $('.cancel_Group').on('click',function(){
+        $('#createin').css('display', 'none');
+        $('#Group_title').remove();
+        $('#menu_ber h1').css('display', 'block');
+
+    })
 
     });  
 
@@ -316,8 +366,8 @@
         <p id="inputmenu"></p></div>
         <div id="createin">
             <div id="Group_calen"></div>
-         <div class="todolist" style="display: none">            
-        <table class="table table-bordered table-hover table-condensed" id="todotable">
+         <div class="todolist2" style="display: none">            
+        <table class="table table-bordered table-hover table-condensed" id="todotable2">
          <thead class="scrollHead">
              <tr>
                 <th class="tit">TITLE</th>
@@ -331,11 +381,14 @@
          </tfoot>
         </table> 
         </div>
-         <div id="tw2"> </div>
+         <div id="tw3"> </div>
         
         <!-- 折り畳まれ部分 -->
-        <div style="display: none" id="open">
-        <p id="inputmenu"></p></div>
+        <div style="display: none" id="open2">
+        <p id="inputmenu2"></p></div>
+        <p id="Group_create_button"><button class="btn btn-danger ok_Group">完了</button> 
+         <button class="btn btn-success cancel_Group">キャンセル</button>
+        </p>
         </div>
         </body>
         </html>

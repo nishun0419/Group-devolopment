@@ -21,6 +21,7 @@ body{													/*全体の背景の設定*/
 #menu_ber h1{
 	display: inline-block;
 	margin-left: 10px;
+	margin-top: 10px;
 	color: #FFFFFF;
 }
 
@@ -84,7 +85,7 @@ table.calen h6{
 
 div.textinputs{										/********************************/
 	width: 300px;
-	height: 500px;
+	height: 400px;
 	background-color: #FFFFFF;
 	background-image: url(back01.gif);
 	background-repeat: no-repeat;
@@ -128,7 +129,33 @@ label {
 	height: 5em;
 	resize: vertical;
 
-}													/*::::::::::::::::::::::::::::::::*/
+}	
+
+#inputmenu2 div#calendate2{
+	text-align: center;
+	font-size: 20px;
+	}	
+
+#inputmenu2 input{
+	font: 1em sans-serif;
+	width: 150px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #999;
+}
+
+#inputmenu2 textarea#msg2 {
+	font: 1em sans-serif;
+	width: 200px;
+	height: 180px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: top;
+	border: 1px solid #999;
+	height: 5em;
+	resize: vertical;
+
+}												/*::::::::::::::::::::::::::::::::*/
 div.button{
 	padding-left: 20px;
 	margin-left: 4em;
@@ -210,7 +237,7 @@ td,th{
 	margin-left: 75%;
 	width: 200px;
 	}
-#tw{						/*Open Closeの設定*/
+.tw{						/*Open Closeの設定*/
 	color: red;
 	font-size: 30px;
 	border-radius: 100%;
@@ -316,13 +343,13 @@ div.Groupsection{
 
 #createin{
 	position: absolute;
-	top:75px;
+	top:80px;
 	padding-top: 12px;
 	height: calc(100% - 78px);
 	width: 100%;
 	background-color: #494949;
 	display: none;
-	/*opacity: 0.5;*/
+	/* opacity: 0.5; */
 	z-index: 13;
 }
 
@@ -334,7 +361,35 @@ div.Groupsection{
 	margin-top: 15px;
 	background-color: transparent;
 	color: #FFFFFF;
-	font-size: 40px;
+	font-size: 30px;
+	border: 1px solid #32EFFB;
+}
+
+#tw3{
+	position: absolute;right: 9.5%;top: 50px
+}
+#open2{
+	position: absolute;top:92px;
+	margin-left: 75%;
+	width: 200px;
+	}
+
+#createin div.todolist2{
+	position: absolute; top: 92px;
+	margin-left: 75%;
+}
+
+div.todolist2 th{
+	color: red;
+	background-color: black;
+	text-align: center;
+}
+#todotable2{
+	border-style: none;
+}
+p#Group_create_button{
+	margin-left: 75%;
+	margin-top: -5%;
 }
 /*マウスの変化*/
 .normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
