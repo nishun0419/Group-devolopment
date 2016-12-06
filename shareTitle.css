@@ -47,10 +47,10 @@ div.entry{
 	margin:0 auto;
 	top: 50%;
 	color: #F621F8;
-	font-size: 20px;
+	font-size: 40px;
 	display: none;
 	border: 1px solid #000000;
-	border-radius: 50%;
+	border-radius: 20%;
 }
 
 div.spacer_top_back{
@@ -180,7 +180,7 @@ div.section3_box{
 	display: inline-block;
 	width: 400px;
 	height: 400px;
-	background-color: #FFFFFF;
+	background-color: rgba(255,255,255,0.8);
 	text-align: center;
 	border-radius: 10%;
 }
