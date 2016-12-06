@@ -50,7 +50,7 @@ div.entry{
 	font-size: 20px;
 	display: none;
 	border: 1px solid #000000;
-	opacity: 0.8;
+	border-radius: 50%;
 }
 
 div.spacer_top_back{
@@ -191,6 +191,7 @@ div#section3_right{
 
 div#section3_left{
 	margin-left: 95px;
+	/*display: none;*/
 }
 form p{
 	font-size: 20px;
@@ -199,10 +200,12 @@ form p{
 
 .sign{
 	margin-top:150px;
+	width: 150px;
+	height: 60px;
 }
 
 /*div#section3_right{	margin-left: 15%;}*/
 
 /*マウスエフェクト*/
 .entry {cursor: pointer;} 	/*マウスの形を変えるための記述*/
-.entry:hover { background-color: #54E7FA; }
+.entry:hover { background-color: blue; }

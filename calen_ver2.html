@@ -152,7 +152,7 @@
             // データベースの処理で入力情報を格納
 
             $('.tw').text("＋");
-            if(Gflag != 1){
+            if(Gflag != 1){ //プライベート予定追加
             $('#open').css('display' , 'none');
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
@@ -161,7 +161,7 @@
             .append($('<td class="ac2"></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
             );
             }
-            else{
+            else{   //グループ予定追加
              $('#open2').css('display' , 'none');
             $('.todolist2').css('display' ,'block')
             $('tbody' , '.todolist2').append($('<tr class="active"></tr>')
@@ -225,6 +225,7 @@
             $('#todotable').find('tr').eq(rowNum + 1).remove();
             if($('#todotable .delete').length == 0){
                 $('.todolist').css('display' , 'none');
+                //プライベートカレンダーの予定削除
             }
             }
             else{
@@ -232,6 +233,7 @@
             $('#todotable2').find('tr').eq(rowNum + 1).remove();
             if($('#todotable2 .delete').length == 0){
                 $('.todolist2').css('display' , 'none');
+                //グループカレンダーの予定削除
             }
             }
             // todo:関連する情報をデータベースから削除する
@@ -247,7 +249,7 @@
 
         })
 
-    $('.edit_Group').on('click',function(){
+    $('.edit_Group').on('click',function(){        //グループID入力　スライド
   if($('.slide').hasClass('off')){
     $('.slide').removeClass('off');
     $('.slide').animate({'marginLeft':'0px'},300).addClass('on');
@@ -258,17 +260,18 @@
     $('#titleh h3').text('登録したグループ名')
   }
 });
-    $('.create_Group').on('click',function(){
+    $('.create_Group').on('click',function(){       //グループカレンダー入力
         $('#createin').css('display' , 'block');
         $('#menu_ber h1').css('display','none');
         $('#menu_ber').prepend('<input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">');
         Gflag = 1;
     });
 
-    $('.cancel_Group').on('click',function(){
+    $('.cancel_Group').on('click',function(){　 // グループカレンダー入力解除
         $('#createin').css('display', 'none');
         $('#Group_title').remove();
         $('#menu_ber h1').css('display', 'block');
+        Gflag = 0;
 
     })
 
