@@ -89,12 +89,22 @@ var title_tween = new TimelineMax();
 	 	<h3>STEP3</h3>
 	 	<p>ようこそ、シェアカレへ</p>
 	 </div>
+	  <div class="circle" id= "scircle2">
+	 	<h3>STEP2</h3>
+	 	<p>アカウント情報の取得</p>
+	 	</div>
+	 <div class="circle" id= "scircle3">
+	 	<h3>STEP3</h3>
+	 	<p>ようこそ、シェアカレへ</p>
+	 </div>
 	</div>
 	</div>
 <script>
 	second_tween = new TimelineMax();
 	 second_tween.to("#circle3" , 2 , {x:294 , opacity:1})
+	 			 .to("#scircle2", 2 , {opacity:1},'-=2.0')
 	 			 .to("#circle2" , 2 , {x:144 , opacity:1},'-=1.5')
+	 			 .to("#scircle3", 2 ,{opacity:1},'-=2.0')
 	  			 .staggerTo(".circle p", 1 ,{opacity:1});
 
 	 var scene = new ScrollMagic.Scene({triggerElement:"#trigger03"})
