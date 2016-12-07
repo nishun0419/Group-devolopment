@@ -169,6 +169,7 @@ h1.titleh1{
 	background-attachment: fixed;
 	background-size: cover;
 	background-image: url(image/back2.jpg);
+	opacity: 0;
 }
 
 .section3 div.end{

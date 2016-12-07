@@ -131,5 +131,10 @@ var title_tween = new TimelineMax();
 	</div>
 			<div class="end"></div>
 	</div>
+	<script>
+	 var scene = new ScrollMagic.Scene({triggerElement: "#trigger04"})
+		.setTween(TweenMax.to(".section3",1,{css:{opacity:1}}))
+		.addTo(controller);
+	</script>
 </body>
 </html>
