@@ -86,7 +86,6 @@ h1.titleh1{
 /*section1*/
 .section1{
 	width: 100%;
-	height:100%;
 	/* background-color: #FAEBDD; */
 
 }
@@ -117,7 +116,6 @@ h1.titleh1{
 /*section2*/
 .section2{
 	width: 100%;
-	height: 100%;
 	/* background-color: #940083; */
 }
 #section2_text{
@@ -159,7 +157,6 @@ h1.titleh1{
 /*section3*/
 .section3{
 	width: 100%;
-	height: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -278,7 +275,7 @@ div.spacer_top {
 
 .section1{
 	width: 100%;
-	height:100%;
+	/*height:100%;*/
 	/* background-color: #FAEBDD; */
 
 }
@@ -311,7 +308,7 @@ div.spacer_top {
 /*section2*/
 .section2{
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	/* background-color: #940083; */
 }
 #section2_text{
@@ -385,6 +382,10 @@ div.section3_box{
 div#section3_right{
 	margin:0 auto;
 	/*display: none;*/
+}
+
+div#section3_right p{
+	display: block;
 }
 
 div#section3_left{
