@@ -12,7 +12,6 @@ body{
 	width: 100%;
 	height: 80px;
 	background-color: black;
-	padding-left: 10px;
 	position: fixed;
 	z-index: 2;
 }
@@ -27,7 +26,7 @@ body{
 
 #logout{
 	display: inline-block;
-	position: absolute; right: 110px; top: 20px;
+	position: absolute; right: 50px; top: 20px;
 	border: 1px solid #999;
 	width: 100px;
 	height: 50px;
@@ -36,10 +35,9 @@ body{
 div.spacer_top {
 	width: 100%;
 	height: 85%;
-	position: absolute; top: 40%;
+	position: absolute; top: 50%;
 	text-align: center;
 	color: #142288;
-		font-family: "Josefin Slab", serif;
 	}
 
 div.entry{
@@ -74,10 +72,12 @@ div.spacer_top_back{
 	
 }
 
-h1{
+h1.titleh1{
 	display: inline-block;
 	opacity: 0;
 	padding: 10px;
+	font-size: 30px;
+	font-family: "Josefin Slab", serif;
 
 	
 }
@@ -209,3 +209,56 @@ form p{
 /*マウスエフェクト*/
 .entry {cursor: pointer;} 	/*マウスの形を変えるための記述*/
 .entry:hover { background-color: blue; }
+
+@media screen and (max-width:606px){
+/*img{
+max-width: 100%;
+height: auto;
+width :auto;　
+}*/
+#container{
+width:100%;
+}
+div.entry{
+	width: 100px;
+	margin:0 auto;
+	top: 50%;
+	color: #F621F8;
+	font-size: 20px;
+	display: none;
+	border: 1px solid #000000;
+	border-radius: 20%;
+}
+h1.titleh1{
+	font-size: 16px;
+	padding-left: 4px;
+	padding-right: 4px;
+	font-weight:900;
+
+}
+div.spacer_top {
+	width: 100%;
+	height: 85%;
+	position: absolute; top: 50%;
+	text-align: center;
+	color: #142288;
+	}
+#menu_ber h1{
+	display: inline-block;
+	opacity: 1;
+	color: #FFFFFF;
+	font-family: "Josefin Slab", serif;
+	font-size: 25px;
+	font-weight:900;
+
+}
+#menu_ber{
+	width: 100%;
+	height: 60px;
+	background-color: black;
+	position: fixed;
+	z-index: 2;
+	text-align: center;
+}
+
+}
