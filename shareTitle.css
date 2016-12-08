@@ -213,6 +213,7 @@ div#section3_right{
 
 div#section3_right p{
 	display: none;
+	margin-top: 20px;
 }
 
 div#section3_left{
@@ -432,7 +433,7 @@ div#section3_right{
 div#section3_right p{
 	display: block;
 	color: blue;
-	font-size: 10px;
+	font-size: 12px;
 }
 
 div#section3_left{
