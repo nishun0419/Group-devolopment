@@ -111,7 +111,7 @@ h1.titleh1{
 
 #section1_text p{
 	opacity: 0;
-	font-size: 15px;
+	font-size: 18px;
 
 }
 /*section2*/
@@ -136,6 +136,7 @@ h1.titleh1{
 
 .circle p{
 	opacity: 0;
+	font-size: 18px;
 	}
 #section2_image{
 	width: 900px;
@@ -182,6 +183,9 @@ h1.titleh1{
 	text-align: center;
 	/* font-size: 20px; */
 	color: #FFFFFF;
+}
+#section3_text p{
+	font-size: 18px;
 }
 #section3_text h2{
 	font-family: "Josefin Slab", serif;
@@ -328,6 +332,7 @@ div.spacer_top {
 
 #section1_text p{
 	opacity: 0;
+	font-size: 15px;
 
 }
 /*section2*/
@@ -356,6 +361,7 @@ div.spacer_top {
 
 .circle p{
 	opacity: 0;
+	font-size: 15px;
 	}
 #section2_image{
 	width: 200px;
@@ -363,6 +369,9 @@ div.spacer_top {
 }
 #circle1{
 	margin-left: 0%;
+	opacity: 1;
+}
+#circle1 p{
 	opacity: 1;
 }
 #circle2{
@@ -380,10 +389,16 @@ div.spacer_top {
 	display: block;
 	opacity: 0;
 }
+#scircle2 p{
+	opacity: 1;
+}
 
 #scircle3{
 	display: block;
 	opacity: 0;
+}
+#scircle3 p{
+	opacity: 1;
 }
 
 /*section3*/
@@ -404,6 +419,9 @@ div.spacer_top {
 	text-align: center;
 	/* font-size: 20px; */
 	color: #FFFFFF;
+}
+#section3_text p{
+	font-size: 15px;
 }
 
 #section3_text h2{
