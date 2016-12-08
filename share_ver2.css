@@ -409,7 +409,16 @@ p#Group_create_button{
 #todolist td{cursor: pointer;}
 #todolist td:hover { text-decoration: underline; }
 
+
+
+
+
+
 /*---------------スマホ専用スタイル-------------------------*/
+
+
+
+
 
 @media screen and (max-width:606px){
 /*img{
@@ -419,4 +428,388 @@ width :auto;　
 }*/
 #container{
 width:100%;
+}
+
+#menu_ber{
+	width: 100%;
+	height: 60px;
+	padding-left: 10px;
+	border-bottom:1px solid #ccc;
+}
+#menu_ber h1{
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 10px;
+	color: #FFFFFF;
+}
+
+#logout{
+	display: inline-block;
+	position: absolute; right: 5%; top: 20px;
+	border: 1px solid #999;
+	width: 100px;
+	height: 30px;
+}
+hr{
+	display: none;
+}
+
+table.calen {  font-size:10pt;
+			   margin: 0 auto;
+			   background-image: url()
+			   border-collapse:collapse;
+			 }
+
+table.calen th { height:15px;
+                 text-align: center;
+                 color: #FFFFFF;
+                   }
+
+table.calen td { text-align:center;
+				vertical-align: middle;
+				 height:60px;
+				 width:60px;
+				 color: #FFFFFF;
+				}
+
+table.calen .sat { color:#4484FF; }
+
+table.calen .satd { color:#4484FF; }
+
+table.calen .sun { color:red; }
+
+table.calen .sund { color:red; }
+
+table.calen .today { background-color: #348385;
+					font-weight:bold;
+					}
+table.calen tr.bg1 {
+			color: #FFFFFF; 
+		    text-align: center;
+		    border-bottom:1px solid #ccc;
+		}
+table.calen tr.bg2{
+	border-bottom:1px solid #ccc;
+}
+table.calen tr.daydate{
+	border-bottom:1px dashed #ccc;
+}
+
+p#calen{
+	margin: 0 auto;
+}
+
+
+table.calen h6{
+	color: black;
+}
+
+
+div.textinputs{										/********************************/
+	width: 300px;
+	height: 400px;
+	background-color: #FFFFFF;
+	background-image: url(back01.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 1em;
+
+}
+
+div.textinputs div+div{
+	margin-top: 2em;
+}
+
+#inputmenu div#calendate{
+	text-align: center;
+	font-size: 20px;
+	}
+
+label {
+	display: inline-block;							/* 入力画面の設定*/
+	width: 90px;
+	text-align: right;
+}
+
+#inputmenu input{
+	font: 1em sans-serif;
+	width: 150px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #999;
+}
+
+#inputmenu textarea#msg {
+	font: 1em sans-serif;
+	width: 200px;
+	height: 180px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: top;
+	border: 1px solid #999;
+	height: 5em;
+	resize: vertical;
+
+}	
+
+#inputmenu2 div#calendate2{
+	text-align: center;
+	font-size: 20px;
+	}	
+
+#inputmenu2 input{
+	font: 1em sans-serif;
+	width: 150px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #999;
+}
+
+#inputmenu2 textarea#msg2 {
+	font: 1em sans-serif;
+	width: 200px;
+	height: 180px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: top;
+	border: 1px solid #999;
+	height: 5em;
+	resize: vertical;
+
+}												/*::::::::::::::::::::::::::::::::*/
+div.button{
+	padding-left: 20px;
+	margin-left: 4em;
+}
+#calen input#next{									/*nextボタン*/
+	margin-left: 100px;
+	margin-bottom: 10px;
+	background-color: #3B6E40;
+	width: 15px;
+	height: 15px;
+	font-size: 10px;
+}
+
+#calen input#back{
+	margin-right: 100px;
+	margin-bottom: 10px;
+	background-color: #3B6E40;
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
+}
+
+
+div.todolist{
+	position: absolute; top: 140px;
+	margin-left: 75%;
+}
+
+div.todolist th{
+	color: red;
+	background-color: black;
+	text-align: center;
+}
+
+/*スクロール用*/
+thead.scrollHead,tbody.scrollBody{
+  display:block;
+}
+tbody.scrollBody{
+  overflow-y:auto;
+  height:227px;
+}
+
+#todotable{
+	border-style: none;
+}
+
+/*幅調整*/
+td,th{
+  table-layout:fixed;
+}
+.tit{
+  width:150px;
+}
+.ac1{
+  width:80px;
+}
+.ac2{
+  width:65px;
+}
+
+
+
+#todo{
+	position: absolute;right: 20%; top:80px;
+}
+
+#change{
+	position: absolute; right: 10px; top: 10px;
+}
+
+#tw2{
+	position: absolute;right: 9.5%;top: 98px
+}
+#open{
+	position: absolute;top:140px;
+	margin-left: 75%;
+	width: 200px;
+	}
+.tw{						/*Open Closeの設定*/
+	color: red;
+	font-size: 30px;
+	border-radius: 100%;
+	background-color: #FFFFFF;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	/*vertical-align: middle;*/
+}
+
+#todo div.text1{					/*出力画面の設定*/
+	display: inline-block;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #999;
+	font: 1em sans-serif;
+	width: 150px;
+	background-color: #FFFFFF;
+}
+
+#todo div.text2{
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #999;
+    font: 1em sans-serif;
+	width: 150px;
+	height: 180px;
+	background-color: #FFFFFF;
+	word-wrap: break-word;
+	overflow: auto;
+}
+
+span.showtext1{
+	text-align: right;
+	width: 90px;
+	display: inline-block;
+}									/*----------------*/
+
+div.Groupsection{
+	background-color: #FFFFFF;
+	width: 320px;
+	height: 440px;
+	margin-right: 0px;
+	top:100px;
+	font-size: 15px;
+	color: black;
+	border: 1px solid #F52954;
+	overflow-x: hidden;
+	display: none;
+	
+}
+
+div.Grouptext{
+	position: relative;
+	width: 310px;
+	height: 310px;
+	margin-right: 0px;
+	overflow-y: auto;
+	margin-top: -315px;
+}
+div.slide{
+	position: relative;
+	width: 310px;
+	height: 315px;
+	background-color: #FFFFFF;
+	display: inline-block;
+	margin-left: -300px;
+	z-index: 10;
+	text-align: center;
+
+}
+
+div.GroupBox .Grouplist{
+	display: inline-block;
+	width: 250px;
+	padding-left: 10px;
+	vertical-align: middle;
+	margin-bottom: 10px;
+}
+
+
+div.GroupBox h3{
+}
+
+div.GroupBox div#titleh{
+	height: 50px;
+	width: 310px;
+}
+
+p#GroupEdit{
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+p#GroupEdit button{
+
+}
+
+div.Groupsection{
+	position: absolute;
+	right: 75%;
+	top: 140px;
+}
+
+#createin{
+	position: absolute;
+	top:60px;
+	padding-top: 12px;
+	height: calc(100% - 78px);
+	width: 100%;
+	background-color: #494949;
+	display: none;
+	 /*opacity: 0.5; */
+	z-index: 13;
+}
+
+
+
+#Group_title{
+	height: 40px;
+	width: 600px;
+	margin-top: 15px;
+	background-color: transparent;
+	color: #FFFFFF;
+	font-size: 30px;
+	border: 1px solid #32EFFB;
+}
+
+#tw3{
+	position: absolute;right: 9.5%;top: 50px
+}
+#open2{
+	position: absolute;top:92px;
+	margin-left: 75%;
+	width: 200px;
+	}
+
+#createin div.todolist2{
+	position: absolute; top: 92px;
+	margin-left: 75%;
+}
+
+div.todolist2 th{
+	color: red;
+	background-color: black;
+	text-align: center;
+}
+#todotable2{
+	border-style: none;
+}
+p#Group_create_button{
+	margin-left: 75%;
+	margin-top: -5%;
+}
 }
