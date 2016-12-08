@@ -236,6 +236,8 @@ form p{
 .entry {cursor: pointer;} 	/*マウスの形を変えるための記述*/
 .entry:hover { background-color: blue; }
 
+/*---------------スマホ専用スタイル-------------------------*/
+
 @media screen and (max-width:606px){
 /*img{
 max-width: 100%;
