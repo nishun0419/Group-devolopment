@@ -438,7 +438,7 @@ width:100%;
 }
 #menu_ber h1{
 	display: inline-block;
-	margin-left: 10px;
+	margin-left: 5px;
 	margin-top: 5px;
 	color: #FFFFFF;
 	font-size: 18px;
@@ -448,7 +448,7 @@ width:100%;
 	display: inline-block;
 	position: absolute; right: 1%; top: 5px;
 	border: 1px solid #999;
-	width: 100px;
+	width: 60px;
 	height: 20px;
 }
 hr{
@@ -471,6 +471,7 @@ table.calen td { text-align:center;
 				 height:20px;
 				 width:40px;
 				 color: #FFFFFF;
+				 line-height: 100%;
 				}
 
 table.calen .sat { color:#4484FF; }
@@ -586,6 +587,7 @@ div.button{
 #calen input#next{									/*nextƒ{ƒ^ƒ“*/
 	margin-left: 0px;
 	margin-bottom: 5px;
+	border-radius: 0%;
 	background-color: #3B6E40;
 	width: 15px;
 	height: 15px;
@@ -595,6 +597,7 @@ div.button{
 #calen input#back{
 	margin-right: 0px;
 	margin-bottom: 5px;
+	border-radius: 0%;
 	background-color: #3B6E40;
 	width: 15px;
 	height: 15px;
