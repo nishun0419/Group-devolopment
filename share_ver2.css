@@ -408,3 +408,15 @@ p#Group_create_button{
 #tw{cursor: pointer;}
 #todolist td{cursor: pointer;}
 #todolist td:hover { text-decoration: underline; }
+
+/*---------------スマホ専用スタイル-------------------------*/
+
+@media screen and (max-width:606px){
+/*img{
+max-width: 100%;
+height: auto;
+width :auto;　
+}*/
+#container{
+width:100%;
+}
