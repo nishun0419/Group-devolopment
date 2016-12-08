@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<link rei="stylesheet" href="Form.css">
+ 
+	<title>新規登録</title>
+<script type="text/javascript">
+	
+function check1(){
+var n = myform.name.value;
+
+if(n == ""){
+	res = false;
+	window.alert("名前を入力してください");
+	return;
+}
+check2();
+return;
+}
+
+
+function check2(){
+
+var n = myform.id.value;
+
+if(n == ""){
+	res = false;
+	window.alert("id‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+	return;
+	}
+check3();
+return;
+}
+
+function check3(){
+var n = myform.mail.value;
+
+if(n == ""){
+	res = false;
+	window.alert("ƒ[ƒ‹ƒAƒhƒŒƒX‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	return ;
+}
+check4();
+return;
+}
+
+function check4(){
+	var n = myform.pass.value;
+	var m = myform.pass2.value;
+
+if(n == ""){
+	res = false;
+	window.alert("ƒpƒXƒ[ƒh‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+			return;
+	}
+
+
+else if(m == ""){
+	res = false;
+	window.alert("ƒpƒXƒ[ƒhŠm”F‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	return;
+}
+
+
+
+else  if(n != m){
+	res = false;
+	window.alert("ƒpƒXƒ[ƒh‚ªˆê’v‚µ‚Ü‚¹‚ñBÄ“x“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	return;
+	}
+alert("");
+return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+	
+</head>
+<body>
+	<p>•K—vŽ–€‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢</p>
+		<form name="myform" action="sinki.html">
+<dl>
+
+	<dt>‚¨–¼‘O<font color="red"> •K{</font></dt>
+
+<dd>
+
+	<input type="text" name="name"size="35" maxlength="255">
+
+</dd>
+
+
+	<dt>ƒ†[ƒU[ID<font color="red">•K{</font></dt>
+
+<dd>
+
+	<input type="text" name="id"size="35" maxlength="255">
+
+</dd>
+
+	<dt>ƒ[ƒ‹ƒAƒhƒŒƒX<font color="red">•K{</font></dt>
+
+<dd>
+
+	<input type="text" name="mail"size="35"maxlength="255">
+
+</dd>
+
+	<dt>ƒpƒXƒ[ƒh<font color="red">•K{</font></dt>
+	
+<dd>
+	<input type="password" name="pass"size="10"maxlength="50">
+
+</dd>
+
+	<dt>ƒpƒXƒ[ƒhŠm”F<font color="red">•K{</font></dt>
+
+
+<dd>
+	<input type="password" name="pass2"size="10"maxlength="50">
+
+</dd>
+</dl>
+
+	<input type="button" value="“o˜^‚·‚éI" onclick=check1();>
+
+</form>
+
+</body>
+
+</html>
