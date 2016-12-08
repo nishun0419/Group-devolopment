@@ -439,7 +439,7 @@ width:100%;
 #menu_ber h1{
 	display: inline-block;
 	margin-left: 10px;
-	margin-top: 10px;
+	margin-top: 20px;
 	color: #FFFFFF;
 	font-size: 18px;
 }
@@ -455,7 +455,7 @@ hr{
 	display: none;
 }
 
-table.calen {  font-size:10pt;
+table.calen {  font-size:15pt;
 			   margin: 0 auto;
 			   background-image: url()
 			   border-collapse:collapse;
@@ -468,8 +468,8 @@ table.calen th { height:15px;
 
 table.calen td { text-align:center;
 				vertical-align: middle;
-				 height:60px;
-				 width:60px;
+				 height:40px;
+				 width:40px;
 				 color: #FFFFFF;
 				}
 
