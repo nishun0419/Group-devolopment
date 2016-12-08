@@ -441,6 +441,7 @@ width:100%;
 	margin-left: 10px;
 	margin-top: 10px;
 	color: #FFFFFF;
+	font-size: 18px;
 }
 
 #logout{
@@ -583,8 +584,8 @@ div.button{
 	margin-left: 4em;
 }
 #calen input#next{									/*nextƒ{ƒ^ƒ“*/
-	margin-left: 100px;
-	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-bottom: 5px;
 	background-color: #3B6E40;
 	width: 15px;
 	height: 15px;
@@ -592,12 +593,12 @@ div.button{
 }
 
 #calen input#back{
-	margin-right: 100px;
-	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-bottom: 5px;
 	background-color: #3B6E40;
 	width: 15px;
 	height: 15px;
-	font-size: 15px;
+	font-size: 10px;
 }
 
 
