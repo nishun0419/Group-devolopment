@@ -158,18 +158,14 @@
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
             .append($('<td class="tit" onclick="showtodo()"></td>').text(title))
-            .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>'))
-            .append($('<td class="ac2"></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
-            );
+            .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>')));
             }
             else{   //グループ予定追加
              $('#open2').css('display' , 'none');
             $('.todolist2').css('display' ,'block')
             $('tbody' , '.todolist2').append($('<tr class="active"></tr>')
             .append($('<td class="tit" onclick="showtodo()"></td>').text(title))
-            .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>'))
-            .append($('<td class="ac2"></td>').append('<button type="button" class="btn btn-success" id="edit">Edit</button>'))
-            );
+            .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>')));
             }
 
             $('#settitle').val('');
@@ -292,14 +288,15 @@
         <hr>
         <!-- <p id="change"><input type="button" value="前月" onclick="showCalen(-1)"> -->
         <!-- <input type="button" value="次月" onclick="showCalen(1)"></p> -->
-        <p id="calen"></p>
+        <p id="calen"></p>      
+            
         <div class="todolist" style="display: none">            
         <table class="table table-bordered table-hover table-condensed" id="todotable">
          <thead class="scrollHead">
              <tr>
                 <th class="tit">TITLE</th>
                 <th class="ac1"> </th>
-                <th class="ac2"> </th>
+                <!-- <th class="ac2"> </th> -->
              </tr>
          </thead>
          <tbody class="scrollBody">
@@ -376,7 +373,7 @@
              <tr>
                 <th class="tit">TITLE</th>
                 <th class="ac1"> </th>
-                <th class="ac2"> </th>
+                <!-- <th class="ac2"> </th> -->
              </tr>
          </thead>
          <tbody class="scrollBody">

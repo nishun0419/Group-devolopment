@@ -2,7 +2,7 @@ html{
 	height: 100%;
 }
 
-body{													/*全体の背景の設定*/
+body{													/*窶牢窶佚娯堙娯掫ﾅ段窶堙個静昶凖ｨ*/
 	background-image: url(image/calen_back.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -110,7 +110,7 @@ div.textinputs div+div{
 	}
 
 label {
-	display: inline-block;							/* 入力画面の設定*/
+	display: inline-block;							/* 窶愿ｼ窶氾坂ｰﾃｦ窶禿岩堙個静昶凖ｨ*/
 	width: 90px;
 	text-align: right;
 }
@@ -165,7 +165,7 @@ div.button{
 	padding-left: 20px;
 	margin-left: 4em;
 }
-#calen input#next{									/*nextボタン*/
+#calen input#next{									/*nextﾆ畜ﾆ耽ﾆ停�*/
 	margin-left: 100px;
 	margin-bottom: 10px;
 	background-color: #3B6E40;
@@ -197,7 +197,7 @@ div.todolist th{
 	text-align: center;
 }
 
-/*スクロール用*/
+/*ﾆ湛ﾆ誰ﾆ陳債ーﾆ停ｹ窶廃*/
 thead.scrollHead,tbody.scrollBody{
   display:block;
 }
@@ -210,7 +210,7 @@ tbody.scrollBody{
 	border-style: none;
 }
 
-/*幅調整*/
+/*窶｢ﾂ昶卍ｲﾂ青ｮ*/
 td,th{
   table-layout:fixed;
 }
@@ -242,7 +242,7 @@ td,th{
 	margin-left: 75%;
 	width: 200px;
 	}
-.tw{						/*Open Closeの設定*/
+.tw{						/*Open Close窶堙個静昶凖ｨ*/
 	color: red;
 	font-size: 30px;
 	border-radius: 100%;
@@ -253,7 +253,7 @@ td,th{
 	/*vertical-align: middle;*/
 }
 
-#todo div.text1{					/*出力画面の設定*/
+#todo div.text1{					/*ﾂ出窶氾坂ｰﾃｦ窶禿岩堙個静昶凖ｨ*/
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -285,8 +285,7 @@ div.Groupsection{
 	background-color: #FFFFFF;
 	width: 320px;
 	height: 440px;
-	margin-right: 0px;
-	top:100px;
+	/*margin-right: 20px;*/
 	font-size: 15px;
 	color: black;
 	border: 1px solid #F52954;
@@ -396,9 +395,9 @@ p#Group_create_button{
 	margin-left: 75%;
 	margin-top: -5%;
 }
-/*マウスの変化*/
-.normal {cursor: pointer;} 	/*マウスの形を変えるための記述*/
-.normal:hover { background-color: #DDDDDD }	 /*マウス操作による背景色の変更*/
+/*ﾆ筑ﾆ脱ﾆ湛窶堙娯｢ﾃ鞘ｰﾂｻ*/
+.normal {cursor: pointer;} 	/*ﾆ筑ﾆ脱ﾆ湛窶堙固蛋窶堙ｰ窶｢ﾃ鞘堋ｦ窶堙ｩ窶堋ｽ窶堙溪堙娯ｹLﾂ述*/
+.normal:hover { background-color: #DDDDDD }	 /*ﾆ筑ﾆ脱ﾆ湛窶倪ぎﾂ催ｬ窶堙俄堙ｦ窶堙ｩ窶掫ﾅ段ﾂ色窶堙娯｢ﾃ渉更*/
 .today {cursor: pointer;}
 .today:hover { background-color: #DDDDDD }
 .satd {cursor: pointer;}
@@ -414,7 +413,7 @@ p#Group_create_button{
 
 
 
-/*---------------スマホ専用スタイル-------------------------*/
+/*---------------ﾆ湛ﾆ筑ﾆ築ﾂ静ｪ窶廃ﾆ湛ﾆ耽ﾆ辰ﾆ停ｹ-------------------------*/
 
 
 
@@ -424,7 +423,7 @@ p#Group_create_button{
 /*img{
 max-width: 100%;
 height: auto;
-width :auto;　
+width :auto;ﾂ　
 }*/
 #container{
 width:100%;
@@ -529,7 +528,7 @@ div.textinputs div+div{
 	}
 
 label {
-	display: inline-block;							/* 入力画面の設定*/
+	display: inline-block;							/* 窶愿ｼ窶氾坂ｰﾃｦ窶禿岩堙個静昶凖ｨ*/
 	width: 90px;
 	text-align: right;
 }
@@ -584,7 +583,7 @@ div.button{
 	padding-left: 20px;
 	margin-left: 4em;
 }
-#calen input#next{									/*nextボタン*/
+#calen input#next{									/*nextﾆ畜ﾆ耽ﾆ停�*/
 	margin-left: 0px;
 	margin-bottom: 5px;
 	border-radius: 0%;
@@ -607,8 +606,15 @@ div.button{
 
 
 div.todolist{
-	position: absolute; top: 140px;
-	margin-left: 75%;
+	position: static;
+	/*margin-left: 20px;
+	margin-top: 0px;
+	margin-right: 20px;*/
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 11;
+	width: 320px;
+
 }
 
 div.todolist th{
@@ -617,7 +623,7 @@ div.todolist th{
 	text-align: center;
 }
 
-/*スクロール用*/
+/*ﾆ湛ﾆ誰ﾆ陳債ーﾆ停ｹ窶廃*/
 thead.scrollHead,tbody.scrollBody{
   display:block;
 }
@@ -628,20 +634,23 @@ tbody.scrollBody{
 
 #todotable{
 	border-style: none;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-/*幅調整*/
+/*窶｢ﾂ昶卍ｲﾂ青ｮ*/
 td,th{
   table-layout:fixed;
 }
 .tit{
-  width:150px;
+  width:240px;
 }
+
 .ac1{
   width:80px;
 }
 .ac2{
-  width:65px;
+  /*width:65px;*/
 }
 
 
@@ -662,7 +671,7 @@ td,th{
 	margin-left: 75%;
 	width: 200px;
 	}
-.tw{						/*Open Closeの設定*/
+.tw{						/*Open Close窶堙個静昶凖ｨ*/
 	color: red;
 	font-size: 30px;
 	border-radius: 100%;
@@ -673,7 +682,7 @@ td,th{
 	/*vertical-align: middle;*/
 }
 
-#todo div.text1{					/*出力画面の設定*/
+#todo div.text1{					/*ﾂ出窶氾坂ｰﾃｦ窶禿岩堙個静昶凖ｨ*/
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -705,16 +714,16 @@ div.Groupsection{
 	background-color: #FFFFFF;
 	width: 320px;
 	height: 440px;
-	margin-right: 0px;
-	top:100px;
+	/*margin-left: 100px;*/
+	/*margin-top:200px;*/
 	font-size: 15px;
 	color: black;
 	border: 1px solid #F52954;
 	overflow-x: hidden;
-	display: none;
+	/*display: none;*/
 	
 }
-
+*/
 div.Grouptext{
 	position: relative;
 	width: 310px;
@@ -762,9 +771,8 @@ p#GroupEdit button{
 }
 
 div.Groupsection{
-	position: absolute;
-	right: 75%;
-	top: 140px;
+	position: static;
+	margin: 0 auto;
 }
 
 #createin{
