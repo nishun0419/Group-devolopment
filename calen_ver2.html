@@ -198,7 +198,7 @@
         $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
         $('.todolist').css('display' , 'none');
         $('#tw2').text("");
-        $('#open').css('display' , 'none')
+        // $('#open').css('display' , 'none')
         showCalen(n);
         }
         function showopen(){
@@ -283,13 +283,13 @@
     $('.create_Group').on('click',function(){       //グループカレンダー入力
         $('#createin').css('display' , 'block');
         $('#menu_ber h1').css('display','none');
-        $('#menu_ber').prepend('<input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">');
+        $('#Group_title').css('display','block');
         Gflag = 1;
     });
 
     $('.cancel_Group').on('click',function(){　 // グループカレンダー入力解除
         $('#createin').css('display', 'none');
-        $('#Group_title').remove();
+        $('#Group_title').css('display','none');
         $('#menu_ber h1').css('display', 'block');
         Gflag = 0;
 
@@ -306,6 +306,7 @@
         <body onload="showCalen(0)">
         <div id="menu_ber">
             <h1>ゲスト様のカレンダー</h1>
+            <input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">
             <div id="logout"></div>
         </div>
         <hr>
@@ -393,7 +394,7 @@
                 <!-- 日付データ -->
              <div id="calendate"> </div> 
                 <!-- タイトル -->
-             <label for="settitle">タイトル</label><input type="text" id="settitle"></div>
+             <label for="settitle">タイトル</label><input type="text" id="settitle" placeholder="15文字以内で入力してください"></div>
                     <!-- 時間 -->    
                 <div><label for="categ"> 時間</label><select name="selectedate-h" id="selectedate-h" onChange="outputSelectedStarthour(this);">
   <option value="00">00</option>
@@ -571,7 +572,7 @@
                      <!-- メッセージ -->
                     <div><label for="msg">メッセージ</label><textarea id="msg"></textarea></div>
                         <!-- ボタン -->
-                        <div class="button"><input type="button" value="send" onclick="settodo(settitle.value,msg.value);"></div>
+                        <div class="button"><input type="button" value="追加" onclick="settodo(settitle.value,msg.value);"></div>
             </div>
         </p>
         </div>

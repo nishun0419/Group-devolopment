@@ -2,29 +2,34 @@ html{
 	height: 100%;
 }
 
-body{													/*‘S‘Ì‚Ì”wŒi‚ÌÝ’è*/
+body{													/*背景画像*/
 	background-image: url(image/calen_back.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
 	width: 100%;
-	height:100%;
+	/* height:100%; */
 	margin: 0;
 }
 
 #menu_ber{
 	width: 100%;
-	height: 60px;
 	padding-left: 10px;
 	border-bottom:1px solid #ccc;
 }
 #menu_ber h1{
 	display: inline-block;
 	margin-left: 10px;
-	margin-top: 10px;
 	color: #FFFFFF;
 }
+
+#Group_title{
+	margin-left: 10px;
+	margin-bottom: 5px;
+	display: none;
+}
+
 
 #logout{
 	display: inline-block;
@@ -88,8 +93,9 @@ table.calen h6{
 }
 
 
-div.textinputs{										/********************************/
-	width: 300px;
+div.textinputs{	
+	position: relative;									/********************************/
+	width: 400px;
 	height: 400px;
 	background-color: #FFFFFF;
 	background-image: url(back01.gif);
@@ -97,6 +103,9 @@ div.textinputs{										/********************************/
 	background-position: center;
 	background-size: cover;
 	padding-top: 1em;
+	margin: 0 auto;
+	margin-top: -450px;
+	z-index: 10;
 
 }
 
@@ -110,14 +119,14 @@ div.textinputs div+div{
 	}
 
 label {
-	display: inline-block;							/* “ü—Í‰æ–Ê‚ÌÝ’è*/
+	display: inline-block;							/* 入力画面*/
 	width: 90px;
 	text-align: right;
 }
 
 #settitle{
 	font: 1em sans-serif;
-	width: 150px;
+	width: 250px;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: 1px solid #999;
@@ -125,7 +134,7 @@ label {
 
 #msg {
 	font: 1em sans-serif;
-	width: 200px;
+	width: 250px;
 	height: 180px;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -143,7 +152,7 @@ label {
 
 #inputmenu2 input{
 	font: 1em sans-serif;
-	width: 150px;
+	width: 250px;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: 1px solid #999;
@@ -151,7 +160,7 @@ label {
 
 #inputmenu2 textarea#msg2 {
 	font: 1em sans-serif;
-	width: 200px;
+	width: 220px;
 	height: 180px;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -165,7 +174,7 @@ div.button{
 	padding-left: 20px;
 	margin-left: 4em;
 }
-#calen input#next{									/*nextƒ{ƒ^ƒ“*/
+#calen input#next{									/*nextボタン*/
 	margin-left: 100px;
 	margin-bottom: 10px;
 	background-color: #3B6E40;
@@ -197,7 +206,7 @@ div.todolist th{
 	text-align: center;
 }
 
-/*ƒXƒNƒ[ƒ‹—p*/
+/*テーブル設定*/
 thead.scrollHead,tbody.scrollBody{
   display:block;
 }
@@ -210,7 +219,7 @@ tbody.scrollBody{
 	border-style: none;
 }
 
-/*•’²®*/
+/* テーブルサイズ */
 td,th{
   table-layout:fixed;
 }
@@ -226,9 +235,6 @@ td,th{
 
 
 
-#todo{
-	position: absolute;right: 20%; top:80px;
-}
 
 #change{
 	position: absolute; right: 10px; top: 10px;
@@ -237,12 +243,8 @@ td,th{
 #tw2{
 	position: absolute;right: 9.5%;top: 98px
 }
-#open{
-	position: absolute;top:140px;
-	margin-left: 75%;
-	width: 200px;
-	}
-.tw{						/*Open Close‚ÌÝ’è*/
+
+.tw{						/*Open Closeボタン*/
 	color: red;
 	font-size: 30px;
 	border-radius: 100%;
@@ -253,18 +255,18 @@ td,th{
 	/*vertical-align: middle;*/
 }
 
-#todo div.text1{					/*o—Í‰æ–Ê‚ÌÝ’è*/
+#todo div.text1{					/*出力画面*/
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	border: 1px solid #999;
 	font: 1em sans-serif;
-	width: 150px;
+	width: 250px;
 	background-color: #FFFFFF;
 }
 #todo div.todotime{
 	display: inline-block;
-	margin: 0 auto;
+	padding-left: 10px;
 }
 
 #todo div.text2{
@@ -272,7 +274,7 @@ td,th{
 	vertical-align: top;
 	border: 1px solid #999;
     font: 1em sans-serif;
-	width: 150px;
+	width: 250px;
 	height: 180px;
 	background-color: #FFFFFF;
 	word-wrap: break-word;
@@ -399,9 +401,9 @@ p#Group_create_button{
 	margin-left: 75%;
 	margin-top: -5%;
 }
-/*ƒ}ƒEƒX‚Ì•Ï‰»*/
-.normal {cursor: pointer;} 	/*ƒ}ƒEƒX‚ÌŒ`‚ð•Ï‚¦‚é‚½‚ß‚Ì‹Lq*/
-.normal:hover { background-color: #DDDDDD }	 /*ƒ}ƒEƒX‘€ì‚É‚æ‚é”wŒiF‚Ì•ÏX*/
+/*ホバーエフェクト*/
+.normal {cursor: pointer;} 	
+.normal:hover { background-color: #DDDDDD }	 
 .today {cursor: pointer;}
 .today:hover { background-color: #DDDDDD }
 .satd {cursor: pointer;}
@@ -417,7 +419,7 @@ p#Group_create_button{
 
 
 
-/*---------------ƒXƒ}ƒzê—pƒXƒ^ƒCƒ‹-------------------------*/
+/*---------------スマホ専用スタイル-------------------------*/
 
 
 
@@ -532,7 +534,7 @@ div.textinputs div+div{
 	}
 
 label {
-	display: inline-block;							/* “ü—Í‰æ–Ê‚ÌÝ’è*/
+	display: inline-block;						
 	width: 90px;
 	text-align: right;
 }
@@ -587,7 +589,7 @@ div.button{
 	padding-left: 20px;
 	margin-left: 4em;
 }
-#calen input#next{									/*nextƒ{ƒ^ƒ“*/
+#calen input#next{									
 	margin-left: 0px;
 	margin-bottom: 5px;
 	border-radius: 0%;
@@ -627,7 +629,7 @@ div.todolist th{
 	text-align: center;
 }
 
-/*ƒXƒNƒ[ƒ‹—p*/
+
 thead.scrollHead,tbody.scrollBody{
   display:block;
 }
@@ -642,7 +644,7 @@ tbody.scrollBody{
 	margin-right: auto;
 }
 
-/*•’²®*/
+
 td,th{
   table-layout:fixed;
 }
@@ -675,7 +677,7 @@ td,th{
 	margin-left: 75%;
 	width: 200px;
 	}
-.tw{						/*Open Close‚ÌÝ’è*/
+.tw{						
 	color: red;
 	font-size: 30px;
 	border-radius: 100%;
@@ -686,7 +688,7 @@ td,th{
 	/*vertical-align: middle;*/
 }
 
-#todo div.text1{					/*o—Í‰æ–Ê‚ÌÝ’è*/
+#todo div.text1{					
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
