@@ -513,14 +513,13 @@ table.calen h6{
 
 
 div.textinputs{										/********************************/
-	width: 300px;
-	height: 400px;
 	background-color: #FFFFFF;
 	background-image: url(back01.gif);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	padding-top: 1em;
+	margin-top: -600px;
 
 }
 
@@ -661,9 +660,6 @@ td,th{
 
 
 
-#todo{
-	position: absolute;right: 20%; top:80px;
-}
 
 #change{
 	position: absolute; right: 10px; top: 10px;
@@ -672,11 +668,7 @@ td,th{
 #tw2{
 	position: absolute;right: 9.5%;top: 98px
 }
-#open{
-	position: absolute;top:140px;
-	margin-left: 75%;
-	width: 200px;
-	}
+
 .tw{						
 	color: red;
 	font-size: 30px;
