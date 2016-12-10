@@ -104,7 +104,7 @@ div.textinputs div+div{
 	margin-top: 2em;
 }
 
-#inputmenu div#calendate{
+#calendate{
 	text-align: center;
 	font-size: 20px;
 	}
@@ -115,7 +115,7 @@ label {
 	text-align: right;
 }
 
-#inputmenu input{
+#settitle{
 	font: 1em sans-serif;
 	width: 150px;
 	-moz-box-sizing: border-box;
@@ -123,7 +123,7 @@ label {
 	border: 1px solid #999;
 }
 
-#inputmenu textarea#msg {
+#msg {
 	font: 1em sans-serif;
 	width: 200px;
 	height: 180px;
@@ -261,6 +261,10 @@ td,th{
 	font: 1em sans-serif;
 	width: 150px;
 	background-color: #FFFFFF;
+}
+#todo div.todotime{
+	display: inline-block;
+	margin: 0 auto;
 }
 
 #todo div.text2{

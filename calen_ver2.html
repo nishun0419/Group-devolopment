@@ -22,6 +22,12 @@
         var thisYear  = now.getFullYear();
         var thisMonth = now.getMonth() + 1;
         var today     = now.getDate();
+
+        //入力時間
+        var starth = "00";
+        var startm = "00";
+        var endh = "00";
+        var endm = "00";
         
         // 表示年月の記憶
         var year      = thisYear;
@@ -30,7 +36,8 @@
         var monthdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
         var days = new Array("日", "月", "火", "水", "木", "金", "土");
         var todotitle;
-        var todocateg;
+        var starttime;
+        var endtime;
         var todomsg;
         
         function showCalen(n){
@@ -107,18 +114,12 @@
         else{
          document.getElementById("Group_calen").innerHTML = htmlStr;
         }
-        //入力画面生成
-        var textinput = '<div class="textinputs">' + '<div>' + '<div id="calendate">' + '</div>' + '<label for="settitle">' + "タイトル" +'</label>' + '<input type="text" id="settitle">' + '</div>';    //タイトル入力
-        textinput += '<div>' + '<label for="categ">' + "カテゴリー" + '</label>' + '<input type="text" id="categ">' + '</div>';        //カテゴリー
-        textinput += '<div>' + '<label for="msg">' + "メッセージ" + '</label>' + '<textarea id="msg">' + '</textarea>' + '</div>';       //メッセージ
-        textinput += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle.value,categ.value,msg.value)">' + '</div>';
-        textinput += '</div>';
-        document.getElementById("inputmenu").innerHTML = textinput;
+        
         //入力画面生成２
         var textinput2 = '<div class="textinputs">' + '<div>' + '<div id="calendate2">' + '</div>' + '<label for="settitle2">' + "タイトル" +'</label>' + '<input type="text" id="settitle2">' + '</div>';    //タイトル入力
         textinput2 += '<div>' + '<label for="categ2">' + "カテゴリー" + '</label>' + '<input type="text" id="categ2">' + '</div>';        //カテゴリー
         textinput2 += '<div>' + '<label for="msg2">' + "メッセージ" + '</label>' + '<textarea id="msg2">' + '</textarea>' + '</div>';       //メッセージ
-        textinput2 += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle2.value,categ2.value,msg2.value)">' + '</div>';
+        textinput2 += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle2.value,msg2.value)">' + '</div>';
         textinput2 += '</div>';
         
         document.getElementById("inputmenu2").innerHTML = textinput2;
@@ -144,11 +145,29 @@
             document.getElementById("tw3").innerHTML = openset;
         }
         }
-        
-        function settodo(title, ctegory, message){
+
+        // 時間取得
+         function outputSelectedStarthour(obj){
+             var idx = obj.selectedIndex;
+                starth= obj.options[idx].text;  // 表示テキスト
+         }
+         function outputSelectedStartmin(obj){
+             var idx = obj.selectedIndex;
+                startm= obj.options[idx].text;  // 表示テキスト
+         }
+         function outputSelectedEndhour(obj){
+             var idx = obj.selectedIndex;
+                endh= obj.options[idx].text;  // 表示テキスト
+         }
+         function outputSelectedEndmin(obj){
+             var idx = obj.selectedIndex;
+                endm= obj.options[idx].text;  // 表示テキスト
+         }
+        function settodo(title,message){
             $(function(){              //入力したデータを変数に代入
             todotitle = title;
-            todocateg = ctegory;
+            starttime = starth + ":" + startm;
+            endtime = endh + ":" + endm;
             todomsg = message;
             // データベースの処理で入力情報を格納
 
@@ -169,7 +188,7 @@
             }
 
             $('#settitle').val('');
-            $('#categ').val('');
+            $('select') .prop('selectedIndex', 0);
             $('#msg').val('');
             });	
         }
@@ -207,12 +226,16 @@
         //入力した内容を表示
         function showtodo() {
         var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "タイトル"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //タイトル
-        showtodotext += '<div>' + '<span class ="showtext1">' + "カテゴリー" + '</span>' + '<div class="text1">' + todocateg + '</div>' + '</div>';        //カテゴリー
+        showtodotext += '<div>' + '<span class ="showtext1">' + "時間" + '</span>' + '<div class="todotime">' + starttime + "~" + endtime + '</div>' + '</div>';        //時間
         showtodotext += '<div>' + '<span class ="showtext1">' + "メッセージ" + '</span>' + '<div class="text2">' + todomsg + '</div>' + '</div>';           //メッセージ
-        showtodotext += '<div class="button">' + '<input type="button" value="閉じる" onclick="showopen()">' + '</div>';
+        showtodotext += '<div class="button">' + '<input type="button" value="閉じる" onclick="closetodo()">' + '</div>';
         showtodotext += '</div>';
         $('#todo').html(showtodotext);
         }
+
+    function closetodo(){
+        $('#todo').text(" ");
+    }
 
     $(function(){
         //予定の削除ボタンクリック時 
@@ -364,7 +387,194 @@
         
         <!-- 折り畳まれ部分 -->
         <div style="display: none" id="open">
-        <p id="inputmenu"></p></div>
+        <p id="inputmenu">
+            <div class="textinputs"> 
+            <div> 
+                <!-- 日付データ -->
+             <div id="calendate"> </div> 
+                <!-- タイトル -->
+             <label for="settitle">タイトル</label><input type="text" id="settitle"></div>
+                    <!-- 時間 -->    
+                <div><label for="categ"> 時間</label><select name="selectedate-h" id="selectedate-h" onChange="outputSelectedStarthour(this);">
+  <option value="00">00</option>
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+</select>:<select name="selectedate-m" id="selectedate-m" onChange="outputSelectedStartmin(this);">
+  <option value="00">00</option>
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  <option value="32">32</option>
+  <option value="33">33</option>
+  <option value="34">34</option>
+  <option value="35">35</option>
+  <option value="36">36</option>
+  <option value="37">37</option>
+  <option value="38">38</option>
+  <option value="39">39</option>
+  <option value="40">40</option>
+  <option value="41">41</option>
+  <option value="42">42</option>
+  <option value="43">43</option>
+  <option value="44">44</option>
+  <option value="45">45</option>
+  <option value="46">46</option>
+  <option value="47">47</option>
+  <option value="48">48</option>
+  <option value="49">49</option>
+  <option value="50">50</option>
+  <option value="51">51</option>
+  <option value="52">52</option>
+  <option value="53">53</option>
+  <option value="54">54</option>
+  <option value="55">55</option>
+  <option value="56">56</option>
+  <option value="57">57</option>
+  <option value="58">58</option>
+  <option value="59">59</option>
+</select>~<select name="selectedate-h" id="selectedate-h2" onChange="outputSelectedEndhour(this);">
+  <option value="00">00</option>
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+</select>:<select name="selectedate-m" id="selectedate-m2" onChange="outputSelectedEndmin(this);">
+  <option value="00">00</option>
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  <option value="32">32</option>
+  <option value="33">33</option>
+  <option value="34">34</option>
+  <option value="35">35</option>
+  <option value="36">36</option>
+  <option value="37">37</option>
+  <option value="38">38</option>
+  <option value="39">39</option>
+  <option value="40">40</option>
+  <option value="41">41</option>
+  <option value="42">42</option>
+  <option value="43">43</option>
+  <option value="44">44</option>
+  <option value="45">45</option>
+  <option value="46">46</option>
+  <option value="47">47</option>
+  <option value="48">48</option>
+  <option value="49">49</option>
+  <option value="50">50</option>
+  <option value="51">51</option>
+  <option value="52">52</option>
+  <option value="53">53</option>
+  <option value="54">54</option>
+  <option value="55">55</option>
+  <option value="56">56</option>
+  <option value="57">57</option>
+  <option value="58">58</option>
+  <option value="59">59</option>
+</select></div>
+                     <!-- メッセージ -->
+                    <div><label for="msg">メッセージ</label><textarea id="msg"></textarea></div>
+                        <!-- ボタン -->
+                        <div class="button"><input type="button" value="send" onclick="settodo(settitle.value,msg.value);"></div>
+            </div>
+        </p>
+        </div>
         <div id="createin">
             <div id="Group_calen"></div>
          <div class="todolist2" style="display: none">            
