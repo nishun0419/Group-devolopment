@@ -13,6 +13,14 @@ body{													/*背景画像*/
 	margin: 0;
 }
 
+div.main{
+	width: 600px;
+	height: 600px;
+	margin: 0 auto;
+	margin-top: 10px;
+	overflow-x: hidden;
+}
+
 #menu_ber{
 	width: 100%;
 	padding-left: 10px;
@@ -44,8 +52,10 @@ hr{
 
 table.calen {  font-size:20pt;
 			   margin: 0 auto;
-			   background-image: url()
+			   margin-top: -480px;
+			   background-image: url();
 			   border-collapse:collapse;
+			   display: inline-block;
 			 }
 
 table.calen th { height:30px;
@@ -85,6 +95,7 @@ table.calen tr.daydate{
 
 p#calen{
 	margin: 0 auto;
+	display: inline-block;
 }
 
 
@@ -103,10 +114,15 @@ div.textinputs{
 	background-position: center;
 	background-size: cover;
 	padding-top: 1em;
-	margin: 0 auto;
-	margin-top: -450px;
+	margin-top: 80px;
+	margin-left: -400px;
 	z-index: 10;
+	display: inline-block;
 
+}
+
+div.smarttextinputs{
+	display: none;
 }
 
 div.textinputs div+div{
@@ -144,6 +160,16 @@ label {
 	resize: vertical;
 
 }	
+
+.todo{
+	margin-left: 1000px;
+	margin-top: -550px;
+	z-index: 9;
+}
+
+.smarttodo{
+	display: none;
+}
 
 #inputmenu2 div#calendate2{
 	text-align: center;
@@ -224,13 +250,10 @@ td,th{
   table-layout:fixed;
 }
 .tit{
-  width:150px;
+  width:200px;
 }
 .ac1{
   width:80px;
-}
-.ac2{
-  width:65px;
 }
 
 
@@ -255,7 +278,7 @@ td,th{
 	/*vertical-align: middle;*/
 }
 
-#todo div.text1{					/*出力画面*/
+.todo div.text1{					/*出力画面*/
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -264,12 +287,12 @@ td,th{
 	width: 250px;
 	background-color: #FFFFFF;
 }
-#todo div.todotime{
+.todo div.todotime{
 	display: inline-block;
 	padding-left: 10px;
 }
 
-#todo div.text2{
+.todo div.text2{
 	display: inline-block;
 	vertical-align: top;
 	border: 1px solid #999;
@@ -460,10 +483,19 @@ hr{
 	display: none;
 }
 
+div.main{
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	margin-top: 10px;
+	overflow-x: hidden;
+}
+
 table.calen {  font-size:12pt;
 			   margin: 0 auto;
-			   background-image: url()
+			   background-image: url();
 			   border-collapse:collapse;
+			   margin-top: -680px;
 			 }
 
 table.calen th { height:15px;
@@ -519,8 +551,12 @@ div.textinputs{										/********************************/
 	background-position: center;
 	background-size: cover;
 	padding-top: 1em;
-	margin-top: -600px;
+	height: 300px;
+	width: 300px;
 
+}
+
+div.smarttextinputs{
 }
 
 div.textinputs div+div{
@@ -558,6 +594,15 @@ label {
 	resize: vertical;
 
 }	
+
+.todo{
+	margin-left: 1000px;
+	margin-top: -550px;
+	z-index: 9;
+}
+
+.smarttodo{
+}
 
 #inputmenu2 div#calendate2{
 	text-align: center;
