@@ -484,18 +484,16 @@ hr{
 }
 
 div.main{
+	height: 315px;
 	width: 300px;
-	height: 300px;
 	margin: 0 auto;
-	margin-top: 10px;
-	overflow-x: hidden;
+
 }
 
 table.calen {  font-size:12pt;
 			   margin: 0 auto;
 			   background-image: url();
 			   border-collapse:collapse;
-			   margin-top: -680px;
 			 }
 
 table.calen th { height:15px;
@@ -553,6 +551,7 @@ div.textinputs{										/********************************/
 	padding-top: 1em;
 	height: 300px;
 	width: 300px;
+	display: none;
 
 }
 
@@ -601,8 +600,6 @@ label {
 	z-index: 9;
 }
 
-.smarttodo{
-}
 
 #inputmenu2 div#calendate2{
 	text-align: center;
