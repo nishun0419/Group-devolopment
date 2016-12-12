@@ -115,6 +115,7 @@
          document.getElementById("Group_calen").innerHTML = htmlStr;
         }
         
+       
         //入力画面生成２
         var textinput2 = '<div class="textinputs">' + '<div>' + '<div id="calendate2">' + '</div>' + '<label for="settitle2">' + "タイトル" +'</label>' + '<input type="text" id="settitle2">' + '</div>';    //タイトル入力
         textinput2 += '<div>' + '<label for="categ2">' + "カテゴリー" + '</label>' + '<input type="text" id="categ2">' + '</div>';        //カテゴリー
@@ -245,6 +246,14 @@
     }
 
     $(function(){
+
+         for(var i = 0 ; i < 24; i++){  //プルダウン
+            $('.selectedate-h').append('<option value="' + i + '">' + ("0" + i).slice(-2) + '</option>');
+        }
+
+        for(var i = 0 ; i < 60; i++){
+            $('.selectedate-m').append('<option value"' + i + '">' + ("0" + i).slice(-2) + '</option>');
+        }
         //予定の削除ボタンクリック時 
         $(document).on('click' , '.delete', function(){
             if(Gflag != 1){
@@ -316,7 +325,9 @@
             <input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">
             <div id="logout"></div>
         </div>
-        <hr>
+            <div id = smartmenu>
+                <p>+</p>
+            </div>
         <!-- <p id="change"><input type="button" value="前月" onclick="showCalen(-1)"> -->
         <!-- <input type="button" value="次月" onclick="showCalen(1)"></p> -->
        <div class="main">
@@ -329,178 +340,13 @@
                 <!-- タイトル -->
              <label for="settitle">タイトル</label><input type="text" id="settitle" placeholder="15文字以内で入力してください"></div>
                     <!-- 時間 -->    
-                <div><label for="categ"> 時間</label><select name="selectedate-h" id="selectedate-h" onChange="outputSelectedStarthour(this);">
-  <option value="00">00</option>
-  <option value="01">01</option>
-  <option value="02">02</option>
-  <option value="03">03</option>
-  <option value="04">04</option>
-  <option value="05">05</option>
-  <option value="06">06</option>
-  <option value="07">07</option>
-  <option value="08">08</option>
-  <option value="09">09</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
-  <option value="12">12</option>
-  <option value="13">13</option>
-  <option value="14">14</option>
-  <option value="15">15</option>
-  <option value="16">16</option>
-  <option value="17">17</option>
-  <option value="18">18</option>
-  <option value="19">19</option>
-  <option value="20">20</option>
-  <option value="21">21</option>
-  <option value="22">22</option>
-  <option value="23">23</option>
-</select>:<select name="selectedate-m" id="selectedate-m" onChange="outputSelectedStartmin(this);">
-  <option value="00">00</option>
-  <option value="01">01</option>
-  <option value="02">02</option>
-  <option value="03">03</option>
-  <option value="04">04</option>
-  <option value="05">05</option>
-  <option value="06">06</option>
-  <option value="07">07</option>
-  <option value="08">08</option>
-  <option value="09">09</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
-  <option value="12">12</option>
-  <option value="13">13</option>
-  <option value="14">14</option>
-  <option value="15">15</option>
-  <option value="16">16</option>
-  <option value="17">17</option>
-  <option value="18">18</option>
-  <option value="19">19</option>
-  <option value="20">20</option>
-  <option value="21">21</option>
-  <option value="22">22</option>
-  <option value="23">23</option>
-  <option value="24">24</option>
-  <option value="25">25</option>
-  <option value="26">26</option>
-  <option value="27">27</option>
-  <option value="28">28</option>
-  <option value="29">29</option>
-  <option value="30">30</option>
-  <option value="31">31</option>
-  <option value="32">32</option>
-  <option value="33">33</option>
-  <option value="34">34</option>
-  <option value="35">35</option>
-  <option value="36">36</option>
-  <option value="37">37</option>
-  <option value="38">38</option>
-  <option value="39">39</option>
-  <option value="40">40</option>
-  <option value="41">41</option>
-  <option value="42">42</option>
-  <option value="43">43</option>
-  <option value="44">44</option>
-  <option value="45">45</option>
-  <option value="46">46</option>
-  <option value="47">47</option>
-  <option value="48">48</option>
-  <option value="49">49</option>
-  <option value="50">50</option>
-  <option value="51">51</option>
-  <option value="52">52</option>
-  <option value="53">53</option>
-  <option value="54">54</option>
-  <option value="55">55</option>
-  <option value="56">56</option>
-  <option value="57">57</option>
-  <option value="58">58</option>
-  <option value="59">59</option>
-</select>~<select name="selectedate-h" id="selectedate-h2" onChange="outputSelectedEndhour(this);">
-  <option value="00">00</option>
-  <option value="01">01</option>
-  <option value="02">02</option>
-  <option value="03">03</option>
-  <option value="04">04</option>
-  <option value="05">05</option>
-  <option value="06">06</option>
-  <option value="07">07</option>
-  <option value="08">08</option>
-  <option value="09">09</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
-  <option value="12">12</option>
-  <option value="13">13</option>
-  <option value="14">14</option>
-  <option value="15">15</option>
-  <option value="16">16</option>
-  <option value="17">17</option>
-  <option value="18">18</option>
-  <option value="19">19</option>
-  <option value="20">20</option>
-  <option value="21">21</option>
-  <option value="22">22</option>
-  <option value="23">23</option>
-</select>:<select name="selectedate-m" id="selectedate-m2" onChange="outputSelectedEndmin(this);">
-  <option value="00">00</option>
-  <option value="01">01</option>
-  <option value="02">02</option>
-  <option value="03">03</option>
-  <option value="04">04</option>
-  <option value="05">05</option>
-  <option value="06">06</option>
-  <option value="07">07</option>
-  <option value="08">08</option>
-  <option value="09">09</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
-  <option value="12">12</option>
-  <option value="13">13</option>
-  <option value="14">14</option>
-  <option value="15">15</option>
-  <option value="16">16</option>
-  <option value="17">17</option>
-  <option value="18">18</option>
-  <option value="19">19</option>
-  <option value="20">20</option>
-  <option value="21">21</option>
-  <option value="22">22</option>
-  <option value="23">23</option>
-  <option value="24">24</option>
-  <option value="25">25</option>
-  <option value="26">26</option>
-  <option value="27">27</option>
-  <option value="28">28</option>
-  <option value="29">29</option>
-  <option value="30">30</option>
-  <option value="31">31</option>
-  <option value="32">32</option>
-  <option value="33">33</option>
-  <option value="34">34</option>
-  <option value="35">35</option>
-  <option value="36">36</option>
-  <option value="37">37</option>
-  <option value="38">38</option>
-  <option value="39">39</option>
-  <option value="40">40</option>
-  <option value="41">41</option>
-  <option value="42">42</option>
-  <option value="43">43</option>
-  <option value="44">44</option>
-  <option value="45">45</option>
-  <option value="46">46</option>
-  <option value="47">47</option>
-  <option value="48">48</option>
-  <option value="49">49</option>
-  <option value="50">50</option>
-  <option value="51">51</option>
-  <option value="52">52</option>
-  <option value="53">53</option>
-  <option value="54">54</option>
-  <option value="55">55</option>
-  <option value="56">56</option>
-  <option value="57">57</option>
-  <option value="58">58</option>
-  <option value="59">59</option>
+                <div><label for="categ"> 時間</label><select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
+
+</select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
+  
+</select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
+  
+</select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
 </select></div>
                      <!-- メッセージ -->
                     <div><label for="msg">メッセージ</label><textarea id="msg"></textarea></div>
@@ -588,6 +434,7 @@
         <!-- 折り畳まれ部分 -->
        
         <div id="createin">
+
             <div id="Group_calen"></div>
          <div class="todolist2" style="display: none">            
         <table class="table table-bordered table-hover table-condensed" id="todotable2">
