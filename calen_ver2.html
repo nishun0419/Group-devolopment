@@ -117,13 +117,13 @@
         
        
         //入力画面生成２
-        var textinput2 = '<div class="textinputs">' + '<div>' + '<div id="calendate2">' + '</div>' + '<label for="settitle2">' + "タイトル" +'</label>' + '<input type="text" id="settitle2">' + '</div>';    //タイトル入力
-        textinput2 += '<div>' + '<label for="categ2">' + "カテゴリー" + '</label>' + '<input type="text" id="categ2">' + '</div>';        //カテゴリー
-        textinput2 += '<div>' + '<label for="msg2">' + "メッセージ" + '</label>' + '<textarea id="msg2">' + '</textarea>' + '</div>';       //メッセージ
-        textinput2 += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle2.value,msg2.value)">' + '</div>';
-        textinput2 += '</div>';
+        // var textinput2 = '<div class="textinputs">' + '<div>' + '<div id="calendate2">' + '</div>' + '<label for="settitle2">' + "タイトル" +'</label>' + '<input type="text" id="settitle2">' + '</div>';    //タイトル入力
+        // textinput2 += '<div>' + '<label for="categ2">' + "カテゴリー" + '</label>' + '<input type="text" id="categ2">' + '</div>';        //カテゴリー
+        // textinput2 += '<div>' + '<label for="msg2">' + "メッセージ" + '</label>' + '<textarea id="msg2">' + '</textarea>' + '</div>';       //メッセージ
+        // textinput2 += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle2.value,msg2.value)">' + '</div>';
+        // textinput2 += '</div>';
         
-        document.getElementById("inputmenu2").innerHTML = textinput2;
+        // document.getElementById("inputmenu2").innerHTML = textinput2;
         }
         
         //日付クリック時の処理
@@ -216,12 +216,14 @@
                 $('.tw').text("＋");
             }
         }
-        else{if($('#open2').css('display') == 'none'){
-                $('#open2').css('display' , 'block');
-                $('.tw').text("ー");
+        else{ if($('.textinputs').hasClass('off')){
+             $('.textinputs').removeClass('off');
+             $('.textinputs').animate({'marginLeft':'100px'},300).addClass('on');
+            $('.tw').text("ー");
             }
             else{
-                $('#open2').css('display' , 'none');
+                $('.textinputs').removeClass('on');
+                 $('.textinputs').animate({'marginLeft':'-400px'},300).addClass('off');
                 $('.tw').text("＋");
             }}
          } ); 
@@ -252,7 +254,7 @@
         }
 
         for(var i = 0 ; i < 60; i++){
-            $('.selectedate-m').append('<option value"' + i + '">' + ("0" + i).slice(-2) + '</option>');
+            $('.selectedate-m').append('<option value="' + i + '">' + ("0" + i).slice(-2) + '</option>');
         }
         //予定の削除ボタンクリック時 
         $(document).on('click' , '.delete', function(){
@@ -325,7 +327,7 @@
             <input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">
             <div id="logout"></div>
         </div>
-            <div id = smartmenu>
+            <div id ="smartmenu">
                 <p>+</p>
             </div>
         <!-- <p id="change"><input type="button" value="前月" onclick="showCalen(-1)"> -->
@@ -434,8 +436,31 @@
         <!-- 折り畳まれ部分 -->
        
         <div id="createin">
+            <div class="main">
+            <p id="inputmenu2">
+          <div class="textinputs off">
+            <div> 
+                <!-- 日付データ -->
+             <div id="calendate2"> </div> 
+                <!-- タイトル -->
+             <label for="settitle">タイトル</label><input type="text" id="settitle2" placeholder="15文字以内で入力してください"></div>
+                    <!-- 時間 -->    
+                <div><label for="categ"> 時間</label><select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
 
+</select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
+  
+</select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
+  
+</select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
+</select></div>
+                     <!-- メッセージ -->
+                    <div><label for="msg">メッセージ</label><textarea id="msg2"></textarea></div>
+                        <!-- ボタン -->
+                        <div class="button"><input type="button" value="追加" onclick="settodo(settitle2.value,msg2.value);"></div>
+            </div>
+            </p>
             <div id="Group_calen"></div>
+        </div>
          <div class="todolist2" style="display: none">            
         <table class="table table-bordered table-hover table-condensed" id="todotable2">
          <thead class="scrollHead">
@@ -454,8 +479,7 @@
          <div id="tw3"> </div>
         
         <!-- 折り畳まれ部分 -->
-        <div style="display: none" id="open2">
-        <p id="inputmenu2"></p></div>
+        
         <p id="Group_create_button"><button class="btn btn-danger ok_Group">完了</button> 
          <button class="btn btn-success cancel_Group">キャンセル</button>
         </p>

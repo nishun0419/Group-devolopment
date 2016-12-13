@@ -2,7 +2,7 @@ html{
 	height: 100%;
 }
 
-body{													/*èƒŒæ™¯ç”»åƒ*/
+body{													/*Ã¨Æ’Å’Ã¦â„¢Â¯Ã§â€Â»Ã¥Æ’Â*/
 	background-image: url(image/calen_back.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -135,7 +135,7 @@ div.textinputs div+div{
 	}
 
 label {
-	display: inline-block;							/* å…¥åŠ›ç”»é¢*/
+	display: inline-block;							/* Ã¥â€¦Â¥Ã¥Å â€ºÃ§â€Â»Ã©ÂÂ¢*/
 	width: 90px;
 	text-align: right;
 }
@@ -167,11 +167,8 @@ label {
 	z-index: 9;
 }
 
-.smarttodo{
-	display: none;
-}
 
-#inputmenu2 div#calendate2{
+div#calendate2{
 	text-align: center;
 	font-size: 20px;
 	}	
@@ -184,7 +181,7 @@ label {
 	border: 1px solid #999;
 }
 
-#inputmenu2 textarea#msg2 {
+textarea#msg2 {
 	font: 1em sans-serif;
 	width: 220px;
 	height: 180px;
@@ -200,7 +197,7 @@ div.button{
 	padding-left: 20px;
 	margin-left: 4em;
 }
-#calen input#next{									/*nextãƒœã‚¿ãƒ³*/
+#calen input#next{									/*nextÃ£Æ’Å“Ã£â€šÂ¿Ã£Æ’Â³*/
 	margin-left: 100px;
 	margin-bottom: 10px;
 	background-color: #3B6E40;
@@ -232,7 +229,7 @@ div.todolist th{
 	text-align: center;
 }
 
-/*ãƒ†ãƒ¼ãƒ–ãƒ«è¨­å®š*/
+/*Ã£Æ’â€ Ã£Æ’Â¼Ã£Æ’â€“Ã£Æ’Â«Ã¨Â¨Â­Ã¥Â®Å¡*/
 thead.scrollHead,tbody.scrollBody{
   display:block;
 }
@@ -245,7 +242,7 @@ tbody.scrollBody{
 	border-style: none;
 }
 
-/* ãƒ†ãƒ¼ãƒ–ãƒ«ã‚µã‚¤ã‚º */
+/* Ã£Æ’â€ Ã£Æ’Â¼Ã£Æ’â€“Ã£Æ’Â«Ã£â€šÂµÃ£â€šÂ¤Ã£â€šÂº */
 td,th{
   table-layout:fixed;
 }
@@ -267,7 +264,7 @@ td,th{
 	position: absolute;right: 9.5%;top: 98px
 }
 
-.tw{						/*Open Closeãƒœã‚¿ãƒ³*/
+.tw{						/*Open CloseÃ£Æ’Å“Ã£â€šÂ¿Ã£Æ’Â³*/
 	color: red;
 	font-size: 30px;
 	border-radius: 100%;
@@ -278,7 +275,7 @@ td,th{
 	/*vertical-align: middle;*/
 }
 
-.todo div.text1{					/*Âå‡ºåŠ›ç”»é¢*/
+.todo div.text1{					/*Ã‚ÂÃ¥â€¡ÂºÃ¥Å â€ºÃ§â€Â»Ã©ÂÂ¢*/
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -378,7 +375,7 @@ div.Groupsection{
 	position: absolute;
 	top:60px;
 	padding-top: 12px;
-	height: calc(100% - 78px);
+	height: calc(100% - 60px);
 	width: 100%;
 	background-color: #494949;
 	display: none;
@@ -401,11 +398,7 @@ div.Groupsection{
 #tw3{
 	position: absolute;right: 9.5%;top: 50px
 }
-#open2{
-	position: absolute;top:92px;
-	margin-left: 75%;
-	width: 200px;
-	}
+
 
 #createin div.todolist2{
 	position: absolute; top: 92px;
@@ -424,7 +417,7 @@ p#Group_create_button{
 	margin-left: 75%;
 	margin-top: -5%;
 }
-/*ãƒ›ãƒãƒ¼ã‚¨ãƒ•ã‚§ã‚¯ãƒˆ*/
+/*Ã£Æ’â€ºÃ£Æ’ÂÃ£Æ’Â¼Ã£â€šÂ¨Ã£Æ’â€¢Ã£â€šÂ§Ã£â€šÂ¯Ã£Æ’Ë†*/
 .normal {cursor: pointer;} 	
 .normal:hover { background-color: #DDDDDD }	 
 .today {cursor: pointer;}
@@ -442,7 +435,7 @@ p#Group_create_button{
 
 
 
-/*---------------ã‚¹ãƒžãƒ›å°‚ç”¨ã‚¹ã‚¿ã‚¤ãƒ«-------------------------*/
+/*---------------Ã£â€šÂ¹Ã£Æ’Å¾Ã£Æ’â€ºÃ¥Â°â€šÃ§â€Â¨Ã£â€šÂ¹Ã£â€šÂ¿Ã£â€šÂ¤Ã£Æ’Â«-------------------------*/
 
 
 
@@ -452,7 +445,7 @@ p#Group_create_button{
 /*img{
 max-width: 100%;
 height: auto;
-width :auto;Â@
+width :auto;Ã‚Â@
 }*/
 #container{
 width:100%;
@@ -485,15 +478,21 @@ width:100%;
 	display: block;
 	background-color: #fff;
 }
+#smartmenu{
+	font-size: 20px;
+	padding-right: 10px;
+}
 div.main{
 	height: 315px;
-	width: 300px;
 	margin: 0 auto;
+	width: 100%;
+	text-align: center;
 
 }
 
 table.calen {  font-size:12pt;
 			   margin: 0 auto;
+			   margin-top: 0px;
 			   background-image: url();
 			   border-collapse:collapse;
 			 }
@@ -557,9 +556,6 @@ div.textinputs{										/********************************/
 
 }
 
-div.smarttextinputs{
-}
-
 div.textinputs div+div{
 	margin-top: 2em;
 }
@@ -600,6 +596,7 @@ label {
 	margin-left: 1000px;
 	margin-top: -550px;
 	z-index: 9;
+	display: none;
 }
 
 
@@ -722,6 +719,7 @@ td,th{
 	width: 40px;
 	text-align: center;
 	/*vertical-align: middle;*/
+	display: none;
 }
 
 #todo div.text1{					
@@ -774,6 +772,10 @@ div.Grouptext{
 	overflow-y: auto;
 	margin-top: -315px;
 }
+
+div.Grouptext div{
+
+}
 div.slide{
 	position: relative;
 	width: 310px;
@@ -792,6 +794,7 @@ div.GroupBox .Grouplist{
 	padding-left: 10px;
 	vertical-align: middle;
 	margin-bottom: 10px;
+	border-bottom:1px solid #1D60E9;
 }
 
 
