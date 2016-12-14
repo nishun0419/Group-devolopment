@@ -333,9 +333,12 @@
             </div>
             <div class="smartinput">
               <div class="calendate"></div>
-              <label>タイトル</label>
+              <div>
+              <label>タイトル</label><br>
               <input type="text" class="settitle" placeholder="15文字以内で入力してください">
-              <label>時間</label>
+            </div>
+            <div>
+              <label>時間</label><br>
               <select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
               </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
 
@@ -343,8 +346,11 @@
 
               </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
               </select>
-              <label>メッセージ</label>
+            </div>
+            <div>
+              <label>メッセージ</label><br>
               <input type="textarea" class="msg">
+            </div>
             <button class="btn btn-danger btn-xs delete_Group">削除</button>
             </div>
 

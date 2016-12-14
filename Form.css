@@ -2,12 +2,13 @@ body{
    background-color: #FFFFFF;
    color: #000000;
    font-family: fantasy;
+   margin: 0 auto;
 }
 table{
    background-color: #66cdaa;
    border: #FFFFFF 2px solid;
    margin-right: 1000px;
-   
+
 }
 td{
    width: 1000px;
