@@ -15,7 +15,7 @@ body{													/*Ã¨Æ’Å’Ã¦â„¢Â¯Ã§â€Â»Ã¥Æ’Â*/
 
 div.main{
 	width: 600px;
-	height: 557px;
+	height: 650px;
 	margin: 0 auto;
 	margin-top: 10px;
 	overflow-x: hidden;
@@ -345,6 +345,7 @@ div.GroupBox .Grouplist{
 	padding-left: 10px;
 	vertical-align: middle;
 	margin-bottom: 10px;
+	border-bottom:1px solid #1D60E9;
 }
 
 
@@ -375,7 +376,7 @@ div.Groupsection{
 	position: absolute;
 	top:60px;
 	padding-top: 12px;
-	height: calc(100% - 60px);
+	height: 120%;
 	width: 100%;
 	background-color: #494949;
 	display: none;
@@ -479,8 +480,9 @@ width:100%;
 	background-color: #fff;
 }
 #smartmenu{
-	font-size: 20px;
-	padding-right: 10px;
+	font-size: 15px;
+	text-align: right;
+	vertical-align: middle;
 }
 div.main{
 	height: 315px;
@@ -794,7 +796,6 @@ div.GroupBox .Grouplist{
 	padding-left: 10px;
 	vertical-align: middle;
 	margin-bottom: 10px;
-	border-bottom:1px solid #1D60E9;
 }
 
 
