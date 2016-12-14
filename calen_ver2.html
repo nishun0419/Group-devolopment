@@ -28,35 +28,35 @@
         var startm = "00";
         var endh = "00";
         var endm = "00";
-        
+
         // 表示年月の記憶
         var year      = thisYear;
         var month     = thisMonth;
-        
+
         var monthdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
         var days = new Array("日", "月", "火", "水", "木", "金", "土");
         var todotitle;
         var starttime;
         var endtime;
         var todomsg;
-        
+
         function showCalen(n){
         month += n;
-       
+
         if (month == 0) { year--; month=12; }
         else if (month == 13) { year++; month=1; }
         var flag = ((year == thisYear) && (month == thisMonth))? 1: 0;
-        
+
         var date = new Date(year, month-1, 1);
         var startDay = date.getDay();
-        
+
         var dateMax = monthdays[month - 1];
         if (month == 2 && ((year%4 == 0 && year%100 != 0) || year%400 == 0)) dateMax = 29;
-        
+
         // 休日配列の初期化
         var holidays = new Array();
         for (var i=0; i<=dateMax; i++) holidays[i] = 0;
-        
+
         // 祝日1 の処理
         var firstSunday = (startDay == 0)? 1: 8 - startDay;
         for (i=0; i<Holidays1.length; i+=2) {
@@ -71,13 +71,13 @@
         var firstMonday = (startDay < 2)? 2 - startDay: 9 - startDay;
         for (i=0; i<Holidays2.length; i+=2)
         if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
-        
+
         var htmlStr = "<table class='calen'>\n"
         + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
         htmlStr +="<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
         for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
         htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
-        
+
         var col=0;
         if (startDay > 0) {
         htmlStr += "<tr class='daydate'>";
@@ -114,26 +114,27 @@
         else{
          document.getElementById("Group_calen").innerHTML = htmlStr;
         }
-        
-       
+
+
         //入力画面生成２
         // var textinput2 = '<div class="textinputs">' + '<div>' + '<div id="calendate2">' + '</div>' + '<label for="settitle2">' + "タイトル" +'</label>' + '<input type="text" id="settitle2">' + '</div>';    //タイトル入力
         // textinput2 += '<div>' + '<label for="categ2">' + "カテゴリー" + '</label>' + '<input type="text" id="categ2">' + '</div>';        //カテゴリー
         // textinput2 += '<div>' + '<label for="msg2">' + "メッセージ" + '</label>' + '<textarea id="msg2">' + '</textarea>' + '</div>';       //メッセージ
         // textinput2 += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle2.value,msg2.value)">' + '</div>';
         // textinput2 += '</div>';
-        
+
         // document.getElementById("inputmenu2").innerHTML = textinput2;
         }
-        
+
         //日付クリック時の処理
-        function test(e){                                     
+        function test(e){
         var openset = '<div id="tw1" onclick="showopen()">' + '<div class="tw">' + "＋" + '<div>' + '</div>';
             //日付情報の取得
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
             var day = e.getAttribute('day');
             $('.textinputs .calendate').text( yy + '/' + mm + '/' + day);
+            $('.smartinput .calendate').text( yy + '/' + mm + '/' + day);
             $('.textinputs #calendate2').text( yy + '/' + mm + '/' + day);
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
@@ -191,7 +192,7 @@
             $('#settitle').val('');
             $('select') .prop('selectedIndex', 0);
             $('#msg').val('');
-            });	
+            });
         }
 
         function restart(n){
@@ -203,7 +204,7 @@
         showCalen(n);
         }
         function showopen(){
-        $(function(){ 
+        $(function(){
         if(Gflag != 1){                                   //入力画面の表示、非表示
           if($('.textinputs').hasClass('off')){
              $('.textinputs').removeClass('off');
@@ -226,8 +227,8 @@
                  $('.textinputs').animate({'marginLeft':'-400px'},300).addClass('off');
                 $('.tw').text("＋");
             }}
-         } ); 
-         }    
+         } );
+         }
         //入力した内容を表示
         function showtodo() {
         var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "タイトル"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //タイトル
@@ -239,7 +240,7 @@
          $('.todo').removeClass('off');
          $('.todo').animate({'marginLeft':'500px'},300).addClass('on');
 }
-        
+
 
     function closetodo(){
         $('.todo').text(" ");
@@ -256,7 +257,7 @@
         for(var i = 0 ; i < 60; i++){
             $('.selectedate-m').append('<option value="' + i + '">' + ("0" + i).slice(-2) + '</option>');
         }
-        //予定の削除ボタンクリック時 
+        //予定の削除ボタンクリック時
         $(document).on('click' , '.delete', function(){
             if(Gflag != 1){
             var rowNum = $('#todotable .delete').index(this);
@@ -281,7 +282,7 @@
 
         $(document).on('click','.delete_Group', function(){     //グループの削除ボタンクリック時
             $(this).parent().remove();
-            
+
             // todo:関連する情報をデータベースから削除する
 
 
@@ -313,13 +314,13 @@
 
     })
 
-    });  
+    });
 
-    
+
 
 </script>
-        
-        
+
+
         </head>
         <body onload="showCalen(0)">
         <div id="menu_ber">
@@ -331,7 +332,27 @@
                 <p>+</p>
             </div>
             <div class="smartinput">
-                <div>
+              <div class="calendate"></div>
+              <div>
+              <label>タイトル</label>
+              <input type="text" class="settitle" placeholder="15文字以内で入力してください">
+            </div>
+              <div>
+              <label>時間</label>
+              <select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
+              </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
+
+              </select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
+
+              </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
+              </select>
+            </div>
+            <div>
+              <label>メッセージ</label>
+              <input type="textarea" class="msg">
+            </div>
+            <button class="btn btn-danger btn-xs delete_Group">削除</button>
+            </div>
 
 
 
@@ -339,32 +360,32 @@
          <div id="open">
         <p class="inputmenu">
             <div class="textinputs off">
-            <div> 
+            <div>
                 <!-- 日付データ -->
-             <div class="calendate"> </div> 
+             <div class="calendate"> </div>
                 <!-- タイトル -->
              <label for="settitle">タイトル</label><input type="text" id="settitle" placeholder="15文字以内で入力してください"></div>
-                    <!-- 時間 -->    
+                    <!-- 時間 -->
                 <div><label for="categ"> 時間</label><select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
 
 </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
-  
+
 </select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
-  
+
 </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
 </select></div>
                      <!-- メッセージ -->
-                    <div><label for="msg">メッセージ</label><textarea id="msg"></textarea></div>
+                    <div><label for="msg">メッセージ</label><textarea class="msg"></textarea></div>
                         <!-- ボタン -->
                         <div class="button"><input type="button" value="追加" onclick="settodo(settitle.value,msg.value);"></div>
             </div>
         </p>
         </div>
-        <p id="calen"></p>  
+        <p id="calen"></p>
         <div class="todo off"></div>
-    </div>    
-            
-        <div class="todolist" style="display: none">            
+    </div>
+
+        <div class="todolist" style="display: none">
         <table class="table table-bordered table-hover table-condensed" id="todotable">
          <thead class="scrollHead">
              <tr>
@@ -377,10 +398,10 @@
          </tbody>
          <tfoot>
          </tfoot>
-        </table> 
+        </table>
         </div>
-             
-             <div class="Groupsection"> 
+
+             <div class="Groupsection">
             <div class="GroupBox">
             <div id="titleh">
             <h3>登録したグループ名</h3>
@@ -391,7 +412,7 @@
             <div class="Grouptext">
             <div>
                 <div class="Grouplist">神戸電子専門学校　行事</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-                
+
             </div>
             <div>
                 <div class="Grouplist">アルバイトシフト</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
@@ -428,32 +449,32 @@
             </div>
         </div>
         </div>
-           <p id="GroupEdit"><button class="btn btn-primary edit_Group">新しいグループに参加</button> 
+           <p id="GroupEdit"><button class="btn btn-primary edit_Group">新しいグループに参加</button>
          <button class="btn btn-primary create_Group">グループを作る</button>
         </p>
         </div>
-         
+
         <!-- 折りこみ展開ポインタ -->
         <div id="tw2"> </div>
-        
+
         <!-- 折り畳まれ部分 -->
-       
+
         <div id="createin">
             <div class="main">
             <p id="inputmenu2">
           <div class="textinputs off">
-            <div> 
+            <div>
                 <!-- 日付データ -->
-             <div id="calendate2"> </div> 
+             <div id="calendate2"> </div>
                 <!-- タイトル -->
              <label for="settitle">タイトル</label><input type="text" id="settitle2" placeholder="15文字以内で入力してください"></div>
-                    <!-- 時間 -->    
+                    <!-- 時間 -->
                 <div><label for="categ"> 時間</label><select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
 
 </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
-  
+
 </select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
-  
+
 </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
 </select></div>
                      <!-- メッセージ -->
@@ -464,7 +485,7 @@
             </p>
             <div id="Group_calen"></div>
         </div>
-         <div class="todolist2" style="display: none">            
+         <div class="todolist2" style="display: none">
         <table class="table table-bordered table-hover table-condensed" id="todotable2">
          <thead class="scrollHead">
              <tr>
@@ -477,13 +498,13 @@
          </tbody>
          <tfoot>
          </tfoot>
-        </table> 
+        </table>
         </div>
          <div id="tw3"> </div>
-        
+
         <!-- 折り畳まれ部分 -->
-        
-        <p id="Group_create_button"><button class="btn btn-danger ok_Group">完了</button> 
+
+        <p id="Group_create_button"><button class="btn btn-danger ok_Group">完了</button>
          <button class="btn btn-success cancel_Group">キャンセル</button>
         </p>
         </div>
