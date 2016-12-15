@@ -257,6 +257,20 @@
         for(var i = 0 ; i < 60; i++){
             $('.selectedate-m').append('<option value="' + i + '">' + ("0" + i).slice(-2) + '</option>');
         }
+
+        $('.smartadd').on('click', function(){
+              if($('.smartinput').hasClass('off')){
+            $('.smartinput').removeClass('off');
+            $('.smartinput').animate({'height':'100vh'},300).addClass('on');
+            $('.main').css('display' , 'none');
+            $('.smartadd').text('-');
+          }else{
+            $('.smartinput').addClass('off');
+            $('.main').css('display' , 'block');
+            $('.smartinput').animate({'height':'0vh'},300);
+            $('.smartadd').text('+')
+          }
+                })
         //予定の削除ボタンクリック時
         $(document).on('click' , '.delete', function(){
             if(Gflag != 1){
@@ -329,9 +343,9 @@
             <div id="logout"></div>
         </div>
             <div id ="smartmenu">
-                <p>+</p>
+                <p class="smartadd">+</p>
             </div>
-            <div class="smartinput">
+            <div class="smartinput off">
               <div class="calendate"></div>
               <div>
               <label>タイトル</label><br>
