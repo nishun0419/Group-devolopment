@@ -55,10 +55,17 @@ div.main{
 	background-color: #FFFFFF;
 	width: 100%;
 	height: 100vh;
-	margin: 0 auto;
 	display: none;
 	text-align: center;
-
+	/*margin:0 auto;*/
+}
+.smartinput label{
+	text-align: center;
+}
+.textcenter{
+	text-align: center;
+	/*margin:0 auto;*/
+	width: 100%;
 }
 
 table.calen {  font-size:20pt;
