@@ -40,7 +40,7 @@
         var endtime;
         var todomsg;
 
-        var newHeight = $('.container').height() - 60;
+        var newHeight =  - 60;
 
         function showCalen(n){
         month += n;
@@ -268,16 +268,18 @@
         $('.smartadd').on('click', function(){
               if($('.smartinput').hasClass('off')){
             $('.smartinput').removeClass('off');
-            $('.smartinput').animate({'height': '100vh'},300).addClass('on');
+            $('.smartinput').animate({'height': '100vh' },300).addClass('on');
             $('.main').css('display' , 'none');
             $('.todolist').css('display' , 'none')
             $('.smartadd').text('-');
           }else{
             $('.smartinput').addClass('off');
             $('.main').css('display' , 'block');
-            $('.todolist').css('display' , 'block');
             $('.smartinput').animate({'height':'0vh'},300);
-            $('.smartadd').text('+')
+            $('.smartadd').text('+');
+            if($('#todotable .delete').length != 0){
+                $('.todolist').css('display' , 'block');
+            }
           }
         });
         //予定の削除ボタンクリック時
