@@ -40,6 +40,8 @@
         var endtime;
         var todomsg;
 
+        var newHeight = $('.container').height() - 60;
+
         function showCalen(n){
         month += n;
 
@@ -108,6 +110,7 @@
         }
         htmlStr += "</table>";
          document.getElementById("Group_calen").innerHTML = htmlStr;
+         $('.calendate').text(year + '/' + month + '/' + today);
         if(Gflag != 1){
            document.getElementById("calen").innerHTML = htmlStr;
         }
@@ -133,9 +136,7 @@
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
             var day = e.getAttribute('day');
-            $('.textinputs .calendate').text( yy + '/' + mm + '/' + day);
-            $('.smartinput .calendate').text( yy + '/' + mm + '/' + day);
-            $('.textinputs #calendate2').text( yy + '/' + mm + '/' + day);
+            $('.calendate').text( yy + '/' + mm + '/' + day);
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
             // todo:予定があれば表示
@@ -189,9 +190,9 @@
               $('.textinputs').removeClass('on');
               $('.textinputs').animate({'marginLeft':'-400px'},300).addClass('off');
               $('.tw').text("＋");
-            $('#settitle').val('');
+            $('.settitle').val('');
             $('select') .prop('selectedIndex', 0);
-            $('#msg').val('');
+            $('.msg').val('');
             });
           if($('.smartinput').hasClass('on')){
           $('.smartinput').removeClass('on');
@@ -267,12 +268,14 @@
         $('.smartadd').on('click', function(){
               if($('.smartinput').hasClass('off')){
             $('.smartinput').removeClass('off');
-            $('.smartinput').animate({'height':'100vh'},300).addClass('on');
+            $('.smartinput').animate({'height': '100vh'},300).addClass('on');
             $('.main').css('display' , 'none');
+            $('.todolist').css('display' , 'none')
             $('.smartadd').text('-');
           }else{
             $('.smartinput').addClass('off');
             $('.main').css('display' , 'block');
+            $('.todolist').css('display' , 'block');
             $('.smartinput').animate({'height':'0vh'},300);
             $('.smartadd').text('+')
           }
@@ -487,7 +490,7 @@
           <div class="textinputs off">
             <div>
                 <!-- 日付データ -->
-             <div id="calendate2"> </div>
+             <div class="calendate"> </div>
                 <!-- タイトル -->
              <label for="settitle">タイトル</label><input type="text" id="settitle2" placeholder="15文字以内で入力してください"></div>
                     <!-- 時間 -->
