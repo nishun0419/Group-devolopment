@@ -193,7 +193,13 @@
             $('select') .prop('selectedIndex', 0);
             $('#msg').val('');
             });
+          if($('.smartinput').hasClass('on')){
+          $('.smartinput').removeClass('on');
+          $('.smartinput').animate({'height':'0vh'},300).addClass('off');
+          $('.main').css('display' , 'block');
+          $('.smartadd').text('+');
         }
+      }
 
         function restart(n){
         $('#todo').text("");
@@ -270,7 +276,7 @@
             $('.smartinput').animate({'height':'0vh'},300);
             $('.smartadd').text('+')
           }
-                })
+        });
         //予定の削除ボタンクリック時
         $(document).on('click' , '.delete', function(){
             if(Gflag != 1){
@@ -349,7 +355,7 @@
               <div class="calendate"></div>
               <div>
               <label>タイトル</label><br>
-              <input type="text" class="settitle" placeholder="15文字以内で入力してください">
+              <input type="text" class="settitle" id="ssettitle"  placeholder="15文字以内で入力してください">
             </div>
             <div>
               <label>時間</label><br>
@@ -363,9 +369,9 @@
             </div>
             <div>
               <label>メッセージ</label><br>
-              <input type="textarea" class="msg">
+              <input type="textarea" class="msg" id="smsg">
             </div>
-            <button class="btn btn-danger btn-xs delete_Group">削除</button>
+            <div class="button"><input type="button" value="追加" onclick="settodo(ssettitle.value,smsg.value);"></div>
             </div>
 
 
@@ -378,8 +384,8 @@
                 <!-- 日付データ -->
              <div class="calendate"> </div>
                 <!-- タイトル -->
-            <div class="textcenter"> <label for="settitle">タイトル</label></div>
-            <div class="textcenter"><input type="text" id="settitle" placeholder="15文字以内で入力してください"></div>
+            <div><label for="settitle">タイトル</label>
+            <input type="text" class="settitle" id="settitle" placeholder="15文字以内で入力してください"></div>
                     <!-- 時間 -->
                 <div><label for="categ"> 時間</label><select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
 
@@ -390,12 +396,13 @@
 </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
 </select></div>
                      <!-- メッセージ -->
-                    <div><label for="msg">メッセージ</label><textarea class="msg"></textarea></div>
+                    <div><label for="msg">メッセージ</label><textarea class="msg" id="msg"></textarea></div>
                         <!-- ボタン -->
                         <div class="button"><input type="button" value="追加" onclick="settodo(settitle.value,msg.value);"></div>
             </div>
-        </p>
         </div>
+      </p>
+    </div>
         <p id="calen"></p>
         <div class="todo off"></div>
     </div>
