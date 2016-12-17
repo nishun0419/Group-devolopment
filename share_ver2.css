@@ -462,7 +462,7 @@ p#Group_create_button{
 
 
 
-@media screen and (max-width:606px){
+@media screen and (max-width:700px){
 /*img{
 max-width: 100%;
 height: auto;
@@ -807,7 +807,7 @@ div.Groupsection{
 	display: none;
 
 }
-*/
+
 div.Grouptext{
 	position: relative;
 	width: 310px;
