@@ -244,6 +244,7 @@
         showtodotext += '<div class="button">' + '<input type="button" value="閉じる" onclick="closetodo()">' + '</div>';
         showtodotext += '</div>';
         $('.todo').html(showtodotext);
+        
          $('.todo').removeClass('off');
          $('.todo').animate({'marginLeft':'500px'},300).addClass('on');
 }
@@ -355,6 +356,7 @@
         </div>
             <div id ="smartmenu">
                 <p class="smartadd">+</p>
+                <p class="smartdel">x</p>
             </div>
             <div class="smartinput off">
               <div class="calendate"></div>

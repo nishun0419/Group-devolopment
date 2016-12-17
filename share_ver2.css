@@ -516,6 +516,12 @@ width:100%;
 	margin-top: 10px;
 	line-height: 20px;
 }
+.smartdel{
+	display: none;
+}
+.smartadd{
+	/*display: none;*/
+}
 .smartinput{
 	display: block;
 }
