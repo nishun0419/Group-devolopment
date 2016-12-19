@@ -247,6 +247,16 @@
         
          $('.todo').removeClass('off');
          $('.todo').animate({'marginLeft':'500px'},300).addClass('on');
+
+         //スマホ用の処理
+         $('.text1').text(todotitle);
+         $('.todotime').text(starttime + "~" + endtime);
+         $('.text2').text(todomsg);
+         $('.smartout').animate({'height': '100vh'});
+         $('.smartadd').css('display' , 'none');
+         $('.smartdel').css('display', 'block');
+         // $('.main').css('display' , 'none');
+         // $('.todolist').css('display' , 'none');
 }
 
 
@@ -254,6 +264,13 @@
         $('.todo').text(" ");
         $('.todo').removeClass('on');
         $('.todo').animate({'marginLeft':'1000px'},300).addClass('off');
+
+        //スマホ用処理
+        $('.smartout').animate({'height': '0vh'});
+        $('.smartdel').css('display' , 'none');
+        $('.smartadd').css('display' , 'block');
+
+
     }
 
     $(function(){
@@ -271,13 +288,13 @@
             $('.smartinput').removeClass('off');
             $('.smartinput').animate({'height': '100vh' },300).addClass('on');
             $('.main').css('display' , 'none');
-            $('.todolist').css('display' , 'none')
-            $('.smartadd').text('-');
+            $('.todolist').css('display' , 'none');
+            $('.smartadd').text('ー');
           }else{
             $('.smartinput').addClass('off');
             $('.main').css('display' , 'block');
             $('.smartinput').animate({'height':'0vh'},300);
-            $('.smartadd').text('+');
+            $('.smartadd').text('＋');
             if($('#todotable .delete').length != 0){
                 $('.todolist').css('display' , 'block');
             }
@@ -307,6 +324,9 @@
         );
 
         $(document).on('click','.delete_Group', function(){     //グループの削除ボタンクリック時
+            if($(this).text == $('#menu_ber h1').text){
+                $('#menu_ber h1').text("ゲスト様のカレンダー");
+            }
             $(this).parent().remove();
 
             // todo:関連する情報をデータベースから削除する
@@ -338,7 +358,31 @@
         $('#menu_ber h1').css('display', 'block');
         Gflag = 0;
 
-    })
+    });
+
+     $('.ok_Group').on('click',function(){      //OKボタンクリック時
+        var gtitle = Group_title.value;
+        // alert(gtitle);
+         $('#createin').css('display', 'none');
+        $('#Group_title').css('display','none');
+        $('#menu_ber h1').css('display', 'block');
+        Gflag = 0;
+        $('.Grouptext').append($('<div></div>').append($('<div class="Grouplist"></div>').text(gtitle))
+        .append('<button class="btn btn-danger btn-xs delete_Group">削除</button>'));        
+    });
+    $(document).on('click','.Grouplist', function(){  //グループリストクリック時
+        var gtext = $(this).html();
+        // alert(gtext);
+        $('#menu_ber h1').text(gtext);
+        //gtextのタイトルのデータベースを検索し、カレンダーを再読み込み
+        //
+        //
+        //
+        showCalen(0);
+
+    });
+
+
 
     });
 
@@ -356,7 +400,7 @@
         </div>
             <div id ="smartmenu">
                 <p class="smartadd">+</p>
-                <p class="smartdel">x</p>
+                <p class="smartdel" onclick="closetodo();">x</p>
             </div>
             <div class="smartinput off">
               <div class="calendate"></div>
@@ -380,8 +424,19 @@
             </div>
             <div class="sbutton"><input type="button" value="追加" onclick="settodo(ssettitle.value,smsg.value);"></div>
             </div>
-
-
+            <div class="smartout">
+                <div>
+                <label>タイトル</label><br>
+                    <div class="text1"></div>
+                </div>
+                <label>時間</label><br>
+                    <div class="todotime">
+                </div>
+                <div>
+                <label>メッセージ</label><br>
+                    <div class="text2"></div>
+                </div>
+            </div>
 
        <div class="main">
          <div id="open">
@@ -451,30 +506,6 @@
             </div>
             <div>
                 <div class="Grouplist">グループ開発　スケジュール</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
-            <div>
-                 <div class="Grouplist">なにかしらの予定</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
             </div>
         </div>
         </div>

@@ -64,6 +64,18 @@ div.main{
 .smartinput label{
 	text-align: center;
 }
+
+.smartout{
+	display: none;
+	width: 100%;
+	height: 0vh;
+	text-align: center;
+	background-color: #fff;
+	overflow: hidden;
+}
+.smartout label{
+	text-align: center;
+}
 .textcenter{
 	text-align: center;
 	/*margin:0 auto;*/
@@ -295,7 +307,7 @@ td,th{
 	/*vertical-align: middle;*/
 }
 
-.todo div.text1{					/*Ã‚ÂÃ¥â€¡ÂºÃ¥Å â€ºÃ§â€Â»Ã©ÂÂ¢*/
+.text1{					/*Ã‚ÂÃ¥â€¡ÂºÃ¥Å â€ºÃ§â€Â»Ã©ÂÂ¢*/
 	display: inline-block;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -304,12 +316,12 @@ td,th{
 	width: 250px;
 	background-color: #FFFFFF;
 }
-.todo div.todotime{
+.todotime{
 	display: inline-block;
 	padding-left: 10px;
 }
 
-.todo div.text2{
+.text2{
 	display: inline-block;
 	vertical-align: top;
 	border: 1px solid #999;
@@ -447,6 +459,7 @@ p#Group_create_button{
 .satd:hover { background-color: #DDDDDD }
 .sund {cursor: pointer;}
 .sund:hover { background-color: #DDDDDD }
+.Grouplist {cursor:pointer;}
 #tw{cursor: pointer;}
 #todolist td{cursor: pointer;}
 #todolist td:hover { text-decoration: underline; }
@@ -523,6 +536,9 @@ width:100%;
 	/*display: none;*/
 }
 .smartinput{
+	display: block;
+}
+.smartout{
 	display: block;
 }
 div.main{
