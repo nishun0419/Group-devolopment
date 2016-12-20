@@ -216,12 +216,12 @@
           if($('.textinputs').hasClass('off')){
              $('.textinputs').removeClass('off');
              $('.textinputs').animate({'marginLeft':'100px'},300).addClass('on');
-            $('.tw').text("ー");
+            $('.tw').text("閉じる");
             }
             else{
                 $('.textinputs').removeClass('on');
                  $('.textinputs').animate({'marginLeft':'-400px'},300).addClass('off');
-                $('.tw').text("＋");
+                $('.tw').text("追加");
             }
         }
         else{ if($('.textinputs').hasClass('off')){
@@ -307,12 +307,17 @@
         //予定の削除ボタンクリック時
         $(document).on('click' , '.delete', function(){
             if(Gflag != 1){
-            var rowNum = $('#todotable .delete').index(this);
-            $('#todotable').find('tr').eq(rowNum + 1).remove();
-            if($('#todotable .delete').length == 0){
-                $('.todolist').css('display' , 'none');
-                //プライベートカレンダーの予定削除
-            }
+                 if(!confirm('本当に削除しますか？')){
+                    return false;
+                }
+                else{
+                       var rowNum = $('#todotable .delete').index(this);
+                       $('#todotable').find('tr').eq(rowNum + 1).remove();
+                   if($('#todotable .delete').length == 0){
+                     $('.todolist').css('display' , 'none');
+                          //プライベートカレンダーの予定削除
+                     }
+                }
             }
             else{
                 var rowNum = $('#todotable2 .delete').index(this);
@@ -328,15 +333,21 @@
         );
 
         $(document).on('click','.delete_Group', function(){     //グループの削除ボタンクリック時
-            if($(this).text == $('#menu_ber h1').text){
+            // alert($(this).prev('div').text());
+            if(!confirm('本当に削除しますか？')){
+                return false;
+            }
+            else{
+                if($(this).prev('div').text() == $('#menu_ber h1').text()){
+                //グループモードの解除
                 $('#menu_ber h1').text("ゲスト様のカレンダー");
             }
             $(this).parent().remove();
-
+        }
             // todo:関連する情報をデータベースから削除する
 
 
-        })
+        });
 
     $('.edit_Group').on('click',function(){        //グループID入力　スライド
   if($('.slide').hasClass('off')){
@@ -385,8 +396,28 @@
         showCalen(0);
 
     });
+    $(document).on({
+       "mouseenter": function(){
+        $(this).animate({'width' : '80px'}, 100);
+         if($('.textinputs').hasClass('off')){
+            $(this).text('追加');
+         }
+         else{
+            $(this).text('閉じる');
+         }
+        
+       },
+       "mouseleave": function(){
+        $(this).animate({'width' : '40px'}, 100);
+         if($('.textinputs').hasClass('off')){
+             $(this).text('＋');
+          }
+          else{
+            $(this).text('ー');
+          }
 
-
+   }
+     } , '.tw');
 
     });
 
