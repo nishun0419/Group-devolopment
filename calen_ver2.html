@@ -341,6 +341,7 @@
                 if($(this).prev('div').text() == $('#menu_ber h1').text()){
                 //グループモードの解除
                 $('#menu_ber h1').text("ゲスト様のカレンダー");
+                $('html,body').animate({scrollTop:0}, "slow");
             }
             $(this).parent().remove();
         }
@@ -389,6 +390,8 @@
         var gtext = $(this).html();
         // alert(gtext);
         $('#menu_ber h1').text(gtext);
+        $('html,body').animate({scrollTop:0}, "slow");
+        return false;
         //gtextのタイトルのデータベースを検索し、カレンダーを再読み込み
         //
         //
