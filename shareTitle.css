@@ -307,7 +307,7 @@ div.spacer_top {
 }
 
 #section1_image{
-	/*width: 500px;*/
+	height: 250px;
 	width: 100%;
 	margin-top: 20px;
 	background-color: blue;
