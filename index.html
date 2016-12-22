@@ -60,13 +60,11 @@ var title_tween = new TimelineMax();
 	<h2>予定を共有（シェア）する新しいカレンダー</h2>
 	<p>シェアカレは今までのカレンダーとは全く違います。自分の予定を他人にシェアすることができる新しいカレンダーそれがシェアカレです。住む街のイベント、学校行事などの予定をこのカレンダーに書き込めば知らせたい人全員に見せることができます。</p>
     </div>
-    <div id="section1_image">
-     <h3>画像</h3>
-    </div>
+     <img src="image/iphoen.png">
 </div>
 <script>
 		var scene = new ScrollMagic.Scene({triggerElement: "#trigger02"})
-		.setTween(TweenMax.to(["#section1_text p", "#section1_image"],1,{css:{opacity:1} , delay:0.2}))
+		.setTween(TweenMax.to(["#section1_text p", ".section1 img"],1,{css:{opacity:1} , delay:0.2}))
 		.addTo(controller);
 </script>
 <div id="trigger03"></div>
