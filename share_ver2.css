@@ -76,10 +76,9 @@ div.main{
 .smartout label{
 	text-align: center;
 }
-.textcenter{
-	text-align: center;
-	/*margin:0 auto;*/
-	width: 100%;
+
+.stext{
+	text-align: left;
 }
 
 table.calen {  font-size:20pt;
@@ -508,32 +507,38 @@ width:100%;
 }
 #smartmenu{
 	width: 100%;
-	height: 25px;
+	height: 35px;
 	display: block;
 	background-color: #fff;
 }
 #smartmenu{
 	/*font-size: 25px;*/
-	text-align: right;
-	vertical-align: middle;
 	margin-top: -10px;
 }
-#smartmenu p{
+/*#smartmenu p{
 	font-size: 20px;
 	border: 1px solid #000;
 	height: 20px;
 	width: 20px;
 	text-align: center;
 	padding-bottom: -5px;
-	margin-left:80%;
+	margin-left:20%;
 	margin-top: 10px;
 	line-height: 20px;
+}*/
+.release{
+	margin-left:10px;
+	display: inline-block;
+	visibility: hidden;
 }
 .smartdel{
-	display: none;
+	display: inline-block;
+	visibility: hidden;
 }
 .smartadd{
-	/*display: none;*/
+	/*margin-top: -20px;*/
+	/*visibility: hidden;*/
+	margin-left: 25%;
 }
 .smartinput{
 	display: block;
