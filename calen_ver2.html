@@ -15,8 +15,10 @@
         var Holidays1 = new Array(1,1, 2,11, 3,21, 4,29, 5,3, 5,4, 5,5, 8,11, 9,22, 11,3, 11,23, 12,23);
         // 祝日2：何月の第何月曜日か？
         var Holidays2 = new Array(1,2, 7,3, 9,3, 10,2);
-        // グループフラグ
+        // グループ入力フラグ
         var Gflag = 0;
+        //グループモード判定用フラグ
+        var Gmode = 0;
         // 現在の年、月、日の取得
         var now       = new Date();
         var thisYear  = now.getFullYear();
@@ -35,12 +37,12 @@
 
         var monthdays = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
         var days = new Array("日", "月", "火", "水", "木", "金", "土");
+       
+       //入力情報の格納変数
         var todotitle;
         var starttime;
         var endtime;
         var todomsg;
-
-        var newHeight =  - 60;
 
         function showCalen(n){
         month += n;
@@ -140,6 +142,7 @@
             //入力画面の表示、非表示の関数呼び出しのクリックイベント
         /*-----データベースの処理---------------*/
             // todo:予定があれば表示
+            //Gmodeが１の場合グループカレンダーの予定表示
 
         if(Gflag != 1){
             document.getElementById("tw2").innerHTML = openset;
@@ -198,6 +201,9 @@
           if($('.smartinput').hasClass('on')){
           $('.smartinput').removeClass('on');
           $('.smartinput').animate({'height':'0vh'},300).addClass('off');
+          if(Gmode == 1){
+                    $('.release').css('visibility' , 'visible');
+          }          
           $('.main').css('display' , 'block');
           $('.Groupsection').css('display' , 'block');
           $('.smartadd').text('+');
@@ -205,7 +211,6 @@
       }
 
         function restart(n){
-        $('#todo').text("");
         $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
         $('.todolist').css('display' , 'none');
         $('#tw2').text("");
@@ -258,6 +263,7 @@
          $('.smartout').animate({'height': '100vh'});
          $('.smartadd').css('visibility' , 'hidden');
          $('.smartdel').css('visibility', 'visible');
+         $('.release').css('visibility' , 'hidden');
          $('.main').css('display' , 'none');
          $('.Groupsection').css('display' , 'none');
          $('.todolist').css('display' , 'none');
@@ -275,6 +281,9 @@
         $('.smartout').animate({'height': '0vh'});
         $('.smartdel').css('visibility' , 'hidden');
         $('.smartadd').css('visibility' , 'visible');
+        if(Gmode == 1){
+            $('.release').css('visibility' , 'visible');
+        }
          $('.main').css('display' , 'block');
          $('.Groupsection').css('display' , 'block');
          $('.todolist').css('display' , 'block');
@@ -298,6 +307,7 @@
             $('.main').css('display' , 'none');
             $('.todolist').css('display' , 'none');
             $('.Groupsection').css('display' , 'none');
+            $('.release').css('visibility' , 'hidden');
             $('.smartadd').text('ー');
           }else{
             $('.smartinput').addClass('off');
@@ -307,6 +317,9 @@
             $('.smartadd').text('＋');
             if($('#todotable .delete').length != 0){
                 $('.todolist').css('display' , 'block');
+            }
+            if(Gmode == 1){
+                $('.release').css('visibility' , 'visible');
             }
           }
         });
@@ -348,6 +361,7 @@
                 //グループモードの解除
                 $('#menu_ber h1').text("ゲスト様のカレンダー");
                 $('.release').css('visibility','hidden');
+                Gmode = 0;
                 $('html,body').animate({scrollTop:0}, "slow");
             }
             $(this).parent().remove();
@@ -400,6 +414,7 @@
         $('html,body').animate({scrollTop:0}, "slow");
         // return false;
         $('.release').css('visibility' , 'visible');
+        Gmode = 1;
         //gtextのタイトルのデータベースを検索し、カレンダーを再読み込み
         //
         //
@@ -411,6 +426,7 @@
         //グループモードの解除(データベースをプライベートに戻す)
          $('#menu_ber h1').text("ゲスト様のカレンダー");
          $('.release').css('visibility', 'hidden');
+         Gmode = 0;
          showCalen(0)
     });
 

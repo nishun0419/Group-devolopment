@@ -2,6 +2,8 @@
    ☐ clen_ver2,share_ver2で作成
      ./calen_ver2.html/ 
      ./share_ver2.css/
+     ☐ restart時todoがうまく消せない
+     
    ☐ データベースの設計（劉、松本に任せた）
    ☐ タイトル画面の作成
      ./Title.html/
