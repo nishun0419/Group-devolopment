@@ -486,7 +486,7 @@ width:100%;
 
 #menu_ber{
 	width: 100%;
-	/*height: 10%;*/
+	height: 35px;
 	padding-left: 10px;
 	border-bottom:1px solid #ccc;
 }
@@ -544,6 +544,7 @@ width:100%;
 }
 .smartinput{
 	display: block;
+	z-index: 11;
 }
 .smartout{
 	display: block;
@@ -888,26 +889,26 @@ div.Groupsection{
 
 #createin{
 	position: absolute;
-	top:60px;
+	top:70px;
 	padding-top: 12px;
-	height: calc(100% - 78px);
 	width: 100%;
 	background-color: #494949;
 	display: none;
 	 /*opacity: 0.5; */
-	z-index: 13;
+	z-index: 10;
 }
 
 
 
 #Group_title{
-	height: 40px;
-	width: 600px;
-	margin-top: 15px;
+	height: 18px;
+	width: 200px;
 	background-color: transparent;
 	color: #FFFFFF;
-	font-size: 30px;
+	font-size: 12px;
 	border: 1px solid #32EFFB;
+	margin:0 auto;
+	margin-top: 5px;
 }
 
 #tw3{
