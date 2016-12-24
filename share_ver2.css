@@ -889,7 +889,7 @@ div.Groupsection{
 
 #createin{
 	position: absolute;
-	top:70px;
+	top:65px;
 	padding-top: 12px;
 	width: 100%;
 	background-color: #494949;
@@ -921,8 +921,10 @@ div.Groupsection{
 	}
 
 #createin div.todolist2{
-	position: absolute; top: 92px;
-	margin-left: 75%;
+	position: static;
+	margin-left: auto;
+	margin-right: auto;
+	width: 320px;
 }
 
 div.todolist2 th{
