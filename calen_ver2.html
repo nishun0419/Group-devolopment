@@ -205,7 +205,9 @@
                     $('.release').css('visibility' , 'visible');
           }          
           $('.main').css('display' , 'block');
+          if(Gflag != 1){
           $('.Groupsection').css('display' , 'block');
+      }
           $('.smartadd').text('+');
         }
       }
@@ -312,7 +314,9 @@
           }else{
             $('.smartinput').addClass('off');
             $('.main').css('display' , 'block');
+            if(Gflag != 1){
             $('.Groupsection').css('display' , 'block');
+             }
             $('.smartinput').animate({'height':'0vh'},300);
             $('.smartadd').text('＋');
             if($('#todotable .delete').length != 0){
@@ -386,13 +390,15 @@
         $('#createin').css('display' , 'block');
         $('#menu_ber h1').css('display','none');
         $('#Group_title').css('display','block');
+        $('.Groupsection').css('display','none');
         Gflag = 1;
     });
 
-    $('.cancel_Group').on('click',function(){　 // グループカレンダー入力解除
+    $('.cancel_Group').on('click',function(){　 // グループカレンダー入力解除(cancel)
         $('#createin').css('display', 'none');
         $('#Group_title').css('display','none');
         $('#menu_ber h1').css('display', 'block');
+        $('.Groupsection').css('display','block');
         Gflag = 0;
 
     });
@@ -403,6 +409,7 @@
          $('#createin').css('display', 'none');
         $('#Group_title').css('display','none');
         $('#menu_ber h1').css('display', 'block');
+        $('.Groupsection').css('display' , 'block');
         Gflag = 0;
         $('.Grouptext').append($('<div></div>').append($('<div class="Grouplist"></div>').text(gtitle))
         .append('<button class="btn btn-danger btn-xs delete_Group">削除</button>'));        
