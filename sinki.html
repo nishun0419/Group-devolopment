@@ -25,7 +25,7 @@ var n = myform.id.value;
 
 if(n == ""){
 	res = false;
-	window.alert("id‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢");
+	window.alert("IDを入力してください");
 	return;
 	}
 check3();
@@ -37,7 +37,7 @@ var n = myform.mail.value;
 
 if(n == ""){
 	res = false;
-	window.alert("ƒ[ƒ‹ƒAƒhƒŒƒX‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	window.alert("メールアドレスを入力してください");
 	return ;
 }
 check4();
@@ -50,14 +50,14 @@ function check4(){
 
 if(n == ""){
 	res = false;
-	window.alert("ƒpƒXƒ[ƒh‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	window.alert("パスワードを入力してください");
 			return;
 	}
 
 
 else if(m == ""){
 	res = false;
-	window.alert("ƒpƒXƒ[ƒhŠm”F‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	window.alert("確認パスワードを入力してください");
 	return;
 }
 
@@ -65,7 +65,7 @@ else if(m == ""){
 
 else  if(n != m){
 	res = false;
-	window.alert("ƒpƒXƒ[ƒh‚ªˆê’v‚µ‚Ü‚¹‚ñBÄ“x“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+	window.alert("パスワードが一致しません");
 	return;
 	}
 alert("");
@@ -89,11 +89,11 @@ return;
 	
 </head>
 <body>
-	<p>•K—vŽ–€‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢</p>
+	<p>新規登録</p>
 		<form name="myform" action="sinki.html">
 <dl>
 
-	<dt>‚¨–¼‘O<font color="red"> •K{</font></dt>
+	<dt>名前<font color="red">必須</font></dt>
 
 <dd>
 
@@ -102,7 +102,7 @@ return;
 </dd>
 
 
-	<dt>ƒ†[ƒU[ID<font color="red">•K{</font></dt>
+	<dt>ID<font color="red">必須</font></dt>
 
 <dd>
 
@@ -110,7 +110,7 @@ return;
 
 </dd>
 
-	<dt>ƒ[ƒ‹ƒAƒhƒŒƒX<font color="red">•K{</font></dt>
+	<dt>メールアドレス<font color="red">必須</font></dt>
 
 <dd>
 
@@ -118,14 +118,14 @@ return;
 
 </dd>
 
-	<dt>ƒpƒXƒ[ƒh<font color="red">•K{</font></dt>
+	<dt>パスワード<font color="red">必須</font></dt>
 	
 <dd>
 	<input type="password" name="pass"size="10"maxlength="50">
 
 </dd>
 
-	<dt>ƒpƒXƒ[ƒhŠm”F<font color="red">•K{</font></dt>
+	<dt>確認パスワード<font color="red">必須</font></dt>
 
 
 <dd>
@@ -134,7 +134,7 @@ return;
 </dd>
 </dl>
 
-	<input type="button" value="“o˜^‚·‚éI" onclick=check1();>
+	<input type="button" value="登録" onclick=check1();>
 
 </form>
 
