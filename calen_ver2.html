@@ -222,25 +222,25 @@
         function showopen(){
         $(function(){
         if(Gflag != 1){                                   //入力画面の表示、非表示
-          if($('.textinputs').hasClass('off')){
-             $('.textinputs').removeClass('off');
-             $('.textinputs').animate({'marginLeft':'100px'},300).addClass('on');
+          if($('.Ptextinputs').hasClass('off')){
+             $('.Ptextinputs').removeClass('off');
+             $('.Ptextinputs').animate({'marginLeft':'100px'},300).addClass('on');
             $('.tw').text("閉じる");
             }
             else{
-                $('.textinputs').removeClass('on');
-                 $('.textinputs').animate({'marginLeft':'-400px'},300).addClass('off');
+                $('.Ptextinputs').removeClass('on');
+                 $('.Ptextinputs').animate({'marginLeft':'-400px'},300).addClass('off');
                 $('.tw').text("追加");
             }
         }
-        else{ if($('.textinputs').hasClass('off')){
-             $('.textinputs').removeClass('off');
-             $('.textinputs').animate({'marginLeft':'100px'},300).addClass('on');
+        else{ if($('.Gtextinputs').hasClass('off')){
+             $('.Gtextinputs').removeClass('off');
+             $('.Gtextinputs').animate({'marginLeft':'100px'},300).addClass('on');
             $('.tw').text("ー");
             }
             else{
-                $('.textinputs').removeClass('on');
-                 $('.textinputs').animate({'marginLeft':'-400px'},300).addClass('off');
+                $('.Gtextinputs').removeClass('on');
+                 $('.Gtextinputs').animate({'marginLeft':'-400px'},300).addClass('off');
                 $('.tw').text("＋");
             }}
          } );
@@ -425,7 +425,7 @@
         //gtextのタイトルのデータベースを検索し、カレンダーを再読み込み
         //
         //
-        //
+        
         showCalen(0);
 
     });
@@ -459,7 +459,21 @@
 
    }
      } , '.tw');
-
+     $('.join').on('click' , function(){
+        //データベース側の処理
+         var i = jointext.value;
+         // alert(i);
+         if(i == "ji"){
+         $('.Grouptext').append($('<div></div>').append($('<div class="Grouplist"></div>').text("test"))
+        .append('<button class="btn btn-danger btn-xs delete_Group">削除</button>')); 
+         $('.slide').addClass('off');
+         $('.slide').animate({'marginLeft':'-300px'},300);
+         $('#titleh h3').text('登録したグループ名')
+         }
+         else{
+         alert("グループがありません");
+     }
+     })
     });
 
 
@@ -518,7 +532,7 @@
        <div class="main">
          <div id="open">
         <p class="inputmenu">
-            <div class="textinputs off">
+            <div class="textinputs Ptextinputs off">
             <div>
                 <!-- 日付データ -->
              <div class="calendate"> </div>
@@ -568,7 +582,7 @@
             <h3>登録したグループ名</h3>
             </div>
             <div class="slide off">
-                <input type="text"><button type="button" class="btn btn-success sign">ボタン２</button>
+                <input type="text" id="jointext"><button type="button" class="btn btn-success join">参加</button>
             </div>
             <div class="Grouptext">
             <div>
@@ -599,7 +613,7 @@
         <div id="createin">
             <div class="main">
             <p id="inputmenu2">
-          <div class="textinputs off">
+          <div class="textinputs Gtextinputs off">
             <div>
                 <!-- 日付データ -->
              <div class="calendate"> </div>
