@@ -160,7 +160,7 @@
          }
         
         function settodo(title,message){
-            $(function(){              //入力したデータを変数に代入
+                       //入力したデータを変数に代入
                 if(title.length > 15){
                     alert("15文字以内で入力してください");
                     return;
@@ -189,7 +189,6 @@
             $('.settitle').val('');
             $('select') .prop('selectedIndex', 0);
             $('.msg').val('');
-            });
             //スマホ用処理
           if($('.smartinput').hasClass('on')){
           $('.smartinput').removeClass('on');
