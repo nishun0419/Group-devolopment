@@ -28,8 +28,6 @@
         //入力時間
         var starth = "00";
         var startm = "00";
-        var endh = "00";
-        var endm = "00";
 
         // 表示年月の記憶
         var year      = thisYear;
@@ -41,7 +39,6 @@
        //入力情報の格納変数
         var todotitle;
         var starttime;
-        var endtime;
         var todomsg;
 
         function showCalen(n){
@@ -161,19 +158,15 @@
              var idx = obj.selectedIndex;
                 startm= obj.options[idx].text;  // 表示テキスト
          }
-         function outputSelectedEndhour(obj){
-             var idx = obj.selectedIndex;
-                endh= obj.options[idx].text;  // 表示テキスト
-         }
-         function outputSelectedEndmin(obj){
-             var idx = obj.selectedIndex;
-                endm= obj.options[idx].text;  // 表示テキスト
-         }
+        
         function settodo(title,message){
             $(function(){              //入力したデータを変数に代入
+                if(title.length > 15){
+                    alert("15文字以内で入力してください");
+                    return;
+                }
             todotitle = title;
             starttime = starth + ":" + startm;
-            endtime = endh + ":" + endm;
             todomsg = message;
             // データベースの処理で入力情報を格納
 
@@ -210,6 +203,7 @@
       }
           $('.smartadd').text('+');
         }
+
       }
 
         function restart(n){
@@ -248,18 +242,26 @@
         //入力した内容を表示
         function showtodo() {
         var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "タイトル"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //タイトル
-        showtodotext += '<div>' + '<span class ="showtext1">' + "時間" + '</span>' + '<div class="todotime">' + starttime + "~" + endtime + '</div>' + '</div>';        //時間
+        showtodotext += '<div>' + '<span class ="showtext1">' + "時間" + '</span>' + '<div class="todotime">' + starttime + "~"  + '</div>' + '</div>';        //時間
         showtodotext += '<div>' + '<span class ="showtext1">' + "メッセージ" + '</span>' + '<div class="text2">' + todomsg + '</div>' + '</div>';           //メッセージ
         showtodotext += '<div class="button">' + '<input type="button" value="閉じる" onclick="closetodo()">' + '</div>';
         showtodotext += '</div>';
-        $('.todo').html(showtodotext);
+        if(Gflag != 1){
+        $('.Ptodo').html(showtodotext);
         
-         $('.todo').removeClass('off');
-         $('.todo').animate({'marginLeft':'500px'},300).addClass('on');
+         $('.Ptodo').removeClass('off');
+         $('.Ptodo').animate({'marginLeft':'500px'},300).addClass('on');
+        }
+        else{
+             $('.Gtodo').html(showtodotext);
+        
+         $('.Gtodo').removeClass('off');
+         $('.Gtodo').animate({'marginLeft':'500px'},300).addClass('on');
+        }
 
          //スマホ用の処理
          $('.text1').text(todotitle);
-         $('.todotime').text(starttime + "~" + endtime);
+         $('.todotime').text(starttime + "~" );
          $('.text2').text(todomsg);
          if($('#smartmenu').css('display') == 'block'){
          $('.smartout').animate({'height': '100vh'});
@@ -404,6 +406,11 @@
     });
 
      $('.ok_Group').on('click',function(){      //OKボタンクリック時
+        if($('#Group_title').val().length > 15){
+            alert("15文字以内で入力してください");
+            return;
+        }
+        // alert($('#Group_title').val().length);
         var gtitle = Group_title.value;
         // alert(gtitle);
          $('#createin').css('display', 'none');
@@ -437,10 +444,10 @@
          showCalen(0)
     });
 
-     $(document).on({   //追加ボタンのホバーエフェクト
+     $(document).on({   //追加ボタンのホバーエフェクト  グループモード後で実装
        "mouseenter": function(){
         $(this).animate({'width' : '80px'}, 100);
-         if($('.textinputs').hasClass('off')){
+         if($('.Ptextinputs').hasClass('off')){
             $(this).text('追加');
          }
          else{
@@ -450,7 +457,7 @@
        },
        "mouseleave": function(){
         $(this).animate({'width' : '40px'}, 100);
-         if($('.textinputs').hasClass('off')){
+         if($('.Ptextinputs').hasClass('off')){
              $(this).text('＋');
           }
           else{
@@ -504,10 +511,7 @@
               <select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
               </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
 
-              </select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
-
-              </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
-              </select>
+              </select>~
             </div>
             <div>
               <label>メッセージ</label><br>
@@ -544,10 +548,7 @@
 
 </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
 
-</select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
-
-</select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
-</select></div>
+</select>~</div>
                      <!-- メッセージ -->
                     <div><label for="msg">メッセージ</label><textarea class="msg" id="msg"></textarea></div>
                         <!-- ボタン -->
@@ -557,7 +558,7 @@
       </p>
     </div>
         <p id="calen"></p>
-        <div class="todo off"></div>
+        <div class="todo Ptodo off"></div>
     </div>
 
         <div class="todolist" style="display: none">
@@ -624,10 +625,7 @@
 
 </select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedStartmin(this);">
 
-</select>~<select name="selectedate-h" class="selectedate-h" onChange="outputSelectedEndhour(this);">
-
-</select>:<select name="selectedate-m" class="selectedate-m" onChange="outputSelectedEndmin(this);">
-</select></div>
+</select>~</div>
                      <!-- メッセージ -->
                     <div><label for="msg">メッセージ</label><textarea id="msg2"></textarea></div>
                         <!-- ボタン -->
@@ -635,6 +633,7 @@
             </div>
             </p>
             <div id="Group_calen"></div>
+            <div class="todo Gtodo off"></div>
         </div>
          <div class="todolist2" style="display: none">
         <table class="table table-bordered table-hover table-condensed" id="todotable2">

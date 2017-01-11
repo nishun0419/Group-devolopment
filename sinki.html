@@ -8,6 +8,10 @@
 	
 function check1(){
 var n = myform.name.value;
+if(n == "ニノセ"){				//名前の検索
+	alert("違う名前にしてください");
+	return;
+}
 
 if(n == ""){
 	res = false;
