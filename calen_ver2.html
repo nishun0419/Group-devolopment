@@ -366,6 +366,7 @@
                 //グループモードの解除
                 $('#menu_ber h1').text("ゲスト様のカレンダー");
                 $('.release').css('visibility','hidden');
+                $('.logboutton').text("Logout");
                 Gmode = 0;
                 $('html,body').animate({scrollTop:0}, "slow");
             }
@@ -389,6 +390,7 @@
 });
     $('.create_Group').on('click',function(){       //グループカレンダー入力
         $('#createin').css('display' , 'block');
+        $('.logboutton').css('display','none');
         $('#menu_ber h1').css('display','none');
         $('#Group_title').css('display','block');
         $('.Groupsection').css('display','none');
@@ -397,6 +399,7 @@
 
     $('.cancel_Group').on('click',function(){　 // グループカレンダー入力解除(cancel)
         $('#createin').css('display', 'none');
+        $('.logboutton').css('display', 'block');
         $('#Group_title').css('display','none');
         $('#menu_ber h1').css('display', 'block');
         $('.Groupsection').css('display','block');
@@ -413,6 +416,7 @@
         var gtitle = Group_title.value;
         // alert(gtitle);
          $('#createin').css('display', 'none');
+         $('.logboutton').css('display' , 'block');
         $('#Group_title').css('display','none');
         $('#menu_ber h1').css('display', 'block');
         $('.Groupsection').css('display' , 'block');
@@ -427,6 +431,8 @@
         $('html,body').animate({scrollTop:0}, "slow");
         // return false;
         $('.release').css('visibility' , 'visible');
+        $('.logboutton').text("mycalendarに戻る")
+
         Gmode = 1;
         //gtextのタイトルのデータベースを検索し、カレンダーを再読み込み
         //
@@ -435,13 +441,26 @@
         showCalen(0);
 
     });
-    $('.release').on('click', function(){
+    $('.release').on('click', function(){       //スマホ用
         //グループモードの解除(データベースをプライベートに戻す)
          $('#menu_ber h1').text("ゲスト様のカレンダー");
          $('.release').css('visibility', 'hidden');
          Gmode = 0;
          showCalen(0)
     });
+
+    $('.logboutton').on('click',function(){     //PC用の解除とログアウト
+        if(Gmode == 0){             //ログアウト処理
+            if (confirm("ログアウトします。よろしいですか?")){
+                window.location.href = 'index.html'
+            }
+
+        }
+        $('#menu_ber h1').text("ゲスト様のカレンダー");
+        $('.logboutton').text("Logout");
+        Gmode = 0;
+        showCalen(0);
+    })
 
      $(document).on({   //追加ボタンのホバーエフェクト  グループモード後で実装
        "mouseenter": function(){
@@ -492,7 +511,9 @@
         <div id="menu_ber">
             <h1>ゲスト様のカレンダー</h1>
             <input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">
-            <div id="logout"></div>
+            <div id="logout">
+                 <button class="btn btn-default logboutton">Logout</button>
+            </div>
         </div>
             <div id ="smartmenu">
                 <button class="release">MyCalendarに戻る</button>
