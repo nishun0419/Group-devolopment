@@ -44,6 +44,9 @@
       //ユーザー名
         var username;
 
+      //一番最初かどうかのチェック
+        var countcheck = 0;
+
         function showCalen(n){
         month += n;
 
@@ -120,8 +123,11 @@
          document.getElementById("Group_calen").innerHTML = htmlStr;
         }
 
+        if(countcheck == 0){
         username = localStorage.username;
         $('#menu_ber h1').text(username+"様のカレンダー");
+        countcheck++;
+        }
 
 
         //入力画面生成２
@@ -370,7 +376,7 @@
             else{
                 if($(this).prev('div').text() == $('#menu_ber h1').text()){
                 //グループモードの解除
-                $('#menu_ber h1').text("ゲスト様のカレンダー");
+                $('#menu_ber h1').text(username+"様のカレンダー");
                 $('.release').css('visibility','hidden');
                 $('.logboutton').text("Logout");
                 Gmode = 0;
@@ -449,7 +455,7 @@
     });
     $('.release').on('click', function(){       //スマホ用
         //グループモードの解除(データベースをプライベートに戻す)
-         $('#menu_ber h1').text("ゲスト様のカレンダー");
+         $('#menu_ber h1').text(username+"様のカレンダー");
          $('.release').css('visibility', 'hidden');
          Gmode = 0;
          showCalen(0)
@@ -462,7 +468,7 @@
             }
 
         }
-        $('#menu_ber h1').text("ゲスト様のカレンダー");
+        $('#menu_ber h1').text(username+"様のカレンダー");
         $('.logboutton').text("Logout");
         Gmode = 0;
         showCalen(0);
