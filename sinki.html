@@ -2,10 +2,10 @@
 <html lang="ja">
 <head>
 <link rei="stylesheet" href="Form.css">
- 
+
 	<title>新規登録</title>
 <script type="text/javascript">
-	
+
 function check1(){
 var n = myform.name.value;
 if(n == "ニノセ"){				//名前の検索
@@ -72,7 +72,8 @@ else  if(n != m){
 	window.alert("パスワードが一致しません");
 	return;
 	}
-alert("");
+alert("認証成功");
+
 return;
 }
 
@@ -90,7 +91,7 @@ return;
 
 </script>
 
-	
+
 </head>
 <body>
 	<p>新規登録</p>
@@ -123,7 +124,7 @@ return;
 </dd>
 
 	<dt>パスワード<font color="red">必須</font></dt>
-	
+
 <dd>
 	<input type="password" name="pass"size="10"maxlength="50">
 
