@@ -41,7 +41,7 @@
 	<h1 class="titleh1" id = "D">D</h1>
 	<h1 class="titleh1" id = "A3">A</h1>
 	<h1 class="titleh1" id = "R2">R</h1>
-	<div class="entry" onclick="location.href='calen_ver2.html'">Login</div>
+	<div class="entry">Login</div>
 </div>
 <script>
 var title_tween = new TimelineMax();
@@ -132,6 +132,17 @@ var title_tween = new TimelineMax();
 	 var scene = new ScrollMagic.Scene({triggerElement: "#trigger04"})
 		.setTween(TweenMax.to(".section3",1,{css:{opacity:1}}))
 		.addTo(controller);
+
+		$('.entry').on('click', function(){
+			if(localStorage.username == null){
+				alert('ログイン画面へ遷移');
+				return;
+			}
+			else{
+				alert('calen_ver2へ遷移')	;
+				window.location.href = 'calen_ver2.html';
+			}
+		})
 	</script>
 </body>
 </html>

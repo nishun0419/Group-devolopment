@@ -464,7 +464,8 @@
     $('.logboutton').on('click',function(){     //PC用の解除とログアウト
         if(Gmode == 0){             //ログアウト処理
             if (confirm("ログアウトします。よろしいですか?")){
-                window.location.href = 'index.html'
+                localStorage.clear();
+                window.location.href = 'index.html';
             }
 
         }
