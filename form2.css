@@ -16,6 +16,9 @@ h1{
 	height: 300px;
 	padding-left: 20px;
 }
+input{
+	border:1px solid black;
+}
 .nameid{
 	width: 200px;
 }
