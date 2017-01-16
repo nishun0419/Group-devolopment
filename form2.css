@@ -12,9 +12,15 @@ h1{
 .touroku{
 	margin:0 auto;
 	border: 1px solid #F52954;
-	width: 300px;
+	width: 260px;
 	height: 300px;
 	padding-left: 20px;
+}
+.nameid{
+	width: 200px;
+}
+.pass{
+	width: 80px;
 }
 dt{
 	/*margin-left: -120px;*/
