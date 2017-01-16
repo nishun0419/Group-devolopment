@@ -143,6 +143,10 @@
         //日付クリック時の処理
         function test(e){
         var openset = '<div id="tw1" onclick="showopen()">' + '<div class="tw">' + "＋" + '<div>' + '</div>';
+                //表示していた予定の削除
+            $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
+            $('.todolist').css('display' , 'none');
+
             //日付情報の取得
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
@@ -477,7 +481,7 @@
 
      $(document).on({   //追加ボタンのホバーエフェクト  グループモード後で実装
        "mouseenter": function(){
-        $(this).animate({'width' : '80px'}, 100);
+        $(this).animate({'width' : '100px'}, 100);
          if($('.Ptextinputs').hasClass('off')){
             $(this).text('追加');
          }
