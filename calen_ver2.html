@@ -80,7 +80,7 @@
         if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
 
         var htmlStr = "<table class='calen'>\n"
-        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
+        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<span id='dayday'>" + today + "</span>" + "日" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
         htmlStr +="<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
         for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
         htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
@@ -143,10 +143,6 @@
         //日付クリック時の処理
         function test(e){
         var openset = '<div id="tw1" onclick="showopen()">' + '<div class="tw">' + "＋" + '<div>' + '</div>';
-                //表示していた予定の削除
-            $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
-            $('.todolist').css('display' , 'none');
-
             //日付情報の取得
             var yy = e.getAttribute('yy');
             var mm = e.getAttribute('mm');
@@ -158,9 +154,17 @@
             //Gmodeが１の場合グループカレンダーの予定表示
 
         if(Gflag != 1){
+            //表示していた予定の削除
+            $('#dayday').text(day);
+            $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
+            $('.todolist').css('display' , 'none');
             document.getElementById("tw2").innerHTML = openset;
         }
         else{
+              //表示していた予定の削除
+             $('#dayday').text(day);
+            $('#todotable2' ).find("tr:gt(0)").remove();         //全行削除
+            $('.todolist2').css('display' , 'none');
             document.getElementById("tw3").innerHTML = openset;
         }
         }

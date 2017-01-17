@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>現在位置からぐるなび検索</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  </head>
+  <body>
+      <div class="page-header">
+        <h1>現在位置からぐるなび検索</h1>
+      </div>
+      <label>検索半径</label>
+          <select name="range" class="range" onChange="Serachrange(this);">
+            <option value="1">300</option>
+            <option value="2">500</option>
+            <option value="3">1000</option>
+            <option value="4">2000</option>
+            <option value="5">3000</option>
+          </select>m
+      <button class="btn btn-primary btn-lg btn-block serach" type="button" onclick="Serach(0)">検索</button>
+      <hr>
+      <p id="total">
+      </p>
+      <div id="result">
+      </div>
+      <div class="paging">
+        <p>
+        <input type='button' value='<<' id='back' onclick='Serach(-1)'>
+        <span class="currentpoint"></span>ページ/<span class="totalpoint"></span>ページ
+        <input type='button' value='>>' id='next' onclick='Serach(1)'>
+        </p>
+      </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+    //半径を格納する変数 （初期値は半径300m）
+    var ran = 1;
+    //現在のページを表示する
+    var currentpage = 1;
+
+    function Serachrange(obj){
+      var idx = obj.selectedIndex;
+      ran= obj.options[idx].value;
+      // alert(ran);
+    }
+    function Serach(n){
+      if(n == 0){
+        currentpage = 1;
+        $('#back').css('visibility', 'hidden');
+      }
+      else{
+        currentpage = currentpage + n;
+        $('#back').css('visibility', 'visible');
+      }
+      // Geolocation APIの呼び出し
+      navigator.geolocation.getCurrentPosition(function(pos) {
+          var lat = pos.coords.latitude;
+          var lng = pos.coords.longitude;
+          // ぐるなびAPIの呼び出し
+          $.get(
+            'http://api.gnavi.co.jp/RestSearchAPI/20150630/',
+            {
+              keyid: '88552a7d53b8c1e778800023b828199a',
+              format: 'json',
+              latitude: lat,
+              longitude: lng,
+              range: ran,
+              offset_page: currentpage
+
+            },
+            function(response) {
+              // ぐるなびAPIのコールバック関数
+              var results = response
+              $('#result').empty();
+              $('#total').text("検索件数" + results.total_hit_count + "件");
+              var totalpoint = Math.floor(results.total_hit_count / 10);
+              if(results.total_hit_count % 10 != 0){
+                totalpoint++
+              }
+              $('.totalpoint').text(totalpoint);
+              $('.currentpoint').text(currentpage);
+              for (var i = 0; i < results.rest.length; i++) {
+                var result = results.rest[i];
+               $('#result').append($('<div class ="resultbox"></div>').append($('<h2 class="name"></h2>').append($('<a></a>').text(result.name).attr({'href': result.url , 'target' : "_blank"})))
+                .append($('<p class="access"></p>').text(result.access.line + result.access.station + result.access.walk + '分'))
+                .append($('<img class="samune">').attr({'src' : result.image_url.shop_image1}))
+                );
+
+              }
+            },
+            'jsonp'
+          );
+        })
+        }
+    </script>
+  </body>
+</html>
