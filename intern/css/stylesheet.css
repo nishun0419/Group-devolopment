@@ -1,0 +1,36 @@
+html{
+	height: 100%;
+}
+
+body{
+	width: 100%;
+	height:100%;
+	margin: 0;
+}
+
+.page-header{
+	text-align: center;
+}
+
+.page-header h1{
+	color:#0C00AD;
+	font-family: "Josefin Slab", serif;
+}
+
+.resultbox{
+	border:1px solid black;
+	margin-bottom: 10px;
+}
+
+.samune{
+	width: 240px;
+	height: 240px;
+}
+.paging{
+	visibility: hidden;
+}
+
+#maps0{
+	width: 100px;
+	height: 100px;
+}
