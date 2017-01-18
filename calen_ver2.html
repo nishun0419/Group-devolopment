@@ -43,6 +43,8 @@
 
       //ユーザー名
         var username;
+      //ユーザーID
+        var userid;
 
       //一番最初かどうかのチェック
         var countcheck = 0;
@@ -193,14 +195,14 @@
             if(Gflag != 1){ //プライベート予定追加
             $('.todolist').css('display' ,'block')
             $('tbody' , '.todolist').append($('<tr class="active"></tr>')
-            .append($('<td class="tit" onclick="showtodo()"></td>').text(title))
+            .append($('<td class="tit" onclick="showtodo(this)"></td>').text(title))
             .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>')));
             }
             else{   //グループ予定追加
              $('#open2').css('display' , 'none');
             $('.todolist2').css('display' ,'block')
             $('tbody' , '.todolist2').append($('<tr class="active"></tr>')
-            .append($('<td class="tit" onclick="showtodo()"></td>').text(title))
+            .append($('<td class="tit" onclick="showtodo(this)"></td>').text(title))
             .append($('<td class="ac1"></td>').append('<button type="button" class="btn btn-danger delete"> Delete</button>')));
             }
               $('.textinputs').removeClass('on');
@@ -259,7 +261,9 @@
          } );
          }
         //入力した内容を表示
-        function showtodo() {
+        function showtodo(obj) {
+          var rowNum = obj.parentNode.rowIndex;
+         alert(rowNum);
         var showtodotext =  '<div class="textinputs">' + '<div>' + '<span class= "showtext1">' + "タイトル"  + '</span>' + '<div class ="text1">' + todotitle + '</div>' + '</div>' ;          //タイトル
         showtodotext += '<div>' + '<span class ="showtext1">' + "時間" + '</span>' + '<div class="todotime">' + starttime + "~"  + '</div>' + '</div>';        //時間
         showtodotext += '<div>' + '<span class ="showtext1">' + "メッセージ" + '</span>' + '<div class="text2">' + todomsg + '</div>' + '</div>';           //メッセージ
@@ -356,6 +360,7 @@
                 }
                 else{
                        var rowNum = $('#todotable .delete').index(this);
+                       alert(rowNum);
                        $('#todotable').find('tr').eq(rowNum + 1).remove();
                    if($('#todotable .delete').length == 0){
                      $('.todolist').css('display' , 'none');

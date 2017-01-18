@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>kakunin</title>
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<table border="4" width="300">
+<tbody>
+	<tr>
+		<tr><td>名前 <span class="name"></span></td></tr>
+		<tr><td>ID <span class="id"></span></td></tr>
+	</tr>
+	<tr><td>パスワード</td></tr>
+	<tr><td>確認パスワード</td></tr>
+</tbody>
+</table>
+<script type="text/javascript">
+function init(){
+	var username;
+	var userid;
+
+	username=localStorage.username;
+	userid = localStorage.userid;
+	$('.name').text(username);
+	$('.id').text(userid);
+}
+</script>
+
+</head>
+<body onload="init()">
+</body>
+</html>
+
+	
+	

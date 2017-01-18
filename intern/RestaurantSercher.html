@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>現在位置からぐるなび検索</title>
+    <title>RestaurantSercher</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
   <body>
@@ -44,11 +44,11 @@
       // alert(ran);
     }
     function Serach(n){
-      if(n == 0){
+      if(n == 0){   //検索ボタンクリック時の処理
         currentpage = 1;
         $('#back').css('visibility', 'hidden');
       }
-      else{
+      else{           //next,backクリック時の処理
         currentpage = currentpage + n;
         $('#back').css('visibility', 'visible');
       }
