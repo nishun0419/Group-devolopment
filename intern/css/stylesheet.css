@@ -28,12 +28,16 @@ body{
 .samune{
 	width: 240px;
 	height: 240px;
+	display: inline-block;
+	margin-top: -200px;
 }
 .paging{
 	visibility: hidden;
 }
 
-#maps{
+.cmap{
 	width: 400px;
 	height: 400px;
+	display: inline-block;
+	margin-left: 20px;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>RestaurantSercher</title>
     <link href="css/stylesheet.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -108,25 +108,27 @@
                $('#result').append($('<div class ="resultbox"></div>').append($('<h2 class="name"></h2>').append($('<a></a>').text(result.name).attr({'href': result.url , 'target' : "_blank"})))
                 .append($('<p class="access"></p>').text(result.access.line + result.access.station + result.access.walk + '分'))
                 .append($('<img class="samune">').attr({'src' : result.image_url.shop_image1}))
-                // .append(('<div id="maps'+i+'"></div>'))
+                .append(('<div class="cmap" id="maps'+i+'"></div>'))
 
                 );
-               initMap();
+               initMap(i , result.latitude , result.longitude);
 
               }
+              alert(result.latitude , result.longitude);
             },
             'jsonp'
           );
         })
       }
-        function initMap() {
-        var map = new google.maps.Map(document.getElementById("maps"), { // #mapに地図を埋め込む
-           center: new google.maps.LatLng(lat, lng), // 地図の中心を指定
+        function initMap(n, rlat, rlng) {
+        var mapid="maps" + n;
+        var map = new google.maps.Map(document.getElementById(mapid), { // #mapに地図を埋め込む
+           center: new google.maps.LatLng(rlat, rlng),  // 地図の中心を指定
            zoom: 19, // 地図のズームを指定
          });
 
         var marker = new google.maps.Marker({ // マーカーの追加
-        position: new google.maps.LatLng(lat, lng), // マーカーを立てる位置を指定
+        position: new google.maps.LatLng(rlat, rlng), // マーカーを立てる位置を指定
         map: map, // マーカーを立てる地図を指定
        });
         }
