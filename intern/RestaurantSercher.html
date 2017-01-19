@@ -103,44 +103,35 @@
                 $('#back').css('visibility' , 'visible');
               }
 
-              for (var i = 0; i < results.rest.length; i++) {
+              for (var i = 0; i <= results.rest.length; i++) {
                 var result = results.rest[i];
                $('#result').append($('<div class ="resultbox"></div>').append($('<h2 class="name"></h2>').append($('<a></a>').text(result.name).attr({'href': result.url , 'target' : "_blank"})))
                 .append($('<p class="access"></p>').text(result.access.line + result.access.station + result.access.walk + '分'))
                 .append($('<img class="samune">').attr({'src' : result.image_url.shop_image1}))
-                // .append(('<div id="maps"></div>'))
+                // .append(('<div id="maps'+i+'"></div>'))
 
                 );
-               CreateMaps()
+               initMap();
 
               }
             },
             'jsonp'
           );
         })
-        }
-        function CreateMaps(){
-          var map;
-          var marker;
-          var center = {
-                lat: lat, // 緯度
-                lng: lng
-          };
+      }
         function initMap() {
-          map = new google.maps.Map(document.getElementById("maps"), { // #mapに地図を埋め込む
-           center: center, // 地図の中心を指定
+        var map = new google.maps.Map(document.getElementById("maps"), { // #mapに地図を埋め込む
+           center: new google.maps.LatLng(lat, lng), // 地図の中心を指定
            zoom: 19, // 地図のズームを指定
          });
- 
-         marker = new google.maps.Marker({ // マーカーの追加
-        position: center, // マーカーを立てる位置を指定
+
+        var marker = new google.maps.Marker({ // マーカーの追加
+        position: new google.maps.LatLng(lat, lng), // マーカーを立てる位置を指定
         map: map, // マーカーを立てる地図を指定
        });
         }
-        }
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPOTMNgU8Y-B3uJ4T4CMtvEZzGDOanS3I">
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrPF_PJ5nFAKmYx2k7-Cpxxptq9FVdejs&v=3.24"></script>
+
   </body>
 </html>

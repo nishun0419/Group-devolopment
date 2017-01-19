@@ -19,7 +19,10 @@ body{
 
 .resultbox{
 	border:1px solid black;
+	width: 800px;
+	margin: 0 auto;
 	margin-bottom: 10px;
+	padding-left: 10px;
 }
 
 .samune{
@@ -30,7 +33,7 @@ body{
 	visibility: hidden;
 }
 
-#maps0{
-	width: 100px;
-	height: 100px;
+#maps{
+	width: 400px;
+	height: 400px;
 }
