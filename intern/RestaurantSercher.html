@@ -111,7 +111,7 @@
                 // .append(('<div id="maps"></div>'))
 
                 );
-               CreateMaps(i)
+               CreateMaps()
 
               }
             },
@@ -119,28 +119,28 @@
           );
         })
         }
-        function CreateMaps(n){
+        function CreateMaps(){
           var map;
           var marker;
           var center = {
-                lat: 35, // 緯度
-                lng: 25
-          }
+                lat: lat, // 緯度
+                lng: lng
+          };
         function initMap() {
           map = new google.maps.Map(document.getElementById("maps"), { // #mapに地図を埋め込む
            center: center, // 地図の中心を指定
-           zoom: 19 // 地図のズームを指定
+           zoom: 19, // 地図のズームを指定
          });
  
          marker = new google.maps.Marker({ // マーカーの追加
         position: center, // マーカーを立てる位置を指定
-        map: map // マーカーを立てる地図を指定
+        map: map, // マーカーを立てる地図を指定
        });
         }
         }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPOTMNgU8Y-B3uJ4T4CMtvEZzGDOanS3I&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPOTMNgU8Y-B3uJ4T4CMtvEZzGDOanS3I">
     </script>
   </body>
 </html>
