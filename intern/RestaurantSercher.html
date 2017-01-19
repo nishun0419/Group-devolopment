@@ -71,7 +71,7 @@
               latitude: lat,
               longitude: lng,
               range: ran,
-              offset_page: currentpage
+              offset_page: currentpage,
 
             },
             function(response) {
@@ -112,13 +112,13 @@
 
                 );
                initMap(i , result.latitude , result.longitude);
+               // alert(result.latitude +"//"+ result.longitude);
 
               }
-              alert(result.latitude , result.longitude);
             },
             'jsonp'
           );
-        })
+        },function(error){alert(error.code);},{enableHighAccuracy: true,maxinumAge: 1, timeout: 8000})
       }
         function initMap(n, rlat, rlng) {
         var mapid="maps" + n;
