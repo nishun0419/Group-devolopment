@@ -82,7 +82,7 @@
         if (Holidays2[i] == month) holidays[(Holidays2[i+1] - 1) * 7 + firstMonday] = 1;
 
         var htmlStr = "<table class='calen'>\n"
-        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<span id='dayday'>" + today + "</span>" + "日" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
+        + "<tr class='bg1'><th colspan=7>" +"<input type='button' value='<<' id='back' onclick='restart(-1)'>" + year + "年 " + month + "月" + "<span class='dayday'>" + today + "</span>" + "日" + "<input type='button' value='>>' id='next' onclick='restart(1)'>" + "</th></tr>\n";
         htmlStr +="<tr class='bg2'><th class='sun'>" + days[0] + "</th>";
         for (i=1; i<6; i++) htmlStr += "<th>" + days[i] + "</th>";
         htmlStr += "<th class='sat'>" + days[6] + "</th></tr>\n";
@@ -129,18 +129,12 @@
         username = localStorage.username;
         $('#menu_ber h1').text(username+"様のカレンダー");
         countcheck++;
+        // for(){
+           $('.Grouptext').append($('<div></div>').append($('<div class="Grouplist"></div>').text('jijijijiji'))
+        .append('<button class="btn btn-danger btn-xs delete_Group">削除</button>'));
+        // }
         }
-
-
-        //入力画面生成２
-        // var textinput2 = '<div class="textinputs">' + '<div>' + '<div id="calendate2">' + '</div>' + '<label for="settitle2">' + "タイトル" +'</label>' + '<input type="text" id="settitle2">' + '</div>';    //タイトル入力
-        // textinput2 += '<div>' + '<label for="categ2">' + "カテゴリー" + '</label>' + '<input type="text" id="categ2">' + '</div>';        //カテゴリー
-        // textinput2 += '<div>' + '<label for="msg2">' + "メッセージ" + '</label>' + '<textarea id="msg2">' + '</textarea>' + '</div>';       //メッセージ
-        // textinput2 += '<div class="button">' + '<input type="button" value="send" onclick="settodo(settitle2.value,msg2.value)">' + '</div>';
-        // textinput2 += '</div>';
-
-        // document.getElementById("inputmenu2").innerHTML = textinput2;
-        }
+      }
 
         //日付クリック時の処理
         function test(e){
@@ -157,14 +151,14 @@
 
         if(Gflag != 1){
             //表示していた予定の削除
-            $('#dayday').text(day);
+            $('#calen .dayday').text(day);
             $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
             $('.todolist').css('display' , 'none');
             document.getElementById("tw2").innerHTML = openset;
         }
         else{
               //表示していた予定の削除
-             $('#dayday').text(day);
+             $('#Group_calen .dayday').text(day);
             $('#todotable2' ).find("tr:gt(0)").remove();         //全行削除
             $('.todolist2').css('display' , 'none');
             document.getElementById("tw3").innerHTML = openset;
@@ -423,11 +417,16 @@
     });
 
     $('.cancel_Group').on('click',function(){　 // グループカレンダー入力解除(cancel)
+        $('#Group_calen').css('display' , 'none');
         $('#createin').css('display', 'none');
         $('.logboutton').css('display', 'block');
         $('#Group_title').css('display','none');
-        $('#menu_ber h1').css('display', 'block');
+        $('#menu_ber h1').css('display', 'block').text(username + "様のカレンダー")
         $('.Groupsection').css('display','block');
+        $('#todotable2' ).find("tr:gt(0)").remove();         //予定全行削除
+        $('.todolist2').css('display' , 'none');
+        $('#Group_title').val('');
+        $('#tw3').css('display' , 'none');
         Gflag = 0;
 
     });
@@ -437,13 +436,27 @@
             alert("15文字以内で入力してください");
             return;
         }
+        else if($('#Group_title').val().length == 0){
+            alert('タイトルを入力してください');
+            return;
+        }
+        if($('#Group_calen').css('display') == ('none') && $('#Group_title').val().length > 0){
+           $('#Group_title').css('display' , 'none');
+           $('#menu_ber h1').css('display' , 'block').text($('#Group_title').val());
+           $('#Group_calen').css('display' , 'block')
+           return;
+        }
         // alert($('#Group_title').val().length);
-        var gtitle = Group_title.value;
+        var gtitle = $('#Group_title').val();
         // alert(gtitle);
-         $('#createin').css('display', 'none');
-         $('.logboutton').css('display' , 'block');
-        $('#Group_title').css('display','none');
-        $('#menu_ber h1').css('display', 'block');
+        $('#todotable2' ).find("tr:gt(0)").remove();         //予定全行削除
+        $('.todolist2').css('display' , 'none');
+        $('#Group_title').val('');
+        $('#tw3').css('display' , 'none');
+        $('#Group_calen').css('display' , 'none');
+        $('#createin').css('display', 'none');
+        $('.logboutton').css('display' , 'block');
+        $('#menu_ber h1').text(username + "様のカレンダー");
         $('.Groupsection').css('display' , 'block');
         Gflag = 0;
         $('.Grouptext').append($('<div></div>').append($('<div class="Grouplist"></div>').text(gtitle))
@@ -632,7 +645,7 @@
                 <input type="text" id="jointext"><button type="button" class="btn btn-success join">参加</button>
             </div>
             <div class="Grouptext">
-            <div>
+    <!--         <div>
                 <div class="Grouplist">神戸電子専門学校　行事</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
 
             </div>
@@ -644,7 +657,7 @@
             </div>
             <div>
                 <div class="Grouplist">グループ開発　スケジュール</div><button class="btn btn-danger btn-xs delete_Group">削除</button>
-            </div>
+            </div> -->
         </div>
         </div>
            <p id="GroupEdit"><button class="btn btn-primary edit_Group">新しいグループに参加</button>

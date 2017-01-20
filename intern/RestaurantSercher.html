@@ -40,9 +40,6 @@
     var ran = 1;
     //現在のページを表示する
     var currentpage = 1;
-    //経度、緯度
-    var lng;
-    var lat;
 
     function Serachrange(obj){
       var idx = obj.selectedIndex;
@@ -60,8 +57,8 @@
       }
       // Geolocation APIの呼び出し
       navigator.geolocation.getCurrentPosition(function(pos) {
-          lat = pos.coords.latitude;
-          lng = pos.coords.longitude;
+          var lat = pos.coords.latitude;
+          var lng = pos.coords.longitude;
           // ぐるなびAPIの呼び出し
           $.get(
             'http://api.gnavi.co.jp/RestSearchAPI/20150630/',
@@ -118,11 +115,13 @@
             },
             'jsonp'
           );
-        },function(error){alert(error.code);},{enableHighAccuracy: true,maxinumAge: 1, timeout: 8000})
+        },function(error){alert(error.code);},{enableHighAccuracy: true})
       }
-        function initMap(n, rlat, rlng) {
+        function initMap(n, lat, lng) {
         var mapid="maps" + n;
-        var map = new google.maps.Map(document.getElementById(mapid), { // #mapに地図を埋め込む
+        var rlat = Math.round(chgTky2WgsLat(lat, lng)*100000)/100000;
+        var rlng = Math.round(chgTky2WgsLng(lat, lng)*100000)/100000;
+        var map = new google.maps.Map(document.getElementById(mapid), { // #mapidに地図を埋め込む
            center: new google.maps.LatLng(rlat, rlng),  // 地図の中心を指定
            zoom: 19, // 地図のズームを指定
          });
@@ -132,7 +131,16 @@
         map: map, // マーカーを立てる地図を指定
        });
         }
-    </script>
+        //GoogleMap用に経度と緯度を変換
+      function chgTky2WgsLng(lat, lng) {
+        return (lng - lat * 0.000046038 - lng * 0.000083043 + 0.010040);
+      }
+
+      function chgTky2WgsLat(lat, lng) {
+        return (lat - lat * 0.00010695 + lng * 0.000017464 + 0.0046017);
+      }
+
+      </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrPF_PJ5nFAKmYx2k7-Cpxxptq9FVdejs&v=3.24"></script>
 
   </body>
