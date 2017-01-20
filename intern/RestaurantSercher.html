@@ -49,11 +49,9 @@
     function Serach(n){
       if(n == 0){   //検索ボタンクリック時の処理
         currentpage = 1;
-        $('#back').css('visibility', 'hidden');
       }
       else{           //next,backクリック時の処理
         currentpage = currentpage + n;
-        $('#back').css('visibility', 'visible');
       }
       // Geolocation APIの呼び出し
       navigator.geolocation.getCurrentPosition(function(pos) {
