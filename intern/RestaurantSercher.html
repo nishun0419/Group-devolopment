@@ -7,6 +7,15 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
     <script src="bootjs/bootstrap.min.js"></script>
+    <script>
+    $(function(){
+        $(document).on('error','.samune', function(){
+        $(this).attr({
+            'src', 'back.jpg',
+        });
+    });
+    });
+    </script>
   </head>
   <body>
       <div class="page-header">
@@ -102,7 +111,7 @@
                 var result = results.rest[i];
                $('#result').append($('<div class ="resultbox"></div>').append($('<h2 class="name"></h2>').append($('<a></a>').text(result.name).attr({'href': result.url , 'target' : "_blank"})))
                 .append($('<p class="access"></p>').text(result.access.line + result.access.station + result.access.walk + '分'))
-                .append($('<img class="samune">').attr({'src' : result.image_url.shop_image1}))
+                .append($('<div class="samune"></div>').append($('<img>').attr({'src' : result.image_url.shop_image1,})).append($('<p></p>').text('提供:ぐるなび')))
                 .append(('<div class="cmap" id="maps'+i+'"></div>'))
 
                 );
@@ -137,6 +146,7 @@
       function chgTky2WgsLat(lat, lng) {
         return (lat - lat * 0.00010695 + lng * 0.000017464 + 0.0046017);
       }
+
 
       </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrPF_PJ5nFAKmYx2k7-Cpxxptq9FVdejs&v=3.24"></script>
