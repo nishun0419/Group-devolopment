@@ -7,17 +7,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
     <script src="bootjs/bootstrap.min.js"></script>
-    <script>
-    $(function(){
-        $(document).on('error','.samune', function(){
-        $(this).attr({
-            'src', 'back.jpg',
-        });
-    });
-    });
-    </script>
   </head>
   <body>
+  <div class="loadingback">
+    <img src="load.gif">
+  </div>
       <div class="page-header">
         <h1>RestaurantSercher</h1>
         <p>~レストラン検索サービス~</p>
@@ -80,6 +74,7 @@
             },
             function(response) {
               // ぐるなびAPIの読み込み
+              $('.loadingback').css('display' , 'block');
               var results = response
               $('#result').empty();
               $('#total').text("検索件数" + results.total_hit_count + "件");
@@ -117,7 +112,7 @@
                 );
                initMap(i , result.latitude , result.longitude);
                // alert(result.latitude +"//"+ result.longitude);
-
+               $('.loadingback').css('display' , 'none');
               }
             },
             'jsonp'
