@@ -154,6 +154,7 @@
             $('#calen .dayday').text(day);
             $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
             $('.todolist').css('display' , 'none');
+            $('#tw2').css('display' , 'block');
             document.getElementById("tw2").innerHTML = openset;
         }
         else{
@@ -161,6 +162,7 @@
              $('#Group_calen .dayday').text(day);
             $('#todotable2' ).find("tr:gt(0)").remove();         //全行削除
             $('.todolist2').css('display' , 'none');
+             $('#tw2').css('display' , 'block');
             document.getElementById("tw3").innerHTML = openset;
         }
         }
@@ -354,7 +356,6 @@
                 }
                 else{
                        var rowNum = $('#todotable .delete').index(this);
-                       alert(rowNum);
                        $('#todotable').find('tr').eq(rowNum + 1).remove();
                    if($('#todotable .delete').length == 0){
                      $('.todolist').css('display' , 'none');
@@ -386,6 +387,7 @@
                 $('#menu_ber h1').text(username+"様のカレンダー");
                 $('.release').css('visibility','hidden');
                 $('.logboutton').text("Logout");
+                $('#GroupEdit').css('visibility' , 'visible');
                 Gmode = 0;
                 $('html,body').animate({scrollTop:0}, "slow");
             }
@@ -465,11 +467,14 @@
     $(document).on('click','.Grouplist', function(){  //グループリストクリック時
         var gtext = $(this).html();
         // alert(gtext);
+        $('#todotable' ).find("tr:gt(0)").remove();         //全行削除
+        $('.todolist').css('display' , 'none');
         $('#menu_ber h1').text(gtext);
         $('html,body').animate({scrollTop:0}, "slow");
         // return false;
         $('.release').css('visibility' , 'visible');
         $('.logboutton').text("mycalendarに戻る")
+        $('#GroupEdit').css('visibility' , 'hidden');
 
         Gmode = 1;
         //gtextのタイトルのデータベースを検索し、カレンダーを再読み込み
@@ -483,6 +488,7 @@
         //グループモードの解除(データベースをプライベートに戻す)
          $('#menu_ber h1').text(username+"様のカレンダー");
          $('.release').css('visibility', 'hidden');
+         $('#GroupEdit').css('visibility' , 'visible');
          Gmode = 0;
          showCalen(0)
     });
@@ -497,6 +503,7 @@
         }
         $('#menu_ber h1').text(username+"様のカレンダー");
         $('.logboutton').text("Logout");
+        $('#GroupEdit').css('visibility' , 'visible');
         Gmode = 0;
         showCalen(0);
     })
@@ -678,7 +685,7 @@
                 <!-- 日付データ -->
              <div class="calendate"> </div>
                 <!-- タイトル -->
-             <label for="settitle">タイトル</label><input type="text" id="settitle2" placeholder="15文字以内で入力してください"></div>
+             <label for="settitle">タイトル</label><input type="text" class="settitle" id="settitle2" placeholder="15文字以内で入力してください"></div>
                     <!-- 時間 -->
                 <div><label for="categ"> 時間</label><select name="selectedate-h" class="selectedate-h" onChange="outputSelectedStarthour(this);">
 
@@ -686,7 +693,7 @@
 
 </select>~</div>
                      <!-- メッセージ -->
-                    <div><label for="msg">メッセージ</label><textarea id="msg2"></textarea></div>
+                    <div><label for="msg">メッセージ</label><textarea class="msg" id="msg2"></textarea></div>
                         <!-- ボタン -->
                         <div class="button"><input type="button" value="追加" onclick="settodo(settitle2.value,msg2.value);"></div>
             </div>

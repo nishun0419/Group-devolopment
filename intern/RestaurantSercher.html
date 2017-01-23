@@ -28,14 +28,21 @@
       <hr>
       <p id="total">
       </p>
+       <div class="paging">
+        <p>
+        <input type='button' value='<<' class='back' onclick='Serach(-1)'>
+        <span class="currentpoint"></span>ページ/<span class="totalpoint"></span>ページ
+        <input type='button' value='>>' class='next' onclick='Serach(1)'>
+        </p>
+      </div>
       <div id="maps"></div>
       <div id="result">
       </div>
       <div class="paging">
         <p>
-        <input type='button' value='<<' id='back' onclick='Serach(-1)'>
+        <input type='button' value='<<' class='back' onclick='Serach(-1)'>
         <span class="currentpoint"></span>ページ/<span class="totalpoint"></span>ページ
-        <input type='button' value='>>' id='next' onclick='Serach(1)'>
+        <input type='button' value='>>' class='next' onclick='Serach(1)'>
         </p>
       </div>
     <script>
@@ -91,30 +98,34 @@
               $('.paging').css('visibility' , 'visible'); //ページング表示
 
               if(currentpage == totalpoint){　//最後のページを読み込んだときの処理
-                $('#next').css('visibility' , 'hidden');
+                $('.next').css('visibility' , 'hidden');
               }
               else{
-                $('#next').css('visibility' , 'visible');
+                $('.next').css('visibility' , 'visible');
               }
 
               if(currentpage == 1){ //最初のページを読み込んだときの処理
-                $('#back').css('visibility' , 'hidden');
+                $('.back').css('visibility' , 'hidden');
               }
               else{
-                $('#back').css('visibility' , 'visible');
+                $('.back').css('visibility' , 'visible');
               }
 
               for (var i = 0; i <= results.rest.length; i++) {
                 var result = results.rest[i];
                $('#result').append($('<div class ="resultbox"></div>').append($('<h2 class="name"></h2>').append($('<a></a>').text(result.name).attr({'href': result.url , 'target' : "_blank"})))
                 .append($('<p class="access"></p>').text(result.access.line + result.access.station + result.access.walk + '分'))
-                .append($('<div class="samune"></div>').append($('<img>').attr({'src' : result.image_url.shop_image1,})).append($('<p></p>').text('提供:ぐるなび')))
+                .append($('<div class="samune"></div>').append($('<img id="samuneimg'+i+'">').attr({'src' : result.image_url.shop_image1,})).append($('<p id="samunep'+i+'"></p>').text('提供:ぐるなび')))
                 .append(('<div class="cmap" id="maps'+i+'"></div>'))
 
                 );
                initMap(i , result.latitude , result.longitude);
                // alert(result.latitude +"//"+ result.longitude);
                $('.loadingback').css('display' , 'none');       //loading画像非表示
+               if(result.image_url.shop_image1 == '[object Object]'){
+                $('#samuneimg'+i).attr('src' , 'noimage.jpg')  //画像提供元: EC design（デザイン)
+                $('#samunep'+i).text("");
+               }
               }
             },
             'jsonp'
@@ -129,6 +140,7 @@
                 break;
               case 3:
                 alert('タイムアウトしました');        //一応の記述
+                break;
           }
 
         },{enableHighAccuracy: true})

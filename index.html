@@ -123,7 +123,7 @@ var title_tween = new TimelineMax();
 		</div>
 		<div class="section3_box" id="section3_left">
 			<h3>ログインはこちらから</h3>
-			<button type="button" class="btn btn-success sign">ログイン</button>
+			<button type="button" class="btn btn-success sign" onclick="location.href='login.html'">ログイン</button>
 		</div>
 	</div>
 			<div class="end"></div>
@@ -135,11 +135,12 @@ var title_tween = new TimelineMax();
 
 		$('.entry').on('click', function(){
 			if(localStorage.username == null){
-				alert('ログイン画面へ遷移');
+				// alert('ログイン画面へ遷移');
+				window.location.href = 'login.html';
 				return;
 			}
 			else{
-				alert('calen_ver2へ遷移')	;
+				// alert('calen_ver2へ遷移');
 				window.location.href = 'calen_ver2.html';
 			}
 		})

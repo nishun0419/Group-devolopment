@@ -1,13 +1,14 @@
 body{
-	background-image: url(image/198.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover;
-	width: 100%;
-	height:100%;
-	margin: 0;
+  background-image: url(image/198.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height:100%;
+  margin: 0;
 }
+
 
 /* layout */
 body,p,form,input{margin: 0}
@@ -26,16 +27,15 @@ form p{
   text-align: center;
   }
 
-.named,.id,.pass{
+.id,.pass{
   margin-bottom:20px;
   }
 
-input[type="text"],
 input[type="id"],
 input[type="password"] {
-  width:440px;
-  padding:4px;
-  font-size:14px;
+  width: 440px;
+  padding: 4px;
+  font-size: 14px;
   }
     
 .submit{
@@ -93,5 +93,3 @@ input[type="password"] {
 .submit input:hover{
   background: red;
  }
-
-

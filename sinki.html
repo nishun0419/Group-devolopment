@@ -5,20 +5,20 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link href="form2.css" rel="stylesheet" type="text/css">
 
-	<title>新規登録</title>
+
 <script type="text/javascript">
 
 function check1(){
 var n = myform.name.value;
-if(n == "ニノセ"){				//名前の検索
-	alert("違う名前にしてください");
-	return;
+if(n == "ニノセ"){             //名前の検索
+    alert("違う名前にしてください");
+    return;
 }
 
 if(n == ""){
-	res = false;
-	window.alert("名前を入力してください");
-	return;
+    res = false;
+    window.alert("名前を入力してください");
+    return;
 }
 check2();
 return;
@@ -30,13 +30,13 @@ function check2(){
 var n = myform.id.value;
 
 if(n == ""){
-	res = false;
-	window.alert("IDを入力してください");
-	return;
-	}
+    res = false;
+    window.alert("IDを入力してください");
+    return;
+    }
 if(n.match(/[^A-Za-z0-9]+/)){
-	alert('IDは半角英数字で入力');
-	return;
+    alert('IDは半角英数字で入力');
+    return;
 }
 check3();
 return;
@@ -44,35 +44,35 @@ return;
 
 
 function check3(){
-	var n = myform.pass.value;
-	var m = myform.pass2.value;
+    var n = myform.pass.value;
+    var m = myform.pass2.value;
 
 if(n == ""){
-	res = false;
-	window.alert("パスワードを入力してください");
-			return;
-	}
+    res = false;
+    window.alert("パスワードを入力してください");
+            return;
+    }
 
 
 else if(m == ""){
-	res = false;
-	window.alert("確認パスワードを入力してください");
-	return;
+    res = false;
+    window.alert("確認パスワードを入力してください");
+    return;
 }
 
 
 
 else  if(n != m){
-	res = false;
-	window.alert("パスワードが一致しません");
-	return;
-	}
+    res = false;
+    window.alert("パスワードが一致しません");
+    return;
+    }
 alert("認証成功");
 localStorage.username = myform.name.value;
 localStorage.userid = myform.id.value;
 
 
-window.location.href = 'akaunt.html';
+   window.location.href = 'akaunt.html';
 
 return;
 }
@@ -91,51 +91,22 @@ return;
 
 </script>
 
-
 </head>
 <body>
-	<h1>新規登録</h1>
-<div class="touroku">
-		<form name="myform" action="sinki.html">
-<dl>
-	<dt>名前<font color="red">必須</font></dt>
-<dd>
-
-	<input type="text" name="name" class="nameid" maxlength="255">
-
-</dd>
-
-
-	<dt>ID(半角英数字)<font color="red">必須</font></dt>
-
-<dd>
-
-	<input type="text" name="id" class="nameid" maxlength="255">
-
-</dd>
-
-
-	<dt>パスワード<font color="red">必須</font></dt>
-
-<dd>
-	<input type="password" name="pass" class="pass"maxlength="50">
-
-</dd>
-
-	<dt>確認パスワード<font color="red">必須</font></dt>
-
-
-<dd>
-	<input type="password" name="pass2" class="pass"maxlength="50">
-
-</dd>
-</dl>
-
-	<input type="button" value="登録" onclick=check1();>
-
-</form>
+<div id="form">
+    <p class="form-title">新規登録</p>
+    <form name="myform" action="sinki.html">
+        <p>名前</p>
+        <p class="named"><input type="text" name="name" /></p>
+        <p>ID(半角英数字)</p>
+        <p class="id"><input type="id" name="id" /></p>
+        <p>パスワード</p>
+        <p class="pass"><input type="password" name="pass" /></p>
+        <p>確認パスワード</p>
+        <p class="pass"><input type="password" name="pass2"></p>
+        <p class="submit"><input type="submit" value="登録" onclick=
+            check1();></p>
+    </form>
 </div>
-
 </body>
-
 </html>
