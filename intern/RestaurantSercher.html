@@ -31,7 +31,7 @@
        <div class="paging">
         <p>
         <input type='button' value='<<' class='back' onclick='Serach(-1)'>
-        <span class="currentpoint"></span>ページ/<span class="totalpoint"></span>ページ
+        <select name="currentpage" class="currentpage" onChange="Serachcurrent(this);"></select>ページ/<span class="totalpoint"></span>ページ
         <input type='button' value='>>' class='next' onclick='Serach(1)'>
         </p>
       </div>
@@ -41,7 +41,7 @@
       <div class="paging">
         <p>
         <input type='button' value='<<' class='back' onclick='Serach(-1)'>
-        <span class="currentpoint"></span>ページ/<span class="totalpoint"></span>ページ
+        <select name="currentpage" class="currentpage" onChange="Serachcurrent(this);"></select>ページ/<span class="totalpoint"></span>ページ
         <input type='button' value='>>' class='next' onclick='Serach(1)'>
         </p>
       </div>
@@ -50,18 +50,30 @@
     var ran = 1;
     //現在のページを表示する
     var currentpage = 1;
+    //プルダウンで選択した値の格納変数(初期値は0)
+    var current = 0;
 
     function Serachrange(obj){
       var idx = obj.selectedIndex;
       ran= obj.options[idx].value;
       // alert(ran);
     }
+    function Serachcurrent(obj){
+      var idx = obj.selectedIndex;
+      current = obj.options[idx].value;
+      currentpage = parseInt(current);
+      current = 0;
+      Serach(2)
+    }
     function Serach(n){
       if(n == 0){   //検索ボタンクリック時の処理
         currentpage = 1;
       }
-      else{           //next,backクリック時の処理
+      else if(n == 1 || n == -1){           //next,backクリック時の処理
         currentpage = currentpage + n;
+      }
+      else{
+        //プルダウンの処理
       }
       // Geolocation APIの呼び出し
       navigator.geolocation.getCurrentPosition(function(pos) {
@@ -92,6 +104,11 @@
               if(results.total_hit_count % 10 != 0){
                 totalpoint++
               }
+              $('.currentpage').empty();
+                for(var i = 1; i <= totalpoint; i++){
+                  $('.currentpage').append('<option value="'+i+'">' + i + '</option>');
+                }
+                $('.currentpage').val(currentpage);
 
               $('.totalpoint').text(totalpoint);  //総ページ数の表示
               $('.currentpoint').text(currentpage); //現在のページ番号
@@ -129,7 +146,7 @@
               }
             },
             'jsonp'
-          );
+          )
         },function(error){    //位置情報の取得の失敗時の処理
             switch(error.code){
               case 1:
@@ -141,10 +158,9 @@
               case 3:
                 alert('タイムアウトしました');        //一応の記述
                 break;
-          }
-
-        },{enableHighAccuracy: true})
-      }
+        }
+      },{enableHighAccuracy: true})
+    }
         function initMap(n, rlat, rlng) {
         var mapid="maps" + n;
         var map = new google.maps.Map(document.getElementById(mapid), { // #mapidに地図を埋め込む
