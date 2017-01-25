@@ -10,7 +10,7 @@
   </head>
   <body>
   <div class="loadingback">
-    <img src="load.gif">          <!--画像提供元 : http://wordpress.ideacompo.com/?p=4666 -->  
+    <img src="load.gif">          <!--画像提供元 : http://wordpress.ideacompo.com/?p=4666 -->
   </div>
       <div class="page-header">
         <h1>RestaurantSercher</h1>
@@ -98,7 +98,12 @@
             },
             function(response) {
               // ぐるなびAPIの読み込み
-              var results = response
+              var results = response;
+              if(results.total_hit_count < 0){
+                alert('検索結果が見つかりませんでした');
+                $('.loadingback').css('display' , 'none');
+                return;
+              }
               $('#result').empty();
               $('#total').text("検索件数" + results.total_hit_count + "件");
               var totalpoint = Math.floor(results.total_hit_count / 10);
@@ -140,7 +145,8 @@
                 );
                initMap(i , result.latitude , result.longitude);
                // alert(result.latitude +"//"+ result.longitude);
-               $('.loadingback').css('display' , 'none');       //loading画像非表示
+               //loading画像非表示
+                $('.loadingback').css('display' , 'none');
                if(result.image_url.shop_image1 == '[object Object]'){
                 $('#samuneimg'+i).attr('src' , 'noimage.jpg')  //画像提供元: EC design（デザイン)
                 $('#samunep'+i).text("");
