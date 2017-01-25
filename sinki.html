@@ -22,11 +22,15 @@ if(n == ""){
     window.alert("名前を入力してください");
     return;
 }
+if(n.length > 15){
+  alert('名前は15文字以内で入力してください');
+  return;
+}
 check2();
 return;
 }
 
-    
+
 function check2(){
 
 var n = $('#inputid').val();
@@ -40,6 +44,12 @@ if(n.match(/[^A-Za-z0-9]+/)){
     alert('IDは半角英数字で入力');
     return;
 }
+
+if(n.length > 15){
+  alert('IDは15文字以内で入力してください');
+  return;
+}
+
 check3();
 return;
 }
@@ -100,4 +110,3 @@ return;
 </div>
 </body>
 </html>
-

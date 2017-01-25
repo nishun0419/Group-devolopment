@@ -17,6 +17,8 @@
         var Holidays2 = new Array(1,2, 7,3, 9,3, 10,2);
         // グループ入力フラグ
         var Gflag = 0;
+        //グループ予定の変更が可能かのフラグ
+        var Editflag = 0;
         //グループモード判定用フラグ
         var Gmode = 0;
         // 現在の年、月、日の取得
@@ -156,6 +158,10 @@
             $('.todolist').css('display' , 'none');
             $('#tw2').css('display' , 'block');
             document.getElementById("tw2").innerHTML = openset;
+        //     if(Gmode == 1 && Editflag != 1){            //グループ予定が変更できない人の処理
+        //       $('#tw2').css('display' , 'none');
+        //       $('.delete').css('visibility' , 'hidden');
+        //     }
         }
         else{
               //表示していた予定の削除
