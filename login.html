@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,
+    minimum-scale=1,maximum-scale=1,user-scalable=no">
     <meta charset="utf-8">
     <title>ログイン画面</title>
     <link rel="stylesheet" type="text/css" href="login.css" media="all" />
@@ -14,31 +16,34 @@
                 alert('IDを入力してください');
                 return;
             }
+
             if(p == ""){
                 alert('パスワードを入力してください');
                 return;
             }
 
-            if(i == "i" && p == "p"){
-                alert(i + p);
-                window.location.href = 'calen_ver2.html';
-            }
-            else{
-                alert('IDかパスワード、又は両方が違います');
+            if(i=="i" && p== "p"){  //データベースから検索して正しかったら
+                // alert('認証成功');
+                window.location.href='calen_ver2.html';
+                return;
             }
 
-j
+                else{
+                    alert('ID又はパスワードが違います');
+                }
     }
+
+
     </script>
 </head>
 <body>
 <div id="form">
     <p class="form-title">Login</p>
-    <form name="myform" action="login.html">
+    <form name="myform" action="post">
         <p>ID</p>
-        <p class="id"><input type="id" name="id"></p>
+        <p class="id"><input type="id" name="id" /></p>
         <p>Password</p>
-        <p class="pass"><input type="password" name="pass"></p>
+        <p class="pass"><input type="password" name="pass" /></p>
         <p class="submit"><input type="button" value="Login" onclick="
             check()"></p>
     </form>

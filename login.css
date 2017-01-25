@@ -1,20 +1,19 @@
 body{
-  background-image: url(image/198.png);
+  background-image: url(image/S__26804269.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  width: 100%;
+  width:60%;
   height:100%;
-  margin: 0;
+  margin:0;
 }
 
 
-/* layout */
 body,p,form,input{margin: 0}
 #form{
-  width: 450px;
-  margin: 60px auto;
+  width: 260px;
+  margin: 120px auto;
   padding: 25px;
   border: 1px solid #555;
   }
@@ -28,12 +27,12 @@ form p{
   }
 
 .id,.pass{
-  margin-bottom:20px;
+  margin-bottom:25px;
   }
 
 input[type="id"],
 input[type="password"] {
-  width: 440px;
+  width: 250px;
   padding: 4px;
   font-size: 14px;
   }
@@ -42,7 +41,7 @@ input[type="password"] {
   text-align: center;
   }
 
-/* font */
+
 #form p{
   color: #4eb4c2;
   font kp-weight: bold;
@@ -53,7 +52,7 @@ input[type="password"] {
   color: #4eb4c2;
   }
 
-/* skin */
+
 #form{
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -93,3 +92,19 @@ input[type="password"] {
 .submit input:hover{
   background: red;
  }
+
+
+ @media screen and (max-width:606px){
+  form p{
+  	font-size: 18px;
+  }
+  
+  body{
+  	background-image: url(image/S__26787970.jpg);
+  	width: 100%;
+  }
+
+  body,p,form,input{margin: 0}
+  #form{
+  	margin: 40px auto;
+}	

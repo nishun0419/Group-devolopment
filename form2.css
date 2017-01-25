@@ -1,5 +1,5 @@
 body{
-	background-image: url(image/198.png);
+	background-image: url(image/S__26804265.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -12,7 +12,7 @@ body{
 /* layout */
 body,p,form,input{margin: 0}
 #form{
-  width: 450px;
+  width: 260px;
   margin: 60px auto;
   padding: 25px;
   border: 1px solid #555;
@@ -33,7 +33,7 @@ form p{
 input[type="text"],
 input[type="id"],
 input[type="password"] {
-  width:440px;
+  width:250px;
   padding:4px;
   font-size:14px;
   }
@@ -95,3 +95,6 @@ input[type="password"] {
  }
 
 
+@media screen and (max-width:606px){
+	form p{font-size: 18px;}
+}

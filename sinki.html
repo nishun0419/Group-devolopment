@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link href="form2.css" rel="stylesheet" type="text/css">
-
+    <meta name="viewport" content="width=device-width,initial-scale=1,
+    minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="utf-8">
+    <title>新規登録</title>
+    <link rel="stylesheet" type="text/css" href="form2.css" media="all" />
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
 
 function check1(){
-var n = myform.name.value;
+var n = $('#inputname').val();
 if(n == "ニノセ"){             //名前の検索
     alert("違う名前にしてください");
     return;
@@ -24,10 +26,10 @@ check2();
 return;
 }
 
-
+    
 function check2(){
 
-var n = myform.id.value;
+var n = $('#inputid').val();
 
 if(n == ""){
     res = false;
@@ -44,8 +46,8 @@ return;
 
 
 function check3(){
-    var n = myform.pass.value;
-    var m = myform.pass2.value;
+    var n = $('#inputpass').val();
+    var m = $('#inputpass2').val();
 
 if(n == ""){
     res = false;
@@ -67,26 +69,15 @@ else  if(n != m){
     window.alert("パスワードが一致しません");
     return;
     }
-alert("認証成功");
+// alert("認証成功");
 localStorage.username = myform.name.value;
 localStorage.userid = myform.id.value;
 
 
-   window.location.href = 'akaunt.html';
+window.location.href = 'akaunt.html';
 
 return;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 </script>
@@ -97,16 +88,16 @@ return;
     <p class="form-title">新規登録</p>
     <form name="myform" action="sinki.html">
         <p>名前</p>
-        <p class="named"><input type="text" name="name" /></p>
+        <p class="named"><input type="text" id="inputname" placeholder="15文字以内で入力してください" name="name"></p>
         <p>ID(半角英数字)</p>
-        <p class="id"><input type="id" name="id" /></p>
+        <p class="id"><input type="id" id="inputid" placeholder="15文字以内で入力してください" name="id" /></p>
         <p>パスワード</p>
-        <p class="pass"><input type="password" name="pass" /></p>
+        <p class="pass"><input type="password" id="inputpass" name="pass" /></p>
         <p>確認パスワード</p>
-        <p class="pass"><input type="password" name="pass2"></p>
-        <p class="submit"><input type="button" value="登録" onclick=
-            check1();></p>
+        <p class="pass"><input type="password" id="inputpass2" name="pass2"></p>
+        <p class="submit"><input type="button" value="登録" onclick="check1();"></p>
     </form>
 </div>
 </body>
 </html>
+

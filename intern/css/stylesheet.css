@@ -16,6 +16,7 @@ body{
   top: 0;
   left: 0;
   z-index: 5;
+  opacity: 0.8;
 }
 .loadingback img {
   position: absolute;
@@ -34,6 +35,9 @@ body{
 	font-family: "Josefin Slab", serif;
 }
 
+.rangebox{
+	text-align: center;
+}
 .resultbox{
 	border:1px solid black;
 	width: 800px;
