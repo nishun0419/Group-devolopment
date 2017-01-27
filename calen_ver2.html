@@ -482,7 +482,7 @@
         $('.logboutton').text("mycalendarに戻る")
         }
         else{
-          $('.logboutton').css('display' , 'none');
+          $('.logboutton').css('visibility' , 'hidden');
         }
         $('#GroupEdit').css('visibility' , 'hidden');
 
@@ -499,7 +499,7 @@
          $('#menu_ber h1').text(username+"様のカレンダー");
          $('.release').css('visibility', 'hidden');
          $('#GroupEdit').css('visibility' , 'visible');
-         $('.logboutton').css('display' , 'block');
+         $('.logboutton').css('visibility' , 'visible');
          Gmode = 0;
          showCalen(0)
     });
