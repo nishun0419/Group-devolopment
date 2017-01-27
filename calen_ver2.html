@@ -289,13 +289,18 @@
          $('.todotime').text(starttime + "~" );
          $('.text2').text(todomsg);
          if($('#smartmenu').css('display') == 'block'){
+         $('.todolist').css('display' , 'none');
+         if(Gflag == 1){
+          $('.todolist2').css('display' , 'none');
+          $('#createin').css('display' , 'none');
+          $('#Group_create_button').css('display' , 'none');
+         }
          $('.smartout').animate({'height': '100vh'});
          $('.smartadd').css('visibility' , 'hidden');
          $('.smartdel').css('visibility', 'visible');
          $('.release').css('visibility' , 'hidden');
          $('.main').css('display' , 'none');
          $('.Groupsection').css('display' , 'none');
-         $('.todolist').css('display' , 'none');
        }
 }
 
@@ -314,8 +319,15 @@
             $('.release').css('visibility' , 'visible');
         }
          $('.main').css('display' , 'block');
+         if(Gflag==0){
          $('.Groupsection').css('display' , 'block');
          $('.todolist').css('display' , 'block');
+          }
+          else{
+          $('.todolist2').css('display' , 'block');
+          $('#createin').css('display' , 'block');
+          $('#Group_create_button').css('display' , 'block');
+          }
        }
     }
 
@@ -416,17 +428,20 @@
 });
     $('.create_Group').on('click',function(){       //グループカレンダー入力
         $('#createin').css('display' , 'block');
-        $('.logboutton').css('display','none');
-        $('#menu_ber h1').css('display','none');
+        $('.logboutton').css('visibility','hidden');
+        $('#menu_ber h1').css('display' , 'none');
         $('#Group_title').css('display','block');
         $('.Groupsection').css('display','none');
+        if($('#smartmenu').css('display') == ('block')){
+          $('.smartadd').css('visibility' , 'hidden');
+        }
         Gflag = 1;
     });
 
     $('.cancel_Group').on('click',function(){　 // グループカレンダー入力解除(cancel)
         $('#Group_calen').css('display' , 'none');
         $('#createin').css('display', 'none');
-        $('.logboutton').css('display', 'block');
+        $('.logboutton').css('visibility', 'visible');
         $('#Group_title').css('display','none');
         $('#menu_ber h1').css('display', 'block').text(username + "様のカレンダー")
         $('.Groupsection').css('display','block');
@@ -434,6 +449,12 @@
         $('.todolist2').css('display' , 'none');
         $('#Group_title').val('');
         $('#tw3').css('display' , 'none');
+         if($('#todotable .delete').length != 0){ //プライベートで予定があった場合の処理
+                $('.todolist').css('display' , 'block');
+          }
+         if($('#smartmenu').css('display') == ('block')){ //タイトル入力せずにキャンセルボタンを押した場合の備え
+          $('.smartadd').css('visibility' , 'visible');
+        }
         Gflag = 0;
 
     });
@@ -451,6 +472,9 @@
            $('#Group_title').css('display' , 'none');
            $('#menu_ber h1').css('display' , 'block').text($('#Group_title').val());
            $('#Group_calen').css('display' , 'block')
+        if($('#smartmenu').css('display') == ('block')){ 
+          $('.smartadd').css('visibility' , 'visible');
+        }
            return;
         }
         // alert($('#Group_title').val().length);
@@ -462,9 +486,12 @@
         $('#tw3').css('display' , 'none');
         $('#Group_calen').css('display' , 'none');
         $('#createin').css('display', 'none');
-        $('.logboutton').css('display' , 'block');
+        $('.logboutton').css('visibility' , 'visible');
         $('#menu_ber h1').text(username + "様のカレンダー");
         $('.Groupsection').css('display' , 'block');
+        if($('#todotable .delete').length != 0){
+                $('.todolist').css('display' , 'block');
+          }
         Gflag = 0;
         $('.Grouptext').append($('<div></div>').append($('<div class="Grouplist"></div>').text(gtitle))
         .append('<button class="btn btn-danger btn-xs delete_Group">削除</button>'));
@@ -568,9 +595,7 @@
         <div id="menu_ber">
             <h1>ゲスト様のカレンダー</h1>
             <input type="text" id="Group_title" placeholder="グループ名の入力(15文字以内)">
-            <div id="logout">
                  <button class="btn btn-default logboutton">Logout</button>
-            </div>
         </div>
             <div id ="smartmenu">
                 <button class="release">MyCalendarに戻る</button>

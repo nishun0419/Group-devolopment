@@ -38,17 +38,14 @@ div.main{
 	margin-bottom: 5px;
 	display: none;
 }
-.titlecomp{
-	display: none;
-}
-
-
-#logout{
+.logboutton{
 	display: inline-block;
-	position: absolute; right: 5%; top: 20px;
-	width: 100px;
-	height: 30px;
+	position: absolute;
+	right: 20px;
+	top: 20px;
 }
+
+
 #smartmenu{
 	display: none;
 	border-bottom:1px solid #000;
@@ -74,6 +71,7 @@ div.main{
 	text-align: center;
 	background-color: #fff;
 	overflow: hidden;
+
 }
 .smartout label{
 	text-align: center;
@@ -503,14 +501,12 @@ width:100%;
 	font-size: 18px;
 }
 
-#logout{
-	display: inline-block;
-	position: static;
-	margin-left: 30px;
-	width: 20px;
-	height: 20px;
-}
+
 .logboutton{
+	right: 10px;
+	position: absolute;
+	top:0px;
+
 	
 }
 #smartmenu{
