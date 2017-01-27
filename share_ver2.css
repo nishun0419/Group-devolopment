@@ -505,10 +505,13 @@ width:100%;
 
 #logout{
 	display: inline-block;
-	position: absolute; right: 1%; top: 5px;
-	border: 1px solid #999;
-	width: 60px;
+	position: static;
+	margin-left: 30px;
+	width: 20px;
 	height: 20px;
+}
+.logboutton{
+	
 }
 #smartmenu{
 	width: 100%;
@@ -518,7 +521,7 @@ width:100%;
 }
 #smartmenu{
 	/*font-size: 25px;*/
-	margin-top: -10px;
+	/*margin-top: -10px;*/
 }
 /*#smartmenu p{
 	font-size: 20px;
@@ -941,7 +944,7 @@ div.todolist2 th{
 	border-style: none;
 }
 p#Group_create_button{
-	margin-left: 75%;
-	margin-top: -5%;
+	margin:auto;
+	text-align: center;
 }
 }
