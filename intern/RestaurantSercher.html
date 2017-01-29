@@ -99,7 +99,7 @@
             function(response) {
               // ぐるなびAPIの読み込み
               var results = response;
-              if(results.total_hit_count < 0){
+              if(results.total_hit_count == null){
                 alert('検索結果が見つかりませんでした');
                 $('.loadingback').css('display' , 'none');
                 return;
@@ -147,7 +147,7 @@
                // alert(result.latitude +"//"+ result.longitude);
                //loading画像非表示
                 $('.loadingback').css('display' , 'none');
-               if(result.image_url.shop_image1 == '[object Object]'){
+               if(result.image_url.shop_image1 == '[object Object]'){   //画像がなかった時の処理
                 $('#samuneimg'+i).attr('src' , 'noimage.jpg')  //画像提供元: EC design（デザイン)
                 $('#samunep'+i).text("");
                }
