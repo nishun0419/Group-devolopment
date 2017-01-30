@@ -35,8 +35,30 @@ body{
 	font-family: "Josefin Slab", serif;
 }
 
-.rangebox{
+.Serachbox{
 	text-align: center;
+	margin: 0 auto;
+	border:3px solid blue;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	width: 800px;
+}
+label{
+	margin-left: 10px;
+}
+#Freeword{
+	width: 200px;
+}
+.Serach{
+	margin-left: 10px;
+}
+.Dispnull{
+	display: none;
+	text-align: center;
+	font-size: 25px;
+}
+#total{
+	margin-left: 120px;
 }
 .resultbox{
 	border:1px solid black;
