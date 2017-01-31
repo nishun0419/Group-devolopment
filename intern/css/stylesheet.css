@@ -100,9 +100,11 @@ width :auto;Ã‚Â@
 }*/
 .Serachbox{
 	width: 100%;
+	padding-top: 0px;
 }
 .Serachbox span{
 	display: block;
+	margin-top: 10px;
 }
 .resultbox{
 	width: 100%;
