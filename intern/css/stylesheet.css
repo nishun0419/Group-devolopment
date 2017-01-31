@@ -90,3 +90,37 @@ label{
 	display: inline-block;
 	margin-left: 300px;
 }
+
+/**********スマホタブレット用レイアウト*************/
+@media screen and (max-width:800px){
+/*img{
+max-width: 100%;
+height: auto;
+width :auto;Ã‚Â@
+}*/
+.Serachbox{
+	width: 100%;
+}
+.Serachbox span{
+	display: block;
+}
+.resultbox{
+	width: 100%;
+}
+.samune{
+	position: relative;
+	margin-top: 10px;
+	margin: 0 auto;
+}
+.samune img{
+}
+.cmap{
+	position: relative;
+	display: block;
+	/*text-align: center;*/
+	margin:0 auto;
+	margin-top: 20px;
+	width: 100%;
+}
+}
+
